@@ -12,6 +12,15 @@ const dbUrl = process.env.DB_URL;
 const MongoDBStore = require("connect-mongo");
 const patientRoutes = require("./routes/patients")
 const doctorRoutes = require("./routes/doctors")
+const bodyParser = require("body-parser");
+
+const {Configuration , OpenAIApi} = require("openai");
+
+const config = new Configuration({
+  apiKey : process.env.OPENAI_API_KEY,
+});
+
+const openai = new OpenAIApi(config);
 
 mongoose
   .connect(dbUrl)
@@ -36,6 +45,7 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+app.use(bodyParser.json());
 
 const secret = process.env.SECRET || "thisshouldbeabettersecret!";
 
@@ -62,6 +72,19 @@ app.use(
 
 app.use("/patients", patientRoutes);
 app.use("/doctors", doctorRoutes);
+
+app.post("/patient" , async(req , res) => {
+  const {prompt} = req.body;
+
+  const completion = await openai.createCompletion({
+    model : "text-davinci-003",
+    max_tokens : 512,
+    temperature : 0,
+    prompt : prompt,
+  });
+
+  res.send(completion.data.choices[0].text);
+})
 
 app.all("*", (req, res, next) => {
   res.status(404).send("Page Not Found");
