@@ -1,4 +1,5 @@
 import Home from "./pages/Home";
+import "./App.css";
 
 import {
   createBrowserRouter,
@@ -10,14 +11,20 @@ import {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route index element={<><Home /></>} />
+      <Route
+        index
+        element={
+          <>
+            <Home />
+          </>
+        }
+      />
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>
   )
 );
 
 function App() {
-
   return <RouterProvider router={router} />;
 }
 
