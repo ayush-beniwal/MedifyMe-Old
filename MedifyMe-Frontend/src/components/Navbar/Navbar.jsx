@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 // import { ReactComponent as Hamburger } from './hamburger.svg'
-// import { ReactComponent as Brand } from './logo.svg'
+import Brand from "../../assets/brand.svg";
+import Hamburger from "../../assets/Hamburger.svg";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
@@ -14,9 +15,12 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.container}>
-        <div className={styles.logo}>{/* <Brand /> */}</div>
+        <img alt="bike" src={Brand} />
+        <p>
+          Medify<p>me</p>
+        </p>
         <div className={styles.menu_icon} onClick={handleShowNavbar}>
-          {/* <Hamburger /> */}
+          <img alt="bike" src={Hamburger} />
         </div>
         <div className={styles.nav_elements}>
           <ul>

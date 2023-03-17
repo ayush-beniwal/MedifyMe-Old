@@ -43,7 +43,9 @@ function Home() {
         </div>
       </div>
       <div className={styles.lp1}>Welcome to Medifyme</div>
-      <div className={styles.lp2}>One-stop platform for medical records</div>
+      <div className={styles.lp2}>
+        An AI Powered Platform for Managing Health Records
+      </div>
       <div className={styles.lp3}>
         Discover a better way to manage your health records. MedifyMe helps
         <br></br> you manage your healthcare needs easily and efficiently.

@@ -10,6 +10,8 @@ const ejsMate = require("ejs-mate");
 const methodOverride = require("method-override");
 const dbUrl = process.env.DB_URL;
 const MongoDBStore = require("connect-mongo");
+const patientRoutes = require("./routes/patients")
+const doctorRoutes = require("./routes/doctors")
 
 mongoose
   .connect(dbUrl)
@@ -57,6 +59,9 @@ app.use(
     },
   })
 );
+
+app.use("/patients", patientRoutes);
+app.use("/doctors", doctorRoutes);
 
 app.all("*", (req, res, next) => {
   res.status(404).send("Page Not Found");
