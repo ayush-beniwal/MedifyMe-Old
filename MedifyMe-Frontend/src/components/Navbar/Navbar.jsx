@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 // import { ReactComponent as Hamburger } from './hamburger.svg'
-import Brand from "../../assets/brand.svg";
+import Brand from "../../assets/Brand.svg";
 import Hamburger from "../../assets/Hamburger.svg";
 import styles from "./Navbar.module.css";
 
