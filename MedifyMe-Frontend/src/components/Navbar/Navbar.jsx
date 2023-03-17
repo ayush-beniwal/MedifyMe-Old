@@ -15,9 +15,9 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.container}>
-        <img alt="bike" src={Brand} />
-        <p>
-          Medify<p>me</p>
+        <img alt="brand" src={Brand} />
+        <p className={styles.brand}>
+          MEDIFY<p className={styles.brandIn}>ME</p>
         </p>
         <div className={styles.menu_icon} onClick={handleShowNavbar}>
           <img alt="bike" src={Hamburger} />
