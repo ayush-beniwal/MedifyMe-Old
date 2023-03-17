@@ -11,16 +11,17 @@ const Footer = () => {
     setShowFooter(!showFooter);
   };
 
-  return (<>
-  <div className={styles.footer}>
-       <div className={styles.footerelement}>
-        
+  return (
+    <div className={styles.footer}>
+      <div></div>
       <div className={styles.footer_1}>
-     <p className={styles.text_1}>MEDIFY<span className={styles.text_2}>me</span></p>
-     <p className={styles.text_3}>Paving the Way for Medical Excellence</p>
+        <p className={styles.text_1}>
+          MEDIFY<span className={styles.text_2}>ME</span>
+        </p>
+        <p className={styles.text_3}>Paving the Way for Medical Excellence</p>
       </div>
       <div className={styles.footer_2}>
-         <p className={styles.text_4}>Important Links</p>
+        <p className={styles.text_4}>Important Links</p>
         <ul className={styles.text_5}>
           <li>Appointment</li>
           <li>Health History</li>
@@ -29,20 +30,22 @@ const Footer = () => {
         </ul>
       </div>
       <div className={styles.footer_3}>
-      <p className={styles.text_6}>contact us</p>
-       <a className={styles.contact_1} href="">Call: (+91) 7870658888</a>
-       <p className={styles.address}> <span>Address:</span> Near Hyderbad gate Varanasi</p>
+        <p className={styles.text_6}>Contact Us</p>
+        <a className={styles.contact_1} href="/">
+          Call: (+91) 7870658888
+        </a>
+        <p className={styles.address}>
+          <span>Address:</span> Near Hyderbad gate Varanasi
+        </p>
       </div>
-
       <div className={styles.footer_4}>
-      <p className={styles.text_7}>contact For Sales</p>
-      <form action=""><input className={styles.input} type="text"/></form>
+        <p className={styles.text_7}>Contact For Sales</p>
+        <form action="">
+          <input className={styles.input} type="text" />
+        </form>
       </div>
-
-
-       </div>
-  </div>
-    </>
+      <div></div>
+    </div>
   );
 };
 
