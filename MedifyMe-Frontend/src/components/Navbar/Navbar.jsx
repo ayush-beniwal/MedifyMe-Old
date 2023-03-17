@@ -37,7 +37,9 @@ const Navbar = () => {
               <Link to="/projects">Tests & Reports</Link>
             </li>
             <li>
-              <Link to="/about">Appointment</Link>
+              <div className={styles.appointment}>
+              <Link  style={{ color: "black" }} to="/about">Appointment</Link>
+              </div>
             </li>
             <li>
               <div className={styles.signIn}>
