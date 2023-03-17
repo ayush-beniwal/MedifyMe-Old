@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar/Navbar";
 import styles from "./home.module.css";
-
+import Footer from "../components/Footer/Footer";
 function Home() {
   return (
     <>
@@ -38,6 +38,7 @@ function Home() {
           </a>
         </div> */}
       </div>
+      <Footer/>
     </>
   );
 }
