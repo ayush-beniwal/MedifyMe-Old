@@ -1,47 +1,45 @@
-import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
-// import { ReactComponent as Hamburger } from '../../assets/icons/hamburger.svg'
-// import { ReactComponent as Brand } from '../../assets/icons/logo.svg'
-import './Navbar.css'
+import { useState } from "react";
+import { Link } from "react-router-dom";
+// import { ReactComponent as Hamburger } from './hamburger.svg'
+// import { ReactComponent as Brand } from './logo.svg'
+import styles from "./Navbar.module.css";
 
 const Navbar = () => {
-  const [showNavbar, setShowNavbar] = useState(false)
+  const [showNavbar, setShowNavbar] = useState(false);
 
   const handleShowNavbar = () => {
-    setShowNavbar(!showNavbar)
-  }
+    setShowNavbar(!showNavbar);
+  };
 
   return (
-    <nav className="navbar">
-      <div className="container">
-        <div className="logo">
-          {/* <Brand /> */}
-        </div>
-        <div className="menu-icon" onClick={handleShowNavbar}>
+    <nav className={styles.navbar}>
+      <div className={styles.container}>
+        <div className={styles.logo}>{/* <Brand /> */}</div>
+        <div className={styles.menu_icon} onClick={handleShowNavbar}>
           {/* <Hamburger /> */}
         </div>
-        <div className={`nav-elements  ${showNavbar && 'active'}`}>
+        <div className={styles.nav_elements}>
           <ul>
             <li>
-              <NavLink to="/">Home</NavLink>
+              <Link to="/">Health History</Link>
             </li>
             <li>
-              <NavLink to="/blog">Blog</NavLink>
+              <Link to="/blog">Prescriptions</Link>
             </li>
             <li>
-              <NavLink to="/projects">Projects</NavLink>
+              <Link to="/projects">Tests & Reports</Link>
             </li>
             <li>
-              <NavLink to="/about">About</NavLink>
+              <Link to="/about">Appointment</Link>
             </li>
             <li>
-              <NavLink to="/contact">Contact</NavLink>
+              <Link to="/contact">Sign In</Link>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
