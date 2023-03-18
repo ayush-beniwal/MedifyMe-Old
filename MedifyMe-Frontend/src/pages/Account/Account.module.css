@@ -9,6 +9,7 @@
     background: white;
   }
   .right_wrapper{
+    height: 520px;
     margin-top:50px;
     padding-bottom: 69px;
     width:auto;
@@ -83,5 +84,20 @@ line-height: 28px;
 /* identical to box height */
 color: #000000;
 
+}
+
+
+.submit_button{
+margin-left: 250px;
+margin-top: 10px;
+width:120px;
+background: #CDAA64;
+border-radius: 30px;
+font-family: 'Comfortaa';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 28px;
+color: #000000;
 }
 
