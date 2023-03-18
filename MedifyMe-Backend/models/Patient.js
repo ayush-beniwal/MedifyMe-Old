@@ -20,29 +20,29 @@ const PatientSchema = new Schema({
   },
   photo: {
     type: String,
-    required: true,
+    default: null,
   },
   gender: {
     type: String,
-    required: true,
+    default: null,
   },
-  height: { type: Number, required: true },
-  weight: { type: Number, required: true },
+  height: { type: Number, default: null },
+  weight: { type: Number, default: null },
   allergies: {
     type: String,
-    required: true,
+    default: null,
   },
   otherCond: {
     type: String,
-    required: true,
+    default: null,
   },
   medications: {
     type: String,
-    required: true,
+    default: null,
   },
   overview: {
     type: String,
-    required: true,
+    default: null,
   },
   visits: [
     {
@@ -50,16 +50,17 @@ const PatientSchema = new Schema({
       ref: "Visits",
     },
   ],
-  record: [
+  prescription: [
     {
-      test: [
-        {
-          type: String,
-          required: true,
-        },
-      ],
+      type: String,
+      default: null,
     },
-    { prescription: [{ type: String, required: true }] },
+  ],
+  test: [
+    {
+      type: String,
+      default: null,
+    },
   ],
 });
 
