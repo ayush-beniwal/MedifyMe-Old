@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar/Navbar";
-import styles from "./Manage_docters.module.css";
+import styles from "./Payments.module.css";
 import AccountCard from "../components/AccountCard/AccountCard";
 
 function Home() {
@@ -8,7 +8,9 @@ function Home() {
       <Navbar />
       <div className={styles.grid_container}>
         <AccountCard />
+
         <div className={styles.right_wrapper}>
+        <div className={styles.logout}><a className={styles.logout_link}href="">Logout</a></div>
           <img
             className={styles.img_payment}
             src="image 4.png"
@@ -16,6 +18,7 @@ function Home() {
             width="500"
             height="600"
           />
+          <div className={styles.payments_content}>No Payments to show!</div>
         </div>
       </div>
     </>

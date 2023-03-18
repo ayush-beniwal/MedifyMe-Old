@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+.grid_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* defines two equal columns */
+    grid-gap: 10px; /* adds a 10px gap between the columns */
+    background: white;
+  }
+  .right_wrapper{
+    margin-top:50px;
+    padding-bottom: 69px;
+    width:auto;
+    background:linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
+    border-top-left-radius: 20px;
+    padding-top:30px;
+  }
+
+.logout{
+margin-left:650px;
+width:68px;
+background: #CDAA64;
+border-radius: 30px;
+}
+.logout_link{
+text-decoration: none;
+padding-left: 10px;
+font-family: 'Comfortaa';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 28px;
+/* identical to box height */
+color: #000000;
+
+}
+.doctor_history{
+margin-left: 30px;
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 84.89px;
+}
+.doctor_history_content{
+    font-family: 'Comfortaa';
+font-style: normal;
+font-weight: 600;
+font-size: 25px;
+line-height: 34px;
+
+color: #FFFFFF;
+}
+
+
+.doctor_name1{
+margin-left: 30px;
+font-family: 'Work Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 140%;
+
+color:#FFFFFF;
+
+}
+.doctor_contact1{
+    margin-left: 30px;
+font-family: 'Work Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 140%;
+/* or 40px */
+color:#FFFFFF;
+}
+
+
+
+.doctor_name2{
+    margin-left: 30px;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 140%;
+    
+    color:#FFFFFF;
+    
+    }
+    .doctor_contact2{
+        margin-left: 30px;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 140%;
+    /* or 40px */
+    color:#FFFFFF;
+    }

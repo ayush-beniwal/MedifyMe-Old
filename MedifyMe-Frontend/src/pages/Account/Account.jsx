@@ -9,9 +9,10 @@ function Home() {
       <div className={styles.grid_container}>
         <AccountCard />
         <div className={styles.right_wrapper}>
+        <div className={styles.logout}><a className={styles.logout_link}href="">Logout</a></div>
           <form>
             <div className="row">
-              <label className={styles.colorprofilepic} htmlFor="profile-pic">
+              <label className={styles.color} htmlFor="profile-pic">
                 Profile Picture:
               </label>
               <input
@@ -23,7 +24,7 @@ function Home() {
             </div>
 
             <div className="row">
-              <label className={styles.colorname} htmlFor="name">
+              <label className={styles.color} htmlFor="name">
                 Name:
               </label>
               <input
@@ -37,7 +38,7 @@ function Home() {
             </div>
 
             <div className="row-sex-age">
-              <label className={styles.colorgender} htmlFor="sex">
+              <label className={styles.color} htmlFor="sex">
                 Sex:
               </label>
               <select
@@ -52,7 +53,7 @@ function Home() {
                 <option value="other">Other</option>
               </select>
 
-              <label className={styles.colorage} htmlFor="age">
+              <label className={styles.color} htmlFor="age">
                 Age:
               </label>
               <input
@@ -66,7 +67,7 @@ function Home() {
             </div>
 
             <div className="row">
-              <label className={styles.coloremail} htmlFor="email">
+              <label className={styles.color} htmlFor="email">
                 Email Address:
               </label>
               <input
@@ -80,7 +81,7 @@ function Home() {
             </div>
 
             <div className="row">
-              <label className={styles.colormobile} htmlFor="mobile">
+              <label className={styles.color} htmlFor="mobile">
                 Mobile Number:
               </label>
               <input
@@ -92,6 +93,7 @@ function Home() {
                 required
               />
             </div>
+          
           </form>
         </div>
       </div>
