@@ -66,5 +66,22 @@
     margin-bottom: 10px;
 }
 
+.logout{
+margin-left:650px;
+width:68px;
+background: #CDAA64;
+border-radius: 30px;
+}
+.logout_link{
+text-decoration: none;
+padding-left: 10px;
+font-family: 'Comfortaa';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 28px;
+/* identical to box height */
+color: #000000;
 
+}
 

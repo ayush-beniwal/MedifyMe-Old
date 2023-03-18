@@ -9,6 +9,7 @@ function Home() {
       <div className={styles.grid_container}>
         <AccountCard />
         <div className={styles.right_wrapper}>
+        <div className={styles.logout}><a className={styles.logout_link}href="">Logout</a></div>
           <form>
             <div className="row">
               <label className={styles.color} htmlFor="profile-pic">
@@ -92,6 +93,7 @@ function Home() {
                 required
               />
             </div>
+          
           </form>
         </div>
       </div>

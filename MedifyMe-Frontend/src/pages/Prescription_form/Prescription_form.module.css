@@ -2,9 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
-body {
-    font-family: Arial, sans-serif;
-}
+
 .health_history_form{
     max-width: 900px;
     margin: 0 auto;
@@ -27,18 +25,20 @@ line-height: 74px;
 .docter_name{
     margin-left: 10px;
     margin-bottom:5px;
-    color:black
+    color:black;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 .text_health{
     margin-left:10px;
     color:black;
     margin-top: 40px;
-}
-label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
 }
+
 .health_input, textarea {
     margin-left: 2px;
     padding: 5px;
@@ -72,6 +72,6 @@ label {
     width: 271px;
     height: 50px;
 }
-button:hover {
+  .submit_button:hover {
     background-color: #3e8e41;
 }

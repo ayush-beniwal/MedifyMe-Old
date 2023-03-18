@@ -1,12 +1,14 @@
 import Home from "./pages/Home/Home";
 import Account from "./pages/Account/Account";
-import Manage_docters from "./pages/Manage_docters";
+import Payments from "./pages/Payments";
 import Login from "./pages/Login/Login";
 import Health_history_form from "./pages/Health_history_form/Health_history_form";
 import Register from "./pages/Register/Register";
 import Prescription_from  from "./pages/Prescription_form/Prescription_form";
 import Health_history from "./pages/HealthHistory/healtH";
-// import Chatbot from "./components/Chatbot/Chatbot";
+import Manage_docters from "./pages/Manage_docters/Manage_docters";
+
+
 import "./App.css";
 
 import {
@@ -23,10 +25,11 @@ const router = createBrowserRouter(
       <Route path="account" element={<Account />} />
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
-      <Route path="manage_docters" element={<Manage_docters />} />
+      <Route path="payments" element={<Payments />} />
       <Route path="healthHistoryForm" element={<Health_history_form />} />
       <Route path="health_history" element={<Health_history />} />
       <Route path="prescription_form" element={<Prescription_from />} />
+      <Route path="manage_docters" element={<Manage_docters />} />
       {/* <Route path="chatbot" element={<Chatbot />} /> */}
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>
