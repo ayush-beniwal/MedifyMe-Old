@@ -24,6 +24,18 @@
     justify-self: center;
     height:auto
   }
+
+  .payments_content{
+margin-top: 50px;
+margin-left: 250px;
+font-family: 'Comfortaa';
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+line-height: 41px;
+
+color: #FFFFFF;
+  }
   .logout{
     margin-left:650px;
     width:68px;

@@ -18,7 +18,7 @@ function Home() {
             width="500"
             height="600"
           />
-          
+          <div className={styles.payments_content}>No Payments to show!</div>
         </div>
       </div>
     </>
