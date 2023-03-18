@@ -74,8 +74,8 @@ function Login() {
               onChange={(e) => setIsWhat(e.target.value)}
               required
             >
-              <option value="patient">Patient</option>
-              <option value="docter">Docter</option>
+              <option className={styles.usertype} value="patient">Patient</option>
+              <option className={styles.usertype} value="docter">Doctor</option>
             </select>
 
             <button

@@ -14,7 +14,7 @@ function AccountCard() {
           </p>
           <p className={styles.manage_p}>
             <a className={styles.manage_docters} href="">
-              Manage Docter
+              Manage Doctor
             </a>
           </p>
           <p className={styles.payment_p}>
