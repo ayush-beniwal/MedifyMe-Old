@@ -11,14 +11,7 @@ import {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route
-        index
-        element={
-          <>
-            <Home />
-          </>
-        }
-      />
+      <Route index element={<Home />} />
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>
   )

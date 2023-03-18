@@ -22,7 +22,7 @@ const PatientSchema = new Schema({
     type: String,
     required: true,
   },
-  sex: {
+  gender: {
     type: String,
     required: true,
   },
@@ -30,6 +30,8 @@ const PatientSchema = new Schema({
     type: Number,
     required: true,
   },
+  height: { type: Number, required: true },
+  weight: { type: Number, required: true },
   record: [
     {
       test: [
