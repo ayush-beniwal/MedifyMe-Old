@@ -14,12 +14,14 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.container}>
-        <div className={styles.logoSection}>
+        <div>
           <Link to="/">
+            <div className={styles.logoSection}>
             <img alt="brand" src={Brand} />
             <p className={styles.brand}>
               MEDIFY<p className={styles.brandIn}>ME</p>
             </p>
+            </div>
           </Link>
         </div>
         <div className={styles.nav_elements}>
