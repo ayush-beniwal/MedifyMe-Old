@@ -22,7 +22,7 @@ const DoctorSchema = new Schema({
     type: String,
     required: true,
   },
-  sex: {
+  gender: {
     type: String,
     required: true,
   },
@@ -30,10 +30,10 @@ const DoctorSchema = new Schema({
     type: Number,
     required: true,
   },
-  patient: [
+  visits: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Patient",
+      ref: "Visits",
     },
   ],
 });

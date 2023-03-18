@@ -26,12 +26,30 @@ const PatientSchema = new Schema({
     type: String,
     required: true,
   },
-  number: {
-    type: Number,
-    required: true,
-  },
   height: { type: Number, required: true },
   weight: { type: Number, required: true },
+  allergies: {
+    type: String,
+    required: true,
+  },
+  otherCond: {
+    type: String,
+    required: true,
+  },
+  medications: {
+    type: String,
+    required: true,
+  },
+  overview: {
+    type: String,
+    required: true,
+  },
+  visits: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Visits",
+    },
+  ],
   record: [
     {
       test: [
