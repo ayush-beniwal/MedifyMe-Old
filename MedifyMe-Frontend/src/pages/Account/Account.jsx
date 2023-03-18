@@ -95,6 +95,7 @@ function Home() {
             </div>
           
           </form>
+          <button className={styles.submit_button} type="submit">Submit</button>
         </div>
       </div>
     </>

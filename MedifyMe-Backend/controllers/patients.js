@@ -4,7 +4,6 @@ const Patient = require("../models/patient");
 // React Login
 module.exports.login = async (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
-  // if (req.body.googleAccessToken) {
   const { googleAccessToken } = req.body;
   axios
     .get("https://www.googleapis.com/oauth2/v3/userinfo", {
@@ -18,7 +17,7 @@ module.exports.login = async (req, res) => {
 
       if (!foundPatient) {
         res.status(212).json({
-          message: "You Need To Register First",
+          message: "Fill out these details to complete your registration",
           status: 212,
           name,
           email,

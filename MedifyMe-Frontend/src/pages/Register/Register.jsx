@@ -2,17 +2,63 @@ import styles from "./Register.module.css";
 import useChatGPT from "../../hooks/useChatGPT";
 import Navbar from "../../components/Navbar/Navbar";
 import { useEffect, useRef } from "react";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useRegisterMutation } from "../../store";
+import { useCookies } from "react-cookie";
+import { loginSuccess, logoutSuccess } from "../../store";
 
 function Register() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { messages, handleSend } = useChatGPT();
+  const [register, registerResults] = useRegisterMutation();
+  const [cookies, setCookie] = useCookies(["patient"]);
+  const lastElement = messages[messages.length - 1];
 
   const messageListRef = useRef(null);
   const inputRef = useRef(null);
 
+  const patient = useSelector((state) => {
+    return state.patient;
+  });
+
   useEffect(() => {
     messageListRef.current.lastChild.scrollIntoView();
     inputRef.current.focus();
-  }, [messages]);
+
+    if (lastElement.message.includes("{")) {
+      const reqMsg = lastElement.message;
+      let init = reqMsg.indexOf("{");
+      let fin = reqMsg.indexOf("}");
+      let json = reqMsg.substr(init, fin - init + 1);
+      const jsonObject = JSON.parse(json);
+
+      console.log(jsonObject);
+    }
+
+    if (!patient.isLoggedIn) {
+      navigate("/login");
+    }
+    if (
+      patient.isLoggedIn &&
+      registerResults.data &&
+      registerResults.data.status === 200
+    ) {
+      navigate("/");
+      toast.success("Welcome");
+    }
+
+    if (
+      patient.isLoggedIn &&
+      registerResults.data &&
+      registerResults.data.status === 400
+    ) {
+      navigate("/login");
+      toast.warn(registerResults.data.message);
+    }
+  }, [navigate, registerResults.data, patient.isLoggedIn, messages]);
 
   const handleButtonClick = () => {
     const inputValue = inputRef.current.value;
