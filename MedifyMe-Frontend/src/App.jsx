@@ -1,6 +1,7 @@
 import Home from "./pages/Home/Home";
 import Account from "./pages/Account/Account";
 import Manage_docters from "./pages/Manage_docters";
+import Login from "./pages/Login/Login";
 
 import "./App.css";
 
@@ -14,30 +15,10 @@ import {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route
-        index
-        element={
-          <>
-            <Home />
-          </>
-        }
-      />
-      <Route
-        path="account"
-        element={
-          <>
-            <Account />
-          </>
-        }
-      />
-      <Route
-        path="manage_docters"
-        element={
-          <>
-            <Manage_docters />
-          </>
-        }
-      />
+      <Route index element={<Home />} />
+      <Route path="account" element={<Account />} />
+      <Route path="login" element={<Login />} />
+      <Route path="manage_docters" element={<Manage_docters />} />
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>
   )

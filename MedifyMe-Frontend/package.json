@@ -10,11 +10,15 @@
     "start": "start http://127.0.0.1:5173/& npm run dev"
   },
   "dependencies": {
+    "@react-oauth/google": "^0.8.0",
+    "@reduxjs/toolkit": "^1.9.3",
     "axios": "^1.3.4",
     "react": "^18.2.0",
+    "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
-    "react-router-dom": "^6.9.0"
+    "react-router-dom": "^6.9.0",
+    "react-toastify": "^9.1.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

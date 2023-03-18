@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import { ReactComponent as Hamburger } from './hamburger.svg'
 import Brand from "../../assets/Brand.svg";
 import Hamburger from "../../assets/Hamburger.svg";
 import styles from "./Navbar.module.css";
@@ -17,10 +16,10 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={styles.container}>
         <div className={styles.logoSection}>
-        <img alt="brand" src={Brand} />
-        <p className={styles.brand}>
-          MEDIFY<p className={styles.brandIn}>ME</p>
-        </p>
+          <img alt="brand" src={Brand} />
+          <p className={styles.brand}>
+            MEDIFY<p className={styles.brandIn}>ME</p>
+          </p>
         </div>
         <div className={styles.menu_icon} onClick={handleShowNavbar}>
           <img alt="bike" src={Hamburger} />
@@ -38,15 +37,16 @@ const Navbar = () => {
             </li>
             <li>
               <div className={styles.appointment}>
-              <Link  style={{ color: "black" }} to="/about">Appointment</Link>
+                <Link style={{ color: "black" }} to="/about">
+                  Appointment
+                </Link>
               </div>
             </li>
             <li>
               <div className={styles.signIn}>
-              <img alt="account" src={Account} /> 
-              <Link to="/contact">Sign In</Link>
+                <img alt="account" src={Account} />
+                <Link to="/login">Sign In</Link>
               </div>
-      
             </li>
           </ul>
         </div>
