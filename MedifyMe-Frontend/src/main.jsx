@@ -7,11 +7,12 @@ import { CookiesProvider } from "react-cookie";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <CookiesProvider>
     <Provider store={store}>
-      <GoogleOAuthProvider clientId="964624758507-h2585qlktjcv0r9nsnvi7tnjbe08vf5d.apps.googleusercontent.com">
+      <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
         <ToastContainer />
         <App />
       </GoogleOAuthProvider>
