@@ -4,7 +4,7 @@ function AccountCard() {
   return (
     <div className={styles.left_wrapper}>
       <div className={styles.card}>
-        <img src="Ellipse 250.png" alt="" className={styles.img} />
+        <img src="Ellipse250.png" alt="" className={styles.img} />
         <div>
           <h2 className={styles.id}>ID: #SA2347OLF</h2>
           <p className={styles.general_p}>

@@ -10,7 +10,7 @@
   }
   .right_wrapper{
     margin-top:50px;
-padding-bottom: 69px;
+    padding-bottom: 69px;
     width:auto;
     background:linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
     border-top-left-radius: 20px;
@@ -25,7 +25,7 @@ padding-bottom: 69px;
 
 
 
-label {
+.color{
     display: block;
     margin-left: 60px;
     font-weight: bold;
