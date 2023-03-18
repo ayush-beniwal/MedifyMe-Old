@@ -110,7 +110,8 @@
     row-gap: 20px;
     height: 300px;
     margin-left:15px ;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .doc1 {
