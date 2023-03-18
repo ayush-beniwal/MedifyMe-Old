@@ -94,7 +94,7 @@
     border-radius: 6.85px;
     font-family: 'Work Sans';
     font-style: normal;
-    font-weight: 300;
+    font-weight: normal;
     font-size: 17px;
     color: #FCFEFE;
     display: flex;
@@ -112,7 +112,7 @@
     justify-content: space-around;
     font-family: 'Work Sans';
     font-style: normal;
-    font-weight: 300;
+    font-weight: normal;
     font-size: 17px;
     color: #FCFEFE;
 }
@@ -127,7 +127,7 @@
     justify-content: space-around;
     font-family: 'Work Sans';
     font-style: normal;
-    font-weight: 300;
+    font-weight:normal;
     font-size: 17px;
     color: #FCFEFE;
 }
@@ -230,8 +230,9 @@
 .lp7 {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     vertical-align: middle;
+
 }
 
 .lp7 ul li {
