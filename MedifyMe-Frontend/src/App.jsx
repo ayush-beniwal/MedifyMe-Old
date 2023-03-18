@@ -5,7 +5,7 @@ import Login from "./pages/Login/Login";
 import Health_history_form from "./pages/Health_history_form/Health_history_form";
 import Register from "./pages/Register/Register";
 import Prescription_from from "./pages/Prescription_form/Prescription_form";
-import Health_history from "./pages/HealthHistory/healtH";
+import Health_history from "./pages/HealthHistory/HealthHistory";
 import Manage_doctors from "./pages/Manage_doctors/Manage_doctors";
 import Prescription from "./pages/Prescription/Prescription";
 
