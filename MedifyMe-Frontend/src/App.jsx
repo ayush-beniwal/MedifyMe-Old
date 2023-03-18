@@ -8,6 +8,7 @@ import Prescription_from  from "./pages/Prescription_form/Prescription_form";
 import Health_history from "./pages/HealthHistory/healtH";
 import Manage_doctors from "./pages/Manage_doctors/Manage_doctors";
 import Add_report from "./pages/Add_report/Add_report";
+import Appointment from "./pages/Appointment/Appointment";
 import "./App.css";
 
 import {
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
       <Route path="prescription_form" element={<Prescription_from />} />
       <Route path="manage_doctors" element={<Manage_doctors />} />
       <Route path="addreports" element={<Add_report />} />
+      <Route path="appointment" element={<Appointment/>} />
       {/* <Route path="chatbot" element={<Chatbot />} /> */}
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>
