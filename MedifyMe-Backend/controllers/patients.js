@@ -75,8 +75,7 @@ module.exports.register = async (req, res, next) => {
       medications,
       overview,
     });
-    // await patient.save();
-    console.log(patient);
+    await patient.save();
     const id = patient._id.toString();
     res
       .status(200)
