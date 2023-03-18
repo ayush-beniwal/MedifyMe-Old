@@ -1,0 +1,120 @@
+.box {
+    display: flex;
+    justify-content: center;
+}
+
+.history {
+    background: linear-gradient(90deg, #2D485C 0%, #2B3F4D 47.19%, #29343C 100%);
+    border: 3px solid #CDAA64;
+    border-radius: 50px;
+    width: 1490px;
+    margin-top: 20px;
+}
+
+.history img {
+    width: 90px;
+    position: absolute;
+    top: 15%;
+    left: 2.5%;
+}
+
+.d1 li {
+    list-style: none;
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+
+    color: #FFFFFF;
+}
+
+.d1 {
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    margin-left: 120px;
+}
+
+.d2 {
+    margin-top: -15px;
+}
+
+.d2 li {
+    list-style: none;
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+
+    color: #FFFFFF;
+}
+
+.docvisit {
+    width: 320px;
+    height: 310px;
+    background: #2B3E4C;
+    border-radius: 20px 20px 0px 0px;
+    margin-top: 15px;
+    margin-left: 22px;
+}
+
+.t1 {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 42px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+
+    color: #FFFFFF;
+}
+
+.button {
+    width: 320px;
+    height: 60px;
+    background: #2B3E4C;
+    border-radius: 0px 0px 20px 20px;
+    margin-top: 2px;
+    margin-left: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button a {
+    text-decoration: none;
+}
+
+.b {
+    padding: 6px 35px;
+    gap: 10px;
+    background: #CDAA64;
+    border-radius: 50px;
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 28px;
+    display: flex;
+    justify-content: center;
+    color: #000000;
+    width: fit-content;
+}
+
+.docs {
+    display: grid;
+    grid-template-rows: repeat(4, 60px);
+    row-gap: 20px;
+    height: 300px;
+    margin-left:15px ;
+    overflow: auto;
+}
+
+.doc1 {
+    background: #F5DBA7;
+    border-radius: 15px;
+    width: 290px;
+}
