@@ -1,10 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-const server = import.meta.env.REACT_APP_SERVER_URL;
+const server = import.meta.env.VITE_SERVER_URL;
 
 const patientApi = createApi({
   reducerPath: "patientAPI",
   baseQuery: fetchBaseQuery({
-    baseUrl: `http://localhost:6969/patients`,
+    baseUrl: `${server}/patients`,
   }),
   endpoints: (builder) => ({
     login: builder.mutation({

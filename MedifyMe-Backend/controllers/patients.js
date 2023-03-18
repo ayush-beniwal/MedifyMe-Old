@@ -1,5 +1,5 @@
-const Patient = require("../models/patient");
 const axios = require("axios");
+const Patient = require("../models/patient");
 
 // React Login
 module.exports.login = async (req, res) => {
