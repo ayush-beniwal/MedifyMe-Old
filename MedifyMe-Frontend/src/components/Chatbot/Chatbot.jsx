@@ -1,7 +1,8 @@
-import styles from "./Register.module.css";
+import styles from "./Chatbot.module.css";
+import Navbar from "../Navbar/Navbar";
 import useChatGPT from "../../hooks/useChatGPT";
 
-function Register() {
+function Chatbot() {
   const { messages, handleSend } = useChatGPT();
   return (
     <div className={styles.chatContainer}>
@@ -39,4 +40,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Chatbot;
