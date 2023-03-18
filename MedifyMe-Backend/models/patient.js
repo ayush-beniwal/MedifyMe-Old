@@ -11,8 +11,7 @@ const PatientSchema = new Schema({
   },
   email: {
     type: String,
-    required: true,
-    unique: true,
+    default: null,
   },
   age: {
     type: String,
@@ -32,7 +31,7 @@ const PatientSchema = new Schema({
     type: String,
     default: null,
   },
-  otherCond: {
+  otherConditions: {
     type: String,
     default: null,
   },
