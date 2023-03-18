@@ -9,10 +9,10 @@
     background: white;
   }
   .right_wrapper{
-    margin-top:50px;
+    margin-top:40px;
     padding-bottom: 69px;
     width:auto;
-    height: 690px;
+    height: 555px;
     background:linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
     border-top-left-radius: 20px;
     padding-top:30px;
@@ -41,7 +41,7 @@ color: #FFFFFF;
 
 .card {
     background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
-    margin-top: 150px;
+    margin-top: 120px;
     width: 400px;
     height: 500px;
     border-radius: 20px;
@@ -82,7 +82,7 @@ padding-left: 10px;
 .google_login_b{
 
     margin-top: 55px;
-    margin-left: 338px;
+    margin-left: 337.5px;
     background-color: #1E90FF;
     font-size: 22px;
     color: white;
@@ -110,16 +110,17 @@ padding-left: 10px;
 .login_lowerpart{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-    ;
+       margin-top: 100;
      
 }
 
 .img3{
- padding: 20px;
+ width: 280px;
+ 
 }
 
 .login_lower_content{
-margin-top:220px;
+margin-top:130px;
 font-family: 'Comfortaa';
 font-style: normal;
 font-weight: 400;
