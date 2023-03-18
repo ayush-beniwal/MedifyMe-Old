@@ -34,6 +34,7 @@ function Register() {
       let fin = reqMsg.indexOf("}");
       let json = reqMsg.substr(init, fin - init + 1);
       const jsonObject = JSON.parse(json);
+      messages.pop();
 
       async function cool() {
         let finalData = {
