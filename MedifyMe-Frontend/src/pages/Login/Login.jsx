@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useGLogin } from "../../hooks/use-gLogin";
-
+import Navbar from "../../components/Navbar/Navbar";
 function Login() {
   const navigate = useNavigate();
   const { handleGoogleLogin, loginResults } = useGLogin();
@@ -44,6 +44,8 @@ function Login() {
   }, [loginResults.data, navigate, patient.isLoggedIn, patient.name]);
 
   return (
+    <>
+     <Navbar />
     <div className={styles.grid_container}>
       <div className={styles.left_wrapper}>
         <div className={styles.card}>
@@ -88,6 +90,7 @@ function Login() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

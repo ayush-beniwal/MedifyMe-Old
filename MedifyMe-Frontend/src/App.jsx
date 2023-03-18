@@ -6,9 +6,8 @@ import Health_history_form from "./pages/Health_history_form/Health_history_form
 import Register from "./pages/Register/Register";
 import Prescription_from  from "./pages/Prescription_form/Prescription_form";
 import Health_history from "./pages/HealthHistory/healtH";
-import Manage_docters from "./pages/Manage_docters/Manage_docters";
-
-
+import Manage_doctors from "./pages/Manage_doctors/Manage_doctors";
+import Add_report from "./pages/Add_report/Add_report";
 import "./App.css";
 
 import {
@@ -29,7 +28,8 @@ const router = createBrowserRouter(
       <Route path="healthHistoryForm" element={<Health_history_form />} />
       <Route path="health_history" element={<Health_history />} />
       <Route path="prescription_form" element={<Prescription_from />} />
-      <Route path="manage_docters" element={<Manage_docters />} />
+      <Route path="manage_doctors" element={<Manage_doctors />} />
+      <Route path="addreports" element={<Add_report />} />
       {/* <Route path="chatbot" element={<Chatbot />} /> */}
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>
