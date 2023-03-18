@@ -24,20 +24,20 @@ function Home() {
         <div className={styles.button}>
           <a href="">
             <div className={styles.b1}>
-              Book an Appointment
-              <img src="cash.png" />
+              Check your Health History
+              <img src="history.svg" />
             </div>
           </a>
           <a href="">
             <div className={styles.b2}>
-              Book an Appointment
-              <img src="cash.png" />
+              Have queries? Ask Here
+              <img src="query.svg" />
             </div>
           </a>
           <a href="">
             <div className={styles.b3}>
               Book an Appointment
-              <img src="cash.png" />
+              <img src="appointment.svg" />
             </div>
           </a>
         </div>
@@ -57,17 +57,17 @@ function Home() {
       </div>
       <div className={styles.lp4}>Care you can believe in</div>
       <div className={styles.lp5}>Our Services</div>
-      <div className={styles.lp6}>A Passion for putting patients first.</div>
+      <div className={styles.lp6}>Facilitating Seamless Transtitions for Patients and Doctors</div>
       <div className={styles.lp7}>
         <ul>
-          <li>A Passion for Healing</li>
-          <li>All our Best</li>
-          <li>A Legacy of Excellence</li>
+          <li>Personalised Virtual Assitant</li>
+          <li>Store all your records</li>
+          <li>Make appointments directly</li>
         </ul>
         <ul>
-          <li>5-Star Care</li>
-          <li>Believe in Us</li>
-          <li>Always Caring</li>
+          <li>Save Prescriptions and Test Reports</li>
+          <li>Info About Medicine dosage and intake</li>
+          <li>Easier communication with your Doctors</li>
         </ul>
       </div>
       <Footer />
