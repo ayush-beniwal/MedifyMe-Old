@@ -1,6 +1,6 @@
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import styles from "./home.module.css";
-import Footer from "../components/Footer/Footer";
+import Footer from "../../components/Footer/Footer";
 function Home() {
   return (
     <>
@@ -70,7 +70,7 @@ function Home() {
           <li>Always Caring</li>
         </ul>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

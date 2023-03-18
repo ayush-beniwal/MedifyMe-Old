@@ -1,5 +1,5 @@
-import Home from "./pages/Home";
-import Account from "./pages/Account";
+import Home from "./pages/Home/Home";
+import Account from "./pages/Account/Account";
 import Manage_docters from "./pages/Manage_docters";
 
 import "./App.css";
@@ -40,7 +40,6 @@ const router = createBrowserRouter(
       />
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>
-    
   )
 );
 
