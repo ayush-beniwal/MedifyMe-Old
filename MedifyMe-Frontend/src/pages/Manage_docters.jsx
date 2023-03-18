@@ -12,7 +12,7 @@ function Home() {
           <img
             className={styles.img_payment}
             src="image 4.png"
-            alt="Girl in a jacket"
+            alt="payment"
             width="500"
             height="600"
           />
