@@ -23,8 +23,10 @@ function Home() {
 
   <label  className={ styles.text_health}  htmlFor="file-upload">Upload Files:</label>
   <input className={styles.health_file} type="file" id="file-upload" name="file-upload" />
+   
+   <button className={styles.submit_button}type="submit">Submit</button>
+ 
 
-  <button className={styles.submit_button}type="submit">Submit</button>
 </form>
 
 
