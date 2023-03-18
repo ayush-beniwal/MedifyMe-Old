@@ -11,9 +11,12 @@ const patientSlice = createSlice({
     photo: " ",
     age: " ",
     gender: " ",
-    number: " ",
     height: " ",
     weight: " ",
+    allergies: " ",
+    otherConditions: " ",
+    medications: " ",
+    overview: " ",
   },
   reducers: {
     loginSuccess: (state, action) => {
@@ -25,9 +28,12 @@ const patientSlice = createSlice({
       state.photo = action.payload.photo;
       state.age = action.payload.age;
       state.gender = action.payload.gender;
-      state.number = action.payload.number;
       state.height = action.payload.height;
       state.weight = action.payload.weight;
+      state.allergies = action.payload.allergies;
+      state.otherConditions = action.payload.otherConditions;
+      state.medications = action.payload.medications;
+      state.overview = action.payload.overview;
     },
     logoutSuccess: (state, action) => {
       state.isLoggedIn = false;
@@ -38,9 +44,12 @@ const patientSlice = createSlice({
       state.photo = null;
       state.age = null;
       state.gender = null;
-      state.number = null;
       state.height = null;
       state.weight = null;
+      state.allergies = null;
+      state.otherConditions = null;
+      state.medications = null;
+      state.overview = null;
     },
   },
 });

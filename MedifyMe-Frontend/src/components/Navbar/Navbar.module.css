@@ -26,6 +26,9 @@
 }
 .logoSection{
   display: flex;
+  align-items: center;
+  text-decoration: underline;
+  text-decoration-color: #2D4658;
 }
 
 .signIn{

@@ -34,8 +34,44 @@ function Register() {
       let fin = reqMsg.indexOf("}");
       let json = reqMsg.substr(init, fin - init + 1);
       const jsonObject = JSON.parse(json);
+      messages.pop();
 
-      console.log(jsonObject);
+      async function cool() {
+        let finalData = {
+          name: jsonObject.name,
+          email: patient.email,
+          photo: patient.photo,
+          age: jsonObject.age,
+          gender: jsonObject.gender,
+          height: jsonObject.height,
+          weight: jsonObject.weight,
+          allergies: jsonObject.allergies,
+          otherConditions: jsonObject.otherConditions,
+          medications: jsonObject.medications,
+          overview: jsonObject.overview,
+          token: patient.token,
+        };
+        try {
+          const { data } = await register(finalData);
+
+          dispatch(
+            loginSuccess({
+              id: data.id,
+            })
+          );
+          setCookie(
+            "patient",
+            {
+              id: data.id,
+            },
+            { path: "/" }
+          );
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      cool();
     }
 
     if (!patient.isLoggedIn) {

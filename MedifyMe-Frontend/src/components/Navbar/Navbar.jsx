@@ -4,25 +4,25 @@ import Brand from "../../assets/Brand.svg";
 import Hamburger from "../../assets/Hamburger.svg";
 import styles from "./Navbar.module.css";
 import Account from "../../assets/account.svg";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const [showNavbar, setShowNavbar] = useState(false);
-
-  const handleShowNavbar = () => {
-    setShowNavbar(!showNavbar);
-  };
+  const patient = useSelector((state) => {
+    return state.patient;
+  });
 
   return (
     <nav className={styles.navbar}>
       <div className={styles.container}>
-        <div className={styles.logoSection}>
-          <img alt="brand" src={Brand} />
-          <p className={styles.brand}>
-            MEDIFY<p className={styles.brandIn}>ME</p>
-          </p>
-        </div>
-        <div className={styles.menu_icon} onClick={handleShowNavbar}>
-          <img alt="bike" src={Hamburger} />
+        <div>
+          <Link to="/">
+            <div className={styles.logoSection}>
+            <img alt="brand" src={Brand} />
+            <p className={styles.brand}>
+              MEDIFY<p className={styles.brandIn}>ME</p>
+            </p>
+            </div>
+          </Link>
         </div>
         <div className={styles.nav_elements}>
           <ul>
@@ -30,7 +30,7 @@ const Navbar = () => {
               <Link to="/health_history">Health History</Link>
             </li>
             <li>
-              <Link to="/prescriptions">Prescriptions</Link>
+              <Link to="/prescription">Prescriptions</Link>
             </li>
             <li>
               <Link to="/tests">Tests & Reports</Link>
@@ -45,7 +45,11 @@ const Navbar = () => {
             <li>
               <div className={styles.signIn}>
                 <img alt="account" src={Account} />
-                <Link to="/login">Sign In</Link>
+                {!patient.isLoggedIn ? (
+                  <Link to="/login">Sign In</Link>
+                ) : (
+                  <Link to="/account">Account</Link>
+                )}
               </div>
             </li>
           </ul>

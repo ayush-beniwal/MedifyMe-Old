@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const systemMessage = {
   role: "system",
   content: `Check sample.json which is 
-{ "name": "Saiyam", "age": 50, "gender": "male", "weight": 80, "height": 150, "allergies": "none", "other conditions": "none", "medications": "none", "overview of patient": "Saiyam is a 50-year-old male who is currently experiencing a fever. He has not noticed any other symptoms or medical issues in the recent past, and does not have any chronic conditions or allergies. No medications are being taken currently." }
+{ "name": "Saiyam", "age": 50, "gender": "male", "weight": 80, "height": 150, "allergies": "none", "otherConditions": "none", "medications": "none", "overview": "Saiyam is a 50-year-old male who is currently experiencing a fever. He has not noticed any other symptoms or medical issues in the recent past, and does not have any chronic conditions or allergies. No medications are being taken currently." }
 
 Whenever I type give me sample , I want you to send me this json in the same format with random values filled in from your side. Keep all values less than 10 words in strings. Can you do this? (only answer yes/ no for this question)`,
 };

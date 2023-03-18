@@ -1,7 +1,22 @@
 import Navbar from "../../components/Navbar/Navbar";
-import styles from "./healthH.module.css";
+import styles from "./HealthHistory.module.css";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function healthH() {
+  const navigate = useNavigate();
+  const patient = useSelector((state) => {
+    return state.patient;
+  });
+
+  useEffect(() => {
+    if (!patient.isLoggedIn) {
+      navigate("/login");
+      toast.error("Please login to continue");
+    }
+  }, [navigate, patient.isLoggedIn]);
   return (
     <>
       <Navbar />
