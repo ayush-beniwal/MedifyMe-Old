@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+
+.grid_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* defines two equal columns */
+  grid-gap: 10px; /* adds a 10px gap between the columns */
+  background: white;
+}
+.right_wrapper {
+  height: 560px;
+  margin-top: 10px;
+  padding-bottom: 69px;
+  width: 1000px;
+  background: #f1f1f1;
+  border-top-left-radius: 20px;
+  padding-top: 30px;
+}
+.doctors_identity {
+  margin-left: 10px;
+  width: 97.5%;
+  height: 150px;
+  background: linear-gradient(90deg, #2d485c 0%, #2b3f4d 47.19%, #29343c 100%);
+  border: 3px solid #cdaa64;
+  border-radius: 20px;
+}
+
+.grid_container2 {
+  display: grid;
+  grid-template-columns: 200px 400px;
+}
+
+.img {
+  padding: 10px;
+  padding-left: 20px;
+  height: 130px;
+  width: auto;
+}
+.doctors_identity_content1 {
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 21px;
+  /* identical to box height */
+  color: #ffffff;
+}
+.doctors_identity_content2 {
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #ffffff;
+}
+.doctors_identity_content3 {
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 21px;
+
+  color: #ffffff;
+}
+.appointment_1 {
+  margin-top: 50px;
+  margin-left: 20px;
+}
+.appointment_fee {
+  margin-left: 300px;
+  display: inline;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 45px;
+  line-height: 40px;
+  /* identical to box height */
+  color: #000000;
+}
+.appointment_fee_text {
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 45px;
+  line-height: 40px;
+  color: rgba(0, 0, 0, 0.89);
+  display: inline;
+}
+.appointment_2 {
+  margin-top: 50px;
+  margin-left: 20px;
+}
+.admin_fee {
+  margin-left: 460px;
+  display: inline;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 45px;
+  line-height: 40px;
+  /* identical to box height */
+  color: #000000;
+}
+.admin_fee_text {
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 45px;
+  line-height: 40px;
+  color: rgba(0, 0, 0, 0.89);
+  display: inline;
+}
+
+.appointment_3 {
+  margin-top: 50px;
+  margin-left: 20px;
+}
+.total_fee {
+  margin-left: 490px;
+  display: inline;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 45px;
+  line-height: 40px;
+  /* identical to box height */
+  color: #000000;
+}
+.total_fee_text {
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 45px;
+  line-height: 40px;
+  color: rgba(0, 0, 0, 0.89);
+  display: inline;
+}
+.horizontal-line {
+  border-top: 1px solid black;
+  margin: 10px 0;
+}
