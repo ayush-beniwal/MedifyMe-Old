@@ -10,9 +10,10 @@
   }
   .right_wrapper{
     margin-top:40px;
-    padding-bottom: 69px;
-    width:auto;
-    height: 555px;
+    padding-bottom: 0px;
+    padding-left: 100px;
+    width:800px;
+    height: 600px;
     background:linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
     border-top-left-radius: 20px;
     padding-top:30px;
@@ -45,7 +46,7 @@ color: #FFFFFF;
     width: 400px;
     height: 500px;
     border-radius: 20px;
-    margin-left: 200px;
+    margin-left: 120px;
 }
 
 .img2 {
@@ -110,17 +111,18 @@ padding-left: 10px;
 .login_lowerpart{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-       margin-top: 100;
+       margin-top: 0;
      
 }
 
 .img3{
  width: 280px;
+ margin-top: -50px  ;
  
 }
 
 .login_lower_content{
-margin-top:130px;
+margin-top:70px;
 font-family: 'Comfortaa';
 font-style: normal;
 font-weight: 400;

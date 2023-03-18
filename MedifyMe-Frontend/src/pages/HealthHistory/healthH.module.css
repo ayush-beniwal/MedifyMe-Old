@@ -177,12 +177,12 @@
 }
 
 .infobox {
-    border: 5px solid #CDAA64;
+    border: 3px solid #CDAA64;
     border-radius: 20px;
-    height: 362px;
+    height: 370px;
     width: 1119px;
     position: absolute;
-    top: 47%;
+    top: 45%;
     left: 25%;
 }
 
