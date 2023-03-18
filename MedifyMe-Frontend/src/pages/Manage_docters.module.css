@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+.grid_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* defines two equal columns */
+    grid-gap: 10px; /* adds a 10px gap between the columns */
+    background: white;
+  }
+  .right_wrapper{
+    margin-top:50px;
+    width:auto;
+    height:600px;
+    background:linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
+    border-top-left-radius: 20px;
+    padding-top:30px;
+  }
+
+  .img_payment{
+    width:500px;
+    margin-left: 150px;
+    margin-top: 150px;
+    justify-self: center;
+    height:auto
+  }
+ 
+.card{
+   background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
+   margin-top: 100px;
+   width: 400px;
+   height:500px;
+   border-radius: 10px;
+  margin-left: 200px;
+   
+}
+.img{
+    width: 200px;
+    padding-left: 100px;
+    padding-top:25px;
+}
+.id{
+    color: white;
+    text-align: center;
+}
+.general_settings{
+    padding:10px;
+    background-color: #CDAA64;
+    color: black;
+    border-radius: 5px;
+    margin-left: 125px;
+    text-decoration:none;
+}
+.payment_settings{
+ 
+   color: white;
+    border-radius: 5px;
+    margin-left: 131px;
+    text-decoration:none;
+    padding-top: 50px;
+}
+.manage_docters{
+    
+   color: white;
+    border-radius: 5px;
+    margin-left: 138px;
+    text-decoration:none;
+}
+
+.payment_p{
+    margin-top:32px;
+}
+.manage_p{
+    margin-top:32px;
+}
+.general_p{
+    margin-top:32px;
+}

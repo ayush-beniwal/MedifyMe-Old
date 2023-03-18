@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+.grid_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* defines two equal columns */
+    grid-gap: 10px; /* adds a 10px gap between the columns */
+    background: white;
+  }
+  .right_wrapper{
+    margin-top:50px;
+    width:auto;
+    height:600px;
+    background:linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
+    border-top-left-radius: 20px;
+    padding-top:30px;
+  }
+
+  form {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+
+
+label {
+    display: block;
+    margin-left: 60px;
+    font-weight: bold;
+    color: #f5f5f5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.input_text{
+    margin-left: 60px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 500px;
+    height: 30px;
+}
+
+.input_profile{
+    padding-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 60px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+    margin-bottom: 10px;
+   
+}
+
+.row-sex-age {
+    display: flex;
+    display: inline;
+    align-items: center;
+    justify-content: space-between;
+    grid-column: 1 / span 2;
+    margin-bottom: 10px;
+}
+
+.card{
+   background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
+   margin-top: 100px;
+   width: 400px;
+   height:500px;
+   border-radius: 10px;
+  margin-left: 200px;
+   
+}
+.img{
+    width: 200px;
+    padding-left: 100px;
+    padding-top:25px;
+}
+.id{
+    color: white;
+    text-align: center;
+}
+.general_settings{
+    padding:10px;
+    background-color: #CDAA64;
+    color: black;
+    border-radius: 5px;
+    margin-left: 125px;
+    text-decoration:none;
+}
+.payment_settings{
+ 
+   color: white;
+    border-radius: 5px;
+    margin-left: 131px;
+    text-decoration:none;
+    padding-top: 50px;
+}
+.manage_docters{
+    
+   color: white;
+    border-radius: 5px;
+    margin-left: 138px;
+    text-decoration:none;
+}
+
+.payment_p{
+    margin-top:32px;
+}
+.manage_p{
+    margin-top:32px;
+}
+.general_p{
+    margin-top:32px;
+}

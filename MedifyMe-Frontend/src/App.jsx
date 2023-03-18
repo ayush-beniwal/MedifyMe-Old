@@ -1,4 +1,7 @@
 import Home from "./pages/Home";
+import Account from "./pages/Account";
+import Manage_docters from "./pages/Manage_docters";
+
 import "./App.css";
 
 import {
@@ -19,8 +22,25 @@ const router = createBrowserRouter(
           </>
         }
       />
+      <Route
+        path="account"
+        element={
+          <>
+            <Account />
+          </>
+        }
+      />
+      <Route
+        path="manage_docters"
+        element={
+          <>
+            <Manage_docters />
+          </>
+        }
+      />
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>
+    
   )
 );
 
