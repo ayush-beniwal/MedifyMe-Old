@@ -10,6 +10,10 @@ import Manage_doctors from "./pages/Manage_doctors/Manage_doctors";
 import Add_report from "./pages/Add_report/Add_report";
 import Appointment from "./pages/Appointment/Appointment";
 import Prescription from "./pages/Prescription/Prescription";
+import { useEffect } from "react";
+import { useCookies } from "react-cookie";
+import { useDispatch, useSelector } from "react-redux";
+import { loginSuccess, logoutSuccess } from "./store";
 
 import "./App.css";
 
@@ -33,7 +37,7 @@ const router = createBrowserRouter(
       <Route path="prescription_form" element={<Prescription_from />} />
       <Route path="manage_doctors" element={<Manage_doctors />} />
       <Route path="addreports" element={<Add_report />} />
-      <Route path="appointment" element={<Appointment/>} />
+      <Route path="appointment" element={<Appointment />} />
       <Route path="prescription" element={<Prescription />} />
       {/* <Route path="chatbot" element={<Chatbot />} /> */}
       {/* <Route path="*" element={<Error404 />} /> */}
@@ -42,6 +46,33 @@ const router = createBrowserRouter(
 );
 
 function App() {
+  const patient = useSelector((state) => {
+    return state.patient;
+  });
+
+  const dispatch = useDispatch();
+  const [cookies, setCookie, removeCookie] = useCookies(["patient"]);
+
+  useEffect(() => {
+    if (
+      cookies.user &&
+      !patient.isLoggedIn &&
+      cookies.user.id &&
+      cookies.user.token &&
+      cookies.user.email &&
+      cookies.user.photo
+    ) {
+      dispatch(
+        loginSuccess({
+          token: cookies.user.token,
+          id: cookies.user.id,
+          email: cookies.user.email,
+          photo: cookies.user.photo,
+        })
+      );
+    }
+  }, [cookies.patient, dispatch, patient.isLoggedIn]);
+
   return <RouterProvider router={router} />;
 }
 
