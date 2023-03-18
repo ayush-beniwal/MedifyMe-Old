@@ -143,15 +143,15 @@
     border-radius: 20px;
     position: absolute;
     left: 25%;
-    top:13% ;
+    top: 13%;
 }
 
-.ct{
+.ct {
     display: flex;
     flex-direction: row;
 }
 
-.ct1{
+.ct1 {
     font-family: 'Yeseva One';
     font-style: normal;
     font-weight: 400;
@@ -161,7 +161,7 @@
     margin-left: 20px;
 }
 
-.ct2{
+.ct2 {
     font-family: 'Yeseva One';
     font-style: normal;
     font-weight: 400;
@@ -171,18 +171,27 @@
     margin-left: 320px;
 }
 
-.accordian{
+.accordian {
     width: 700px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 34px;
+
+    color: #000000;
 }
 
-.cont{
+.cont {
     display: grid;
     height: 350px;
     grid-template-columns: 680px 400px;
     column-gap: 20px;
 }
 
-.photo{
+.photo {
     background-color: grey;
     border-radius: 15px;
 }

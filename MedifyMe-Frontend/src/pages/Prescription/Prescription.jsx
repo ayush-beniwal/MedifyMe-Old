@@ -88,7 +88,34 @@ function Prescription() {
           <div className={styles.ct2}>20 Jan 2023</div>
         </div>
         <div className={styles.cont}>
-          <div className={styles.accordian}></div>
+          <div className={styles.accordian}>
+            <ul>
+              <li>
+                Lipitor (atorvastatin) : Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Iusto quas nisi unde! Ut doloremque id
+                possimus alias amet at consequatur dolores dolor pariatur, nobis
+                voluptatum accusantium eos commodi facilis temporibus?
+              </li>
+              <li>
+                Zoloft (sertraline) :  Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Iusto quas nisi unde! Ut doloremque id
+                possimus alias amet at consequatur dolores dolor pariatur, nobis
+                voluptatum accusantium eos commodi facilis temporibus?{" "}
+              </li>
+              <li>
+                Flonase (fluticasone)  : Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Iusto quas nisi unde! Ut doloremque id
+                possimus alias amet at consequatur dolores dolor pariatur, nobis
+                voluptatum accusantium eos commodi facilis temporibus?
+              </li>
+              <li>
+                Metformin : Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Iusto quas nisi unde! Ut doloremque id possimus alias amet
+                at consequatur dolores dolor pariatur, nobis voluptatum
+                accusantium eos commodi facilis temporibus?
+              </li>
+            </ul>
+          </div>
           <div className={styles.photo}></div>
         </div>
       </div>
