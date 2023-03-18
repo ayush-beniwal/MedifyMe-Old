@@ -6,7 +6,7 @@ const config = new Configuration({
 
 const openai = new OpenAIApi(config);
 
-module.exports.render = (req,res)=>{
+module.exports.renderYo = (req,res)=>{
   res.render("prompt");
 }
 

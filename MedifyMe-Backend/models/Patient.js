@@ -20,28 +20,47 @@ const PatientSchema = new Schema({
   },
   photo: {
     type: String,
-    required: true,
+    default: null,
   },
   gender: {
     type: String,
-    required: true,
+    default: null,
   },
-  number: {
-    type: Number,
-    required: true,
+  height: { type: Number, default: null },
+  weight: { type: Number, default: null },
+  allergies: {
+    type: String,
+    default: null,
   },
-  height: { type: Number, required: true },
-  weight: { type: Number, required: true },
-  record: [
+  otherCond: {
+    type: String,
+    default: null,
+  },
+  medications: {
+    type: String,
+    default: null,
+  },
+  overview: {
+    type: String,
+    default: null,
+  },
+  visits: [
     {
-      test: [
-        {
-          type: String,
-          required: true,
-        },
-      ],
+      type: Schema.Types.ObjectId,
+      ref: "Visits",
     },
-    { prescription: [{ type: String, required: true }] },
+  ],
+  prescription: [
+    {
+      type: String,
+      default: null,
+    },
+  ],
+  test: [
+    {
+      type: String,
+      default: null,
+    },
   ],
 });
 

@@ -2,7 +2,8 @@ import Home from "./pages/Home/Home";
 import Account from "./pages/Account/Account";
 import Manage_docters from "./pages/Manage_docters";
 import Login from "./pages/Login/Login";
-import Health_history from "./pages/Health_history/Health_history";
+import Health_history_form from "./pages/Health_history/Health_history";
+import Register from "./pages/Register/Register";
 import "./App.css";
 
 import {
@@ -18,8 +19,9 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="account" element={<Account />} />
       <Route path="login" element={<Login />} />
+      <Route path="register" element={<Register />} />
       <Route path="manage_docters" element={<Manage_docters />} />
-      <Route path="health_history" element={<Health_history />} />
+      <Route path="healthHistoryForm" element={<Health_history_form />} />
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>
   )

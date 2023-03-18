@@ -20,20 +20,16 @@ const DoctorSchema = new Schema({
   },
   photo: {
     type: String,
-    required: true,
+    default: null,
   },
-  sex: {
+  gender: {
     type: String,
-    required: true,
+    default: null,
   },
-  number: {
-    type: Number,
-    required: true,
-  },
-  patient: [
+  visits: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Patient",
+      ref: "Visits",
     },
   ],
 });

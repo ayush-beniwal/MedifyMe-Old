@@ -5,16 +5,16 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useGLogin } from "../../hooks/use-gLogin";
-import AccountCard from "../../components/AccountCard/AccountCard";
+
 function Login() {
   const navigate = useNavigate();
   const { handleGoogleLogin, loginResults } = useGLogin();
 
-  const user = useSelector((state) => {
-    return state.user;
+  const patient = useSelector((state) => {
+    return state.patient;
   });
 
-  console.log(user);
+  console.log(patient);
   console.log(loginResults);
 
   const loginHandler = useGoogleLogin({
@@ -23,32 +23,27 @@ function Login() {
     },
   });
 
-  // useEffect(() => {
-  //   if (
-  //     user.isLoggedIn &&
-  //     loginResults.data &&
-  //     loginResults.data.status === 212
-  //   ) {
-  //     navigate("/register");
-  //     toast.warn(loginResults.data.message);
-  //   }
+  useEffect(() => {
+    if (
+      patient.isLoggedIn &&
+      loginResults.data &&
+      loginResults.data.status === 212
+    ) {
+      navigate("/register");
+      toast.warn(loginResults.data.message);
+    }
 
-  //   if (loginResults.data && loginResults.data.status === 210) {
-  //     toast.warn(loginResults.data.message);
-  //   }
+    if (
+      patient.isLoggedIn &&
+      loginResults.data &&
+      loginResults.data.status === 200
+    ) {
+      navigate("/");
+      toast.success(`Welcome ${patient.name}`);
+    }
+  }, [loginResults.data, navigate, patient.isLoggedIn, patient.name]);
 
-  //   if (
-  //     user.isLoggedIn &&
-  //     loginResults.data &&
-  //     loginResults.data.status === 200
-  //   ) {
-  //     navigate("/");
-  //     toast.success(`Welcome ${user.name}`);
-  //   }
-  // }, [loginResults.data, navigate, user.isLoggedIn, user.name]);
-
-  return (
-  
+  return (  
     <div className={styles.grid_container}>
         <div className={styles.left_wrapper}>
         <div className={styles.card}>
