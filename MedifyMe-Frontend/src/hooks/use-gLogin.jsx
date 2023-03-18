@@ -7,7 +7,7 @@ import { useCallback } from "react";
 
 export function useGLogin() {
   const dispatch = useDispatch();
-  const [cookies, setCookie] = useCookies(["user"]);
+  const [cookies, setCookie] = useCookies(["patient"]);
   const [login, loginResults] = useLoginMutation();
 
   const handleGoogleLogin = useCallback(
@@ -19,7 +19,6 @@ export function useGLogin() {
           loginSuccess({
             token: data.token,
             id: data.id,
-            name: data.name,
             email: data.email,
             photo: data.photo,
           })
@@ -30,7 +29,6 @@ export function useGLogin() {
           {
             token: data.token,
             id: data.id,
-            name: data.name,
             email: data.email,
             photo: data.photo,
           },
@@ -39,7 +37,6 @@ export function useGLogin() {
       } catch (error) {
         console.error(error);
       }
-      // console.log(loginResults);
     },
     [dispatch, login, setCookie]
   );

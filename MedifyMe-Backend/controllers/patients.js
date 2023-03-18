@@ -25,11 +25,11 @@ module.exports.login = async (req, res) => {
         });
       } else {
         res.status(200).json({
-          message: `Welcome ${name}`,
+          message: `Welcome`,
           email,
           photo,
           token: googleAccessToken,
-          id: foundUser._id,
+          id: foundPatient._id,
           status: 200,
         });
       }

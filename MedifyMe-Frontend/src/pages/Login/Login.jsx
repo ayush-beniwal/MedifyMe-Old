@@ -40,7 +40,7 @@ function Login() {
       loginResults.data.status === 200
     ) {
       navigate("/");
-      toast.success(`Welcome ${patient.name}`);
+      toast.success(`Welcome`);
     }
   }, [loginResults.data, navigate, patient.isLoggedIn, patient.name]);
 
@@ -74,8 +74,12 @@ function Login() {
               onChange={(e) => setIsWhat(e.target.value)}
               required
             >
-              <option className={styles.usertype} value="patient">Patient</option>
-              <option className={styles.usertype} value="docter">Doctor</option>
+              <option className={styles.usertype} value="patient">
+                Patient
+              </option>
+              <option className={styles.usertype} value="docter">
+                Doctor
+              </option>
             </select>
 
             <button
