@@ -106,7 +106,7 @@ function healthH() {
       </div>
       <div className={styles.infobox}>
         <div className={styles.title}>
-          <div className={styles.title1}>Dr. Sarah Lee</div>
+          <div className={styles.title1}>Dr. Brock Lee</div>
           <div className={styles.title2}>20 Jan 2023</div>
         </div>
         <div className={styles.boxes}>

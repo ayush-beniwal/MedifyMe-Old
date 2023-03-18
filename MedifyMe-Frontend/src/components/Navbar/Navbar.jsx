@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Brand from "../../assets/Brand.svg";
 import Hamburger from "../../assets/Hamburger.svg";
 import styles from "./Navbar.module.css";
@@ -10,6 +10,8 @@ const Navbar = () => {
   const patient = useSelector((state) => {
     return state.patient;
   });
+
+  const location = useLocation();
 
   return (
     <nav className={styles.navbar}>
@@ -26,13 +28,13 @@ const Navbar = () => {
         </div>
         <div className={styles.nav_elements}>
           <ul>
-            <li>
+            <li className={location.pathname === "/health_history" ? styles.active : ""}>
               <Link to="/health_history">Health History</Link>
             </li>
-            <li>
+            <li className={location.pathname === "/prescription" ? styles.active : ""}>
               <Link to="/prescription">Prescriptions</Link>
             </li>
-            <li>
+            <li className={location.pathname === "/tests" ? styles.active : ""}>
               <Link to="/tests">Tests & Reports</Link>
             </li>
             <li>
