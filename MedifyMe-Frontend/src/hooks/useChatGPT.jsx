@@ -1,5 +1,5 @@
 import { useState } from "react";
-API_KEY = import.meta.env.REACT_APP_OPENAPI_KEY;
+
 const systemMessage = {
   role: "system",
   content:
@@ -7,6 +7,7 @@ const systemMessage = {
 };
 
 function useChatGPT() {
+  const API_KEY = import.meta.env.REACT_APP_OPENAPI_KEY;
   const [messages, setMessages] = useState([
     {
       message:

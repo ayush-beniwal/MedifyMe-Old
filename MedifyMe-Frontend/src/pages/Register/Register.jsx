@@ -1,5 +1,6 @@
 import styles from "./Register.module.css";
 import useChatGPT from "../../hooks/useChatGPT";
+import Navbar from "../../components/Navbar/Navbar";
 
 function Register() {
   const { messages, handleSend } = useChatGPT();
