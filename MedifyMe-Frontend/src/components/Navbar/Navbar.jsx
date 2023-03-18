@@ -46,9 +46,8 @@ const Navbar = () => {
                 {!patient.isLoggedIn ? (
                   <Link to="/login">Sign In</Link>
                 ) : (
-                  <Link to="/login"></Link>
+                  <Link to="/account">Account</Link>
                 )}
-                <Link to="/account">Account</Link>
               </div>
             </li>
           </ul>
