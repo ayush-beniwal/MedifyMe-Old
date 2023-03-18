@@ -1,6 +1,5 @@
 import { useState } from "react";
-
-const API_KEY = "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";
+API_KEY = import.meta.env.REACT_APP_OPENAPI_KEY;
 const systemMessage = {
   role: "system",
   content:

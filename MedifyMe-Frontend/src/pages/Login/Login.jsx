@@ -64,9 +64,8 @@ function Login() {
             I am a:
           </label>
           <select className={styles.input_text1} id="sex" name="sex" required>
-            <option value=""></option>
-            <option value="male">Patient</option>
-            <option value="male">Docter</option>
+            <option value="patient">Patient</option>
+            <option value="docter">Docter</option>
           </select>
 
           <button
