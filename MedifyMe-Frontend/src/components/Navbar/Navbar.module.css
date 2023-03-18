@@ -137,3 +137,15 @@ color: #CDAA64;
   padding-right: 20px;
   border-radius: 50px;
 }
+.nav_elements ul li.active a {
+  color: #CDAA64;
+  font-weight: 500;
+  position: relative;
+  text-decoration: none;
+}
+.nav_elements ul li.active a {
+  color: #CDAA64;
+  font-weight: 500;
+  position: relative;
+  text-decoration: none;
+}
