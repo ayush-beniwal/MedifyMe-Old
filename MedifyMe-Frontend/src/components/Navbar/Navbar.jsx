@@ -27,7 +27,7 @@ const Navbar = () => {
         <div className={styles.nav_elements}>
           <ul>
             <li>
-              <Link to="/health_history">Health History</Link>
+              <Link to="/healthHistory">Health History</Link>
             </li>
             <li>
               <Link to="/blog">Prescriptions</Link>
