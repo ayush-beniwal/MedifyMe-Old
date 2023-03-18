@@ -30,14 +30,14 @@ const Navbar = () => {
               <Link to="/health_history">Health History</Link>
             </li>
             <li>
-              <Link to="/blog">Prescriptions</Link>
+              <Link to="/prescriptions">Prescriptions</Link>
             </li>
             <li>
-              <Link to="/projects">Tests & Reports</Link>
+              <Link to="/tests">Tests & Reports</Link>
             </li>
             <li>
               <div className={styles.appointment}>
-                <Link style={{ color: "black" }} to="/about">
+                <Link style={{ color: "black" }} to="/appointment">
                   Appointment
                 </Link>
               </div>
