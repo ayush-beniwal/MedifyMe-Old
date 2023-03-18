@@ -82,3 +82,14 @@ module.exports.register = async (req, res, next) => {
       .json({ message: "Registered Successfully", id, status: 200 });
   }
 };
+
+module.exports.healthHistory = async (req, res) => {
+  try {
+    const { id } = req.query;
+    const foundPatient = await Patient.findById(id);
+    res.status(200).json(foundPatient);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json("Something Went Wrong!");
+  }
+}

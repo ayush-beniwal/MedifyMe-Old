@@ -19,19 +19,27 @@ const Navbar = () => {
         <div>
           <Link to="/">
             <div className={styles.logoSection}>
-            <img alt="brand" src={Brand} />
-            <p className={styles.brand}>
-              MEDIFY<p className={styles.brandIn}>ME</p>
-            </p>
+              <img alt="brand" src={Brand} />
+              <span className={styles.brand}>
+                MEDIFY<p className={styles.brandIn}>ME</p>
+              </span>
             </div>
           </Link>
         </div>
         <div className={styles.nav_elements}>
           <ul>
-            <li className={location.pathname === "/health_history" ? styles.active : ""}>
+            <li
+              className={
+                location.pathname === "/health_history" ? styles.active : ""
+              }
+            >
               <Link to="/health_history">Health History</Link>
             </li>
-            <li className={location.pathname === "/prescription" ? styles.active : ""}>
+            <li
+              className={
+                location.pathname === "/prescription" ? styles.active : ""
+              }
+            >
               <Link to="/prescription">Prescriptions</Link>
             </li>
             <li className={location.pathname === "/tests" ? styles.active : ""}>
