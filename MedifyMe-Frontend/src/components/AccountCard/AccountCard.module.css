@@ -35,23 +35,25 @@
     color: white;
     border-radius: 5px;
     margin-left: 131px;
-    text-decoration: none;
-    padding-top: 50px;
+    text-decoration-color: #2c3e4c;
+    padding-top: 0px;
 }
 
 .manage_docters {
-
+    text-decoration: underline;
+    text-decoration-color: #2D485A;
+    
     color: white;
     border-radius: 5px;
     margin-left: 138px;
-    text-decoration: none;
+    
 }
 
 .general_settings {
     padding: 10px;
     background-color: #CDAA64;
+    text-decoration-color: #CDAA64;
     color: black;
     border-radius: 5px;
     margin-left: 125px;
-    text-decoration: none;
 }
