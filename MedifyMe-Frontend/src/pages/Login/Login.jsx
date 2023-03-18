@@ -30,7 +30,7 @@ function Login() {
       loginResults.data.status === 212
     ) {
       navigate("/register");
-      toast.warn(loginResults.data.message);
+      // toast.warn(loginResults.data.message);
     }
 
     if (
