@@ -46,7 +46,7 @@ const PatientSchema = new Schema({
   visits: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Visits",
+      ref: "Visit",
     },
   ],
   prescription: [

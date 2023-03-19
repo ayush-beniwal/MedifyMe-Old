@@ -64,6 +64,7 @@ function HealthHistory() {
       <div className={styles.docvisit}>
         <div className={styles.t1}>Doctors Visits</div>
         <div className={styles.docs}>
+          {data.visits.map((visit) => {})}
           <div className={styles.doc1}>
             <img src="doc.png" />
             <div>

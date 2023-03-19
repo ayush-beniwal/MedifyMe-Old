@@ -14,6 +14,8 @@ function Home() {
     return state.patient;
   });
 
+  // console.log(patient);
+
   const [form, formResults] = useHealthFormMutation(patient.id);
 
   const handleSubmit = async (event) => {
@@ -27,7 +29,6 @@ function Home() {
     };
     try {
       const { data } = await form(finalData);
-      console.log(data);
     } catch (error) {
       console.error(error);
     }

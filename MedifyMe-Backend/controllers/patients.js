@@ -1,6 +1,6 @@
 const axios = require("axios");
 const Patient = require("../models/patient");
-const Visit = require("../models/visits");
+const Visit = require("../models/visit");
 
 // React Login
 module.exports.login = async (req, res) => {
@@ -88,6 +88,7 @@ module.exports.healthHistory = async (req, res) => {
   try {
     const { id } = req.query;
     const foundPatient = await Patient.findById(id);
+console.log(foundPatient);
     res.status(200).json(foundPatient);
   } catch (err) {
     console.log(err);
@@ -97,18 +98,24 @@ module.exports.healthHistory = async (req, res) => {
 
 module.exports.healthHistoryForm = async (req, res) => {
   try {
-    const id = req.body.data.doctorName;
-    const foundPatient = await Patient.findById(id);
+    const id = req.body.data.id;
+    const foundPatient = await Patient.findById(id).populate({
+      path: "visits",
+    });
     const doctorName = req.body.data.doctorName;
     const date = req.body.data.date;
     const doctorComments = req.body.data.doctorComments;
     const patientComments = req.body.data.patientComments;
-    const visit = new Visit({date, doctorComments, patientComments, doctorName});
-
-    visit.patient = id;
+    const visit = new Visit({visits:[{date, doctorComments, patientComments, doctorName}]});
+    const lastIndex = visit.visits.length - 1;
+    const lastVisitObject = visit.visits[lastIndex];
+    lastVisitObject.patient = id;
     await visit.save();
-    foundPatient.visits.push(visit._id);
-    console.log(visit);
+// console.log(visit);
+    const VisitId = visit.visits[lastIndex]._id.toString();
+    foundPatient.visits.push(VisitId);
+    await foundPatient.save();
+// console.log(foundPatient);
     res.status(200).json(visit);
   } catch (err) {
     console.log(err);
