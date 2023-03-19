@@ -10,22 +10,22 @@ function Prescription() {
         <div className={styles.t1}>Prescription History</div>
         <div className={styles.docs}>
           <div className={styles.doc1}>
-            <div className={styles.date}>20Jan 2023</div>
+            <div className={styles.date}>20 Jan 2023</div>
             <div className={styles.c}>
               <img src="" />
             </div>
           </div>
           <div className={styles.doc1}>
-            <div className={styles.date}>20Jan 2023</div>
+            <div className={styles.date}>18 2023</div>
           </div>
           <div className={styles.doc1}>
-            <div className={styles.date}>20Jan 2023</div>
+            <div className={styles.date}>2 Jan 2023</div>
           </div>
           <div className={styles.doc1}>
-            <div className={styles.date}>20Jan 2023</div>
+            <div className={styles.date}>5 Dec 2022</div>
           </div>
           <div className={styles.doc1}>
-            <div className={styles.date}>20Jan 2023</div>
+            <div className={styles.date}>16 Nov 2022</div>
           </div>
         </div>
       </div>

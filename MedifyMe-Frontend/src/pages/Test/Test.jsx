@@ -106,7 +106,9 @@ It's important to consult with a healthcare professional to fully understand the
               </li>
             </ul>
           </div>
-          <div className={styles.photo}></div>
+          <div className={styles.photo}>
+            <img src="PrescribtionImage.jpg"/>
+          </div>
         </div>
       </div>
     </>
