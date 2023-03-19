@@ -167,7 +167,7 @@
     font-size: 40px;
     line-height: 74px;
     color: #2B3F4E;
-    margin-left: 20px;
+    margin-left: 30px;
 }
 
 .ct2 {
@@ -177,7 +177,7 @@
     font-size: 40px;
     line-height: 74px;
     color: #2B3F4E;
-    margin-left: 320px;
+    margin-left: 500px;
 }
 
 .accordian {
@@ -203,6 +203,7 @@
 .photo {
     background-color: grey;
     border-radius: 15px;
+    margin-left: 10px;
 }
 
 
@@ -212,7 +213,7 @@
     width: 340px;
     height: 310px;
     background: #2B3E4C;
-    border-radius: 20px 20px 0px 0px;
+    border-radius: 20px 20px 20px 20px;
     margin-top: 15px;
     margin-left: 22px;
     padding-bottom: 5px;

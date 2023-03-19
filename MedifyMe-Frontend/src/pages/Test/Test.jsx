@@ -6,10 +6,10 @@ function Test() {
     <>
       <Navbar />
       <div className={styles.PreH}>
-        <div className={styles.t1}>Prescription History</div>
+        <div className={styles.t1}>Reports History</div>
         <div className={styles.docs}>
           <div className={styles.doc1}>
-            <div className={styles.date1}>20Jan 2023</div>
+            <div className={styles.date1}>20 Jan 2023</div>
             <div className={styles.c}>
               <img src="" />
             </div>
@@ -36,7 +36,7 @@ function Test() {
 
 
       <div className={styles.docvisit}>
-        <div className={styles.t1}>Doctors Visits</div>
+        <div className={styles.t1}>Latest test taken</div>
         <div className={styles.docs}>
           <div className={styles.doc1}>
             <img src="doc.png" />
@@ -84,35 +84,25 @@ function Test() {
 
       <div className={styles.currentPres}>
         <div className={styles.ct}>
-          <div className={styles.ct1}>Current Prescription</div>
+          <div className={styles.ct1}>Test Report</div>
           <div className={styles.ct2}>20 Jan 2023</div>
         </div>
         <div className={styles.cont}>
           <div className={styles.accordian}>
             <ul>
               <li>
-                Lipitor (atorvastatin) : Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Iusto quas nisi unde! Ut doloremque id
-                possimus alias amet at consequatur dolores dolor pariatur, nobis
-                voluptatum accusantium eos commodi facilis temporibus?
+              Amit's normal blood test report indicates a healthy immune system and proper organ function.
               </li>
               <li>
-                Zoloft (sertraline) :  Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Iusto quas nisi unde! Ut doloremque id
-                possimus alias amet at consequatur dolores dolor pariatur, nobis
-                voluptatum accusantium eos commodi facilis temporibus?{" "}
+              Regular check-ups and blood tests are important for detecting potential health issues early on.
               </li>
               <li>
-                Flonase (fluticasone)  : Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Iusto quas nisi unde! Ut doloremque id
-                possimus alias amet at consequatur dolores dolor pariatur, nobis
-                voluptatum accusantium eos commodi facilis temporibus?
+              A balanced diet and exercise routine can help maintain optimal blood test results.
+It's important to consult with a healthcare professional to fully understand the implications of blood test results.
               </li>
               <li>
-                Metformin : Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Iusto quas nisi unde! Ut doloremque id possimus alias amet
-                at consequatur dolores dolor pariatur, nobis voluptatum
-                accusantium eos commodi facilis temporibus?
+It's important to consult with a healthcare professional to fully understand the implications of blood test results.
+              
               </li>
             </ul>
           </div>
