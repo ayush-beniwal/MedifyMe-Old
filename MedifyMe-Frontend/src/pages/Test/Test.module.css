@@ -212,6 +212,15 @@
 
     color: #000000;
 }
+.photo {
+    margin-left: 10px;
+}
+
+.photo img{
+    width: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+}
 
 .cont {
     display: grid;
