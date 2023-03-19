@@ -8,30 +8,25 @@ const VisitSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Patient",
       },
-      doctor: {
-        type: Schema.Types.ObjectId,
-        ref: "Doctor",
+      doctorName: {
+        type: String,
       },
       date: {
         type: String,
-        required: true,
       },
       isLatest: {
         type: Boolean,
         required: true,
         default: false,
       },
-      doctorCom: {
+      doctorComments: {
         type: String,
-        required: true,
       },
-      patientCom: {
+      patientComments: {
         type: String,
-        required: true,
       },
       documents: {
         type: String,
-        required: true,
       },
     },
   ],

@@ -5,6 +5,9 @@ const catchAsync = require("../utils/catchAsync");
 
 router.route("/login").post(catchAsync(patients.login));
 router.route("/register").post(catchAsync(patients.register));
-router.route("/health_history").get(patients.healthHistory);
+router
+  .route("/health_history")
+  .get(patients.healthHistory)
+  .post(patients.healthHistoryForm);
 
 module.exports = router;
