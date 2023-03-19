@@ -1,9 +1,9 @@
 .PreH {
     width: 340px;
-    height: 180px;
+    height: 235px;
     background: #2B3E4C;
     border-radius: 20px 20px 0px 0px;
-    margin-top: 15px;
+    margin-top: 20px;
     margin-left: 22px;
     padding-bottom: 5px;
 }
@@ -40,7 +40,18 @@
     display: grid;
     grid-template-rows: repeat(5, 40px);
     row-gap: 15px;
-    height: 130px;
+    height: 180px;
+    margin-left: 15px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+.docs2 {
+    display: grid;
+    grid-template-rows: repeat(5, 40px);
+    row-gap: 15px;
+    height: 225px;
     margin-left: 15px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -220,7 +231,7 @@
 
 .docvisit {
     width: 340px;
-    height: 235px;
+    height: 305px;
     background: #2B3E4C;
     border-radius: 20px 20px 20px 20px;
     margin-top: 15px;
@@ -238,4 +249,21 @@
     background: #E8E8E8;
     border: 3.24152px solid #F2F2F2;
     border-radius: 4.0519px;
+}
+
+.doc2 {
+    background: #F5DBA7;
+    border-radius: 15px;
+    height: 45px;
+    width: 310px;
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.16px;
+    line-height: 18px;
+    letter-spacing: 0.04em;
+    color: #000000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
