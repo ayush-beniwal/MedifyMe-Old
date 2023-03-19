@@ -39,7 +39,7 @@ function Test() {
         <div className={styles.t1}>Latest test taken</div>
         <div className={styles.docs}>
           <div className={styles.doc1}>
-            <img src="doc.png" />
+            <img className={styles.img_size} src="doc.png" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. Roman Reigns</div>
@@ -47,7 +47,7 @@ function Test() {
             <div className={styles.date}>&#128197; 20Jan 2023</div>
           </div>
           <div className={styles.doc1}>
-            <img src="doc.png" />
+            <img className={styles.img_size} src="doc.png" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. Roman Reigns</div>
@@ -55,7 +55,7 @@ function Test() {
             <div className={styles.date}>&#128197; 20Jan 2023</div>
           </div>
           <div className={styles.doc1}>
-            <img src="doc.png" />
+            <img className={styles.img_size} src="doc.png" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. Roman Reigns</div>
@@ -63,7 +63,7 @@ function Test() {
             <div className={styles.date}>&#128197; 20Jan 2023</div>
           </div>
           <div className={styles.doc1}>
-            <img src="doc.png" />
+            <img className={styles.img_size} src="doc.png" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. Roman Reigns</div>
@@ -71,7 +71,7 @@ function Test() {
             <div className={styles.date}>&#128197; 20Jan 2023</div>
           </div>
           <div className={styles.doc1}>
-            <img src="doc.png" />
+            <img  className={styles.img_size} src="doc.png" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. Roman Reigns</div>
