@@ -23,7 +23,7 @@ Image storage: Cloudinary, a cloud-based image and video management platform, ha
 
 State management: Redux, a predictable state container for JavaScript apps, has been used for state management. Redux-toolkit-query has also been used for making API requests and caching their responses.
 
-Deployment: The frontend has been deployed on Netlify, a popular hosting platform for static websites. The backend has been deployed on Google Cloud, a cloud computing platform that provides various services and infrastructure for building, deploying, and managing applications and services.
+Deployment: The frontend has been deployed on Netlify, a popular hosting platform for static websites. The backend has been deployed on onRender, a application for building, deploying, and managing applications and services.
 
 ## Getting started
 
