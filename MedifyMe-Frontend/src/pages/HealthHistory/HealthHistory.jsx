@@ -4,8 +4,9 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useFetchHealthHistoryQuery } from "../../store";
 
-function healthH() {
+function HealthHistory() {
   const navigate = useNavigate();
   const patient = useSelector((state) => {
     return state.patient;
@@ -17,39 +18,44 @@ function healthH() {
       toast.error("Please login to continue");
     }
   }, [navigate, patient.isLoggedIn]);
+
+  const { data, error, isFetching } = useFetchHealthHistoryQuery(patient.id);
+
+  if (isFetching) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  console.log(data);
+
   return (
     <>
       <Navbar />
       <div className={styles.box}>
         <div className={styles.history}>
-          <img src="Ellipse250.png" />
+          <img src={data.photo} />
           <div className={styles.d1}>
             <ul>
-              <li>Name : &nbsp;&nbsp;Sarah Williams</li>
-              <li>Sex : &nbsp;&nbsp;Female</li>
-              <li>Age : &nbsp;&nbsp;25</li>
+              <li>Name : &nbsp;&nbsp;{data.name}</li>
+              <li>Sex : &nbsp;&nbsp;{data.gender}</li>
+              <li>Age : &nbsp;&nbsp;{data.age}</li>
             </ul>
             <ul>
-              <li>Allergies : &nbsp;&nbsp;Lactose</li>
-              <li>Other Conditions : &nbsp;&nbsp;PCOS</li>
-              <li>Weight : &nbsp;&nbsp;56kg</li>
+              <li>Allergies : &nbsp;&nbsp;{data.allergies}</li>
+              <li>Other Conditions : &nbsp;&nbsp;{data.otherConditions}</li>
+              <li>Weight : &nbsp;&nbsp;{data.weight} kg</li>
             </ul>
             <ul>
-              <li>Medications : &nbsp;&nbsp;</li>
-              <li>Height : &nbsp;&nbsp;150cm</li>
+              <li>Medications : &nbsp;&nbsp;{data.medications}</li>
+              <li>Height : &nbsp;&nbsp;{data.height} cm</li>
             </ul>
           </div>
           <div className={styles.d2}>
             <ul>
-              <li>
-                Overview : &nbsp;&nbsp;Sarah has been experiencing stomach ache
-                since she ate pizza last night. The pain is around 7 on a scale
-                of 1 to 10 and touching the area makes it worse. She is lactose
-                intolerant and is not taking any medications or supplements
-                currently. She has no significant health conditions or diseases
-                that run in the family, and no past medical history or chronic
-                conditions to mention.
-              </li>
+              <li>Overview : &nbsp;&nbsp;{data.overview}</li>
             </ul>
           </div>
         </div>
@@ -135,4 +141,4 @@ function healthH() {
   );
 }
 
-export default healthH;
+export default HealthHistory;

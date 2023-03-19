@@ -20,4 +20,8 @@ const store = configureStore({
 setupListeners(store.dispatch);
 
 export { store, loginSuccess, logoutSuccess };
-export { useLoginMutation, useRegisterMutation } from "./apis/patientsApi";
+export {
+  useLoginMutation,
+  useRegisterMutation,
+  useFetchHealthHistoryQuery,
+} from "./apis/patientsApi";

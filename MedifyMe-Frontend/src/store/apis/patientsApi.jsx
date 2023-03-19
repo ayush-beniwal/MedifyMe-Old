@@ -21,8 +21,19 @@ const patientApi = createApi({
         body: { data },
       }),
     }),
+    fetchHealthHistory: builder.query({
+      query: (id) => ({
+        url: "/health_history",
+        params: { id },
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation, useRegisterMutation } = patientApi;
+export const {
+  useLoginMutation,
+  useRegisterMutation,
+  useFetchHealthHistoryQuery,
+} = patientApi;
 export { patientApi };
