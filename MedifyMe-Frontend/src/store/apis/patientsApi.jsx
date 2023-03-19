@@ -28,6 +28,13 @@ const patientApi = createApi({
         method: "GET",
       }),
     }),
+    healthForm: builder.mutation({
+      query: (data) => ({
+        url: "/health_history",
+        method: "POST",
+        body: { data },
+      }),
+    }),
   }),
 });
 
@@ -35,5 +42,6 @@ export const {
   useLoginMutation,
   useRegisterMutation,
   useFetchHealthHistoryQuery,
+  useHealthFormMutation,
 } = patientApi;
 export { patientApi };

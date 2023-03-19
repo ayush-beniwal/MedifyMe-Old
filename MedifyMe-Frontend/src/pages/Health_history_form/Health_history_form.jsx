@@ -2,12 +2,19 @@ import Navbar from "../../components/Navbar/Navbar";
 import styles from "./Health_history_form.module.css";
 import Footer from "../../components/Footer/Footer";
 import { useEffect, useState } from "react";
+import { useHealthFormMutation } from "../../store";
+import { useDispatch, useSelector } from "react-redux";
 
 function Home() {
   const [doctorName, setDoctorName] = useState("");
   const [date, setDate] = useState("");
   const [doctorComments, setDoctorComments] = useState("");
   const [patientComments, setPatientComments] = useState("");
+  const patient = useSelector((state) => {
+    return state.patient;
+  });
+
+  const [form, formResults] = useHealthFormMutation(patient.id);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -16,7 +23,14 @@ function Home() {
       date,
       doctorComments,
       patientComments,
+      id: patient.id,
     };
+    try {
+      const { data } = await form(finalData);
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

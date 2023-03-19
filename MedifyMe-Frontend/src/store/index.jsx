@@ -24,4 +24,5 @@ export {
   useLoginMutation,
   useRegisterMutation,
   useFetchHealthHistoryQuery,
+  useHealthFormMutation,
 } from "./apis/patientsApi";

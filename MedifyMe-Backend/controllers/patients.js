@@ -1,5 +1,6 @@
 const axios = require("axios");
 const Patient = require("../models/patient");
+const Visit = require("../models/visits");
 
 // React Login
 module.exports.login = async (req, res) => {
@@ -92,4 +93,26 @@ module.exports.healthHistory = async (req, res) => {
     console.log(err);
     res.status(400).json("Something Went Wrong!");
   }
+}
+
+module.exports.healthHistoryForm = async (req, res) => {
+  try {
+    const id = req.body.data.doctorName;
+    const foundPatient = await Patient.findById(id);
+    const doctorName = req.body.data.doctorName;
+    const date = req.body.data.date;
+    const doctorComments = req.body.data.doctorComments;
+    const patientComments = req.body.data.patientComments;
+    const visit = new Visit({date, doctorComments, patientComments, doctorName});
+
+    visit.patient = id;
+    await visit.save();
+    foundPatient.visits.push(visit._id);
+    console.log(visit);
+    res.status(200).json(visit);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json("Something Went Wrong!");
+  }
+
 }
