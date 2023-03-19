@@ -113,6 +113,20 @@ function Prescription() {
           <div className={styles.photo}>
             <img src="PrescribtionImage.jpg"/>
           </div>
+
+          <div className="row">
+              <label className={styles.input_prescription} htmlFor="email">
+                Input:
+              </label>
+              <input
+                className={styles.input_text}
+                type="email"
+                id="email"
+                name="email"
+               
+                required
+              />
+            </div>
         </div>
       </div>
     </>

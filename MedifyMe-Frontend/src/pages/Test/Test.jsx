@@ -15,16 +15,16 @@ function Test() {
             </div>
           </div>
           <div className={styles.doc1}>
-            <div className={styles.date1}>20Jan 2023</div>
+            <div className={styles.date1}>23july 2023</div>
           </div>
           <div className={styles.doc1}>
-            <div className={styles.date1}>20Jan 2023</div>
+            <div className={styles.date1}>18feb 2023</div>
           </div>
           <div className={styles.doc1}>
-            <div className={styles.date1}>20Jan 2023</div>
+            <div className={styles.date1}>19Nov 2023</div>
           </div>
           <div className={styles.doc1}>
-            <div className={styles.date1}>20Jan 2023</div>
+            <div className={styles.date1}>20Dec 2023</div>
           </div>
         </div>
       </div>
@@ -42,41 +42,41 @@ function Test() {
             <img className={styles.img_size} src="doc.png" />
             <div>
               <div className={styles.t2}>Dentist</div>
-              <div className={styles.t3}>Dr. Roman Reigns</div>
+              <div className={styles.t3}>Dr. Phillips</div>
             </div>
-            <div className={styles.date}>&#128197; 20Jan 2023</div>
+            <div className={styles.date}>&#128197;20Jan 2023</div>
           </div>
           <div className={styles.doc2}>
             <img className={styles.img_size} src="doc.png" />
             <div>
               <div className={styles.t2}>Dentist</div>
-              <div className={styles.t3}>Dr. Roman Reigns</div>
+              <div className={styles.t3}>Dr. Gylnnei</div>
             </div>
-            <div className={styles.date}>&#128197; 20Jan 2023</div>
+            <div className={styles.date}>&#128197;23july 2023</div>
           </div>
           <div className={styles.doc2}>
             <img className={styles.img_size} src="doc.png" />
             <div>
               <div className={styles.t2}>Dentist</div>
-              <div className={styles.t3}>Dr. Roman Reigns</div>
+              <div className={styles.t3}>Dr. Brickee</div>
             </div>
-            <div className={styles.date}>&#128197; 20Jan 2023</div>
+            <div className={styles.date}>&#128197;18feb 2023</div>
           </div>
           <div className={styles.doc2}>
             <img className={styles.img_size} src="doc.png" />
             <div>
               <div className={styles.t2}>Dentist</div>
-              <div className={styles.t3}>Dr. Roman Reigns</div>
+              <div className={styles.t3}>Dr. Mangle</div>
             </div>
-            <div className={styles.date}>&#128197; 20Jan 2023</div>
+            <div className={styles.date}>&#128197;19Nov 2023</div>
           </div>
           <div className={styles.doc2}>
             <img  className={styles.img_size} src="doc.png" />
             <div>
               <div className={styles.t2}>Dentist</div>
-              <div className={styles.t3}>Dr. Roman Reigns</div>
+              <div className={styles.t3}>Dr. B.Sicke</div>
             </div>
-            <div className={styles.date}>&#128197; 20Jan 2023</div>
+            <div className={styles.date}>&#128197;20Jan 2023</div>
           </div>
         </div>
       </div>
@@ -98,11 +98,12 @@ function Test() {
               </li>
               <li>
               A balanced diet and exercise routine can help maintain optimal blood test results.
-It's important to consult with a healthcare professional to fully understand the implications of blood test results.
+            It's important to consult with a healthcare professional to fully understand the implications of blood test results.
               </li>
               <li>
-It's important to consult with a healthcare professional to fully understand the implications of blood test results.
-              
+            It's important to consult with a healthcare professional to fully understand the implications of blood test results.
+             
+             
               </li>
             </ul>
           </div>
