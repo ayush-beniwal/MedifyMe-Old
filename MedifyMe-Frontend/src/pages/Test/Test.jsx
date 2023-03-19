@@ -1,7 +1,23 @@
 import Navbar from "../../components/Navbar/Navbar";
 import styles from "./Test.module.css";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Test() {
+  const patient = useSelector((state) => {
+    return state.patient;
+  });
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!patient.isLoggedIn) {
+      navigate("/login");
+      toast.error("Please login to continue");
+    }
+  }, [navigate, patient.isLoggedIn]);
+
   return (
     <>
       <Navbar />
@@ -33,7 +49,6 @@ function Test() {
           <div className={styles.b}>Create New Record</div>
         </a>
       </div>
-
 
       <div className={styles.docvisit}>
         <div className={styles.t1}>Latest test taken</div>
@@ -71,7 +86,7 @@ function Test() {
             <div className={styles.date}>&#128197;19Nov 2023</div>
           </div>
           <div className={styles.doc2}>
-            <img  className={styles.img_size} src="doc.png" />
+            <img className={styles.img_size} src="doc.png" />
             <div>
               <div className={styles.t2}>Dentist</div>
               <div className={styles.t3}>Dr. B.Sicke</div>
@@ -80,7 +95,6 @@ function Test() {
           </div>
         </div>
       </div>
-
 
       <div className={styles.currentPres}>
         <div className={styles.ct}>
@@ -91,24 +105,27 @@ function Test() {
           <div className={styles.accordian}>
             <ul>
               <li>
-              Amit's normal blood test report indicates a healthy immune system and proper organ function.
+                Amit's normal blood test report indicates a healthy immune
+                system and proper organ function.
               </li>
               <li>
-              Regular check-ups and blood tests are important for detecting potential health issues early on.
+                Regular check-ups and blood tests are important for detecting
+                potential health issues early on.
               </li>
               <li>
-              A balanced diet and exercise routine can help maintain optimal blood test results.
-            It's important to consult with a healthcare professional to fully understand the implications of blood test results.
+                A balanced diet and exercise routine can help maintain optimal
+                blood test results. It's important to consult with a healthcare
+                professional to fully understand the implications of blood test
+                results.
               </li>
               <li>
-            It's important to consult with a healthcare professional to fully understand the implications of blood test results.
-             
-             
+                It's important to consult with a healthcare professional to
+                fully understand the implications of blood test results.
               </li>
             </ul>
           </div>
           <div className={styles.photo}>
-            <img src="PrescribtionImage.jpg"/>
+            <img src="PrescribtionImage.jpg" />
           </div>
         </div>
       </div>

@@ -3,8 +3,23 @@ import styles from "./Prescription.module.css";
 import { Link } from "react-router-dom";
 import useChatGPT from "../../hooks/useChatGPT";
 import { useRef, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Prescription() {
+  const patient = useSelector((state) => {
+    return state.patient;
+  });
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!patient.isLoggedIn) {
+      navigate("/login");
+      toast.error("Please login to continue");
+    }
+  }, [navigate, patient.isLoggedIn]);
+
   const { messages, handleSend } = useChatGPT({
     content:
       "I want you to generate an initial message as ayukumi , and you will take the users doubts about his medicine dosage , frequency , allergy compatibility etc. You need to ask these one by one and wait for user input.  First Ask the user for medicine name ,  and wait for user input. Second and then ask him what doubt he is facing. In case the user says he is facing some issue due to a particular medicine intake, look up potential ways to ease that and suggest them as first measures. Also tell you will notify the doctor if you find that the problem is too severe. Now generate a welcome message for the user",
