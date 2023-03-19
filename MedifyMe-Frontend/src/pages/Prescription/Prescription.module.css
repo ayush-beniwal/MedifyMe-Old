@@ -62,9 +62,7 @@
 .button a {
     text-decoration: none;
 }
-.date {
-    padding-left: 15px;
-}
+
 .b {
     padding: 2px 35px;
     background: #CDAA64;
@@ -197,12 +195,66 @@
     margin-left: 10px;
 }
 
-.photo img{
+
+
+.photo img {
     width: 400px;
     object-fit: cover;
     border-radius: 15px;
 }
-.input_text{
-    width:100%;
-    height:40px;
+
+.grid_1 {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.input_text {
+    margin-top: 15px;
+    padding-left: 30px;
+    margin-left: 10px;
+    width: 970px;
+    height: 80px;
+    border-radius: 8px;
+    border: none;
+    background: #d4ddd3;
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 74px;
+
+}
+
+.bt {
+    margin-left: 25px;
+    margin-top: 30px;
+
+}
+
+.button_size {
+    width: 50px;
+    height: auto;
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+    position: absolute;
+    left: 91%;
+}
+
+.img_size {
+    width: 60px;
+}
+
+.input_text:focus-visible {
+    outline: none;
+}
+
+.outgoing {
+    color: rgb(224, 102, 102);
+}
+
+.date {
+    margin-left: 10px;
 }

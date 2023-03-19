@@ -1,8 +1,29 @@
 import Navbar from "../../components/Navbar/Navbar";
 import styles from "./Prescription.module.css";
 import { Link } from "react-router-dom";
+import useChatGPT from "../../hooks/useChatGPT";
+import { useRef, useEffect } from "react";
 
 function Prescription() {
+  const { messages, handleSend } = useChatGPT({
+    content:
+      "I want you to generate an initial message as ayukumi , and you will take the users doubts about his medicine dosage , frequency , allergy compatibility etc. You need to ask these one by one and wait for user input.  First Ask the user for medicine name ,  and wait for user input. Second and then ask him what doubt he is facing. In case the user says he is facing some issue due to a particular medicine intake, look up potential ways to ease that and suggest them as first measures. Also tell you will notify the doctor if you find that the problem is too severe. Now generate a welcome message for the user",
+    InitialMessage:
+      "Hello! I am Ayukumi, your personal healthcare assistant. How may I assist you today? Please let me know the name of the medicine you have a query about.",
+  });
+  const messageListRef = useRef(null);
+  const inputRef = useRef(null);
+
+  const handleButtonClick = () => {
+    const inputValue = inputRef.current.value;
+    handleSend(inputValue);
+    inputRef.current.value = "";
+
+    useEffect(() => {
+      messageListRef.current.lastChild.scrollIntoView();
+      inputRef.current.focus();
+    }, [messages]);
+  };
   return (
     <>
       <Navbar />
@@ -16,7 +37,7 @@ function Prescription() {
             </div>
           </div>
           <div className={styles.doc1}>
-            <div className={styles.date}>18 2023</div>
+            <div className={styles.date}>18 Jan 2023</div>
           </div>
           <div className={styles.doc1}>
             <div className={styles.date}>2 Jan 2023</div>
@@ -44,16 +65,16 @@ function Prescription() {
           <div className={styles.con}>
             <ol>
               <li>
-              Amoxicillin: <span className={styles.d}>x1/day</span>
+                Amoxicillin: <span className={styles.d}>x1/day</span>
               </li>
               <li>
-              Benzocaine: <span className={styles.d}>x1/day</span>
+                Benzocaine: <span className={styles.d}>x1/day</span>
               </li>
               <li>
-              Ibuprofen: <span className={styles.d}>x1/day</span>
+                Ibuprofen: <span className={styles.d}>x1/day</span>
               </li>
               <li>
-              hlorhexidine mouthwash: <span className={styles.d}>x1/day</span>
+                hlorhexidine mouthwash: <span className={styles.d}>x1/day</span>
               </li>
             </ol>
           </div>
@@ -90,43 +111,43 @@ function Prescription() {
         </div>
         <div className={styles.cont}>
           <div className={styles.accordian}>
-            <ul>
-              <li>
-              1. Amoxicillin: This is a common antibiotic that is often prescribed to fight infections in the mouth. The usual adult dose is 500 mg three times a day for 7-10 days. Side effects may include stomach upset, diarrhea, and allergic reactions. 
-              Patients should finish the entire course of antibiotics, even if they start feeling better.
-              </li>
-              <li>
-              Benzocaine: This is a topical numbing agent that can be applied directly to the affected tooth and gum area to relieve pain. 
-              It can be found in some OTC products such as Orajel and Anbesol.
-              
-              </li>
-              <li>
-              3. Ibuprofen: This is a nonsteroidal anti-inflammatory drug (NSAID) that is often used to relieve pain and reduce inflammation in the mouth. The usual adult dose is 200-400 mg every 4-6 hours as needed. Side effects may include stomach upset, nausea, and dizziness. 
-              Patients should not take more than the recommended dose and should avoid taking ibuprofen for more than a few days at a time.
-              </li>
-              <li>
-              4. Chlorhexidine mouthwash: This is an antiseptic mouthwash that is often used to reduce the amount of bacteria in the mouth and prevent infection. The usual dose is to rinse with 15 mL of undiluted mouthwash twice daily for 30 seconds. Side effects may include staining of the teeth or tongue, altered taste perception, and dry mouth. 
-              Patients should not swallow the mouthwash and should avoid eating or drinking for 30 minutes after rinsing.
-              </li>
-            </ul>
+            {messages.map((message, i) => (
+              <div
+                key={i}
+                className={`${
+                  message.sender === "ChatGPT"
+                    ? styles.incoming
+                    : styles.outgoing
+                }`}
+              >
+                <div className={styles.messageText}>{message.message}</div>
+              </div>
+            ))}
           </div>
           <div className={styles.photo}>
-            <img src="PrescribtionImage.jpg"/>
+            <img src="PrescribtionImage.jpg" />
           </div>
 
           <div className="row">
-              <label className={styles.input_prescription} htmlFor="email">
-                Input:
-              </label>
-              <input
-                className={styles.input_text}
-                type="email"
-                id="email"
-                name="email"
-               
-                required
-              />
-            </div>
+            <input
+              className={styles.input_text}
+              type="text"
+              placeholder="Enter your message here"
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  handleSend(e.target.value);
+                  e.target.value = "";
+                }
+              }}
+              ref={inputRef}
+              required
+            />
+          </div>
+          <div className={styles.bt}>
+            <button onClick={handleButtonClick} className={styles.button_size}>
+              <img src="Black.png" className={styles.img_size} />
+            </button>
+          </div>
         </div>
       </div>
     </>
