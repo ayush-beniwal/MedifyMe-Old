@@ -62,7 +62,9 @@
 .button a {
     text-decoration: none;
 }
-
+.date {
+    padding-left: 15px;
+}
 .b {
     padding: 2px 35px;
     background: #CDAA64;
