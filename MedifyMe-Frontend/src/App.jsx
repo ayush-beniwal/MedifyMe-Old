@@ -1,6 +1,7 @@
 import Home from "./pages/Home/Home";
 import Account from "./pages/Account/Account";
 import Payments from "./pages/Payments";
+import Loading from "./components/Loading/Loading";
 import Login from "./pages/Login/Login";
 import Health_history_form from "./pages/Health_history_form/Health_history_form";
 import Register from "./pages/Register/Register";
@@ -29,6 +30,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route index element={<Home />} />
+      <Route path="loading" element={<Loading/>}/>
       <Route path="account" element={<Account />} />
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
