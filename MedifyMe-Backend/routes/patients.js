@@ -10,4 +10,6 @@ router
   .get(patients.healthHistory)
   .post(patients.healthHistoryForm);
 
+router.route("/visits").get(patients.visits);
+
 module.exports = router;

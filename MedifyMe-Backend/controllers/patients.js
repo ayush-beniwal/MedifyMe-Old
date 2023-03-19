@@ -87,8 +87,8 @@ module.exports.register = async (req, res, next) => {
 module.exports.healthHistory = async (req, res) => {
   try {
     const { id } = req.query;
-    const foundPatient = await Patient.findById(id);
-console.log(foundPatient);
+    const foundPatient = await Patient.findById(id)
+// console.log(foundPatient);
     res.status(200).json(foundPatient);
   } catch (err) {
     console.log(err);
@@ -122,4 +122,16 @@ module.exports.healthHistoryForm = async (req, res) => {
     res.status(400).json("Something Went Wrong!");
   }
 
+}
+
+module.exports.visits = async (req, res) => {
+  try {
+    const { id } = req.query;
+    const visit = await Visit.findById(id)
+    // console.log(visit);
+    res.status(200).json(visit);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json("Something Went Wrong!");
+  }
 }

@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useFetchHealthHistoryQuery } from "../../store";
 import { Link } from "react-router-dom";
+import axios from "axios";
+const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
 function HealthHistory() {
   const navigate = useNavigate();
@@ -64,7 +66,6 @@ function HealthHistory() {
       <div className={styles.docvisit}>
         <div className={styles.t1}>Doctors Visits</div>
         <div className={styles.docs}>
-          {data.visits.map((visit) => {})}
           <div className={styles.doc1}>
             <img src="doc.png" />
             <div>

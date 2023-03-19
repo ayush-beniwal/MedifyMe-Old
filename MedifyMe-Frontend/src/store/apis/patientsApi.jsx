@@ -28,6 +28,13 @@ const patientApi = createApi({
         method: "GET",
       }),
     }),
+    fetchVisits: builder.query({
+      query: (id) => ({
+        url: "/visits",
+        params: { id },
+        method: "GET",
+      }),
+    }),
     healthForm: builder.mutation({
       query: (data) => ({
         url: "/health_history",
@@ -43,5 +50,6 @@ export const {
   useRegisterMutation,
   useFetchHealthHistoryQuery,
   useHealthFormMutation,
+  useFetchVisitsQuery,
 } = patientApi;
 export { patientApi };
