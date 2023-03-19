@@ -7,6 +7,12 @@
     margin-left: 22px;
     padding-bottom: 5px;
 }
+.date1{
+    padding-left:20px;
+    padding-bottom: 5px;
+    padding-top: 6px;
+    
+}
 
 .t1 {
     font-family: 'Work Sans';
@@ -54,6 +60,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+.img_size{
+    width:40px
 }
 
 .button {
@@ -211,7 +220,7 @@
 
 .docvisit {
     width: 340px;
-    height: 310px;
+    height: 235px;
     background: #2B3E4C;
     border-radius: 20px 20px 20px 20px;
     margin-top: 15px;
