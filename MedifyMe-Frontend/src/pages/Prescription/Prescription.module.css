@@ -192,7 +192,11 @@
 }
 
 .photo {
-    background-color: grey;
-    border-radius: 15px;
     margin-left: 10px;
+}
+
+.photo img{
+    width: 400px;
+    object-fit: cover;
+    border-radius: 15px;
 }

@@ -1,5 +1,6 @@
 import Navbar from "../../components/Navbar/Navbar";
 import styles from "./Prescription.module.css";
+import { Link } from "react-router-dom";
 
 function Prescription() {
   return (
@@ -29,9 +30,9 @@ function Prescription() {
         </div>
       </div>
       <div className={styles.button}>
-        <a href="">
+        <Link to="/prescription_form">
           <div className={styles.b}>Create New Record</div>
-        </a>
+        </Link>
       </div>
       <div className={styles.currMed}>
         <div className={styles.t1}>Current Medications</div>
@@ -109,7 +110,9 @@ function Prescription() {
               </li>
             </ul>
           </div>
-          <div className={styles.photo}></div>
+          <div className={styles.photo}>
+            <img src="PrescribtionImage.jpg"/>
+          </div>
         </div>
       </div>
     </>
