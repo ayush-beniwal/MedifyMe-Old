@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useFetchHealthHistoryQuery } from "../../store";
+import { Link } from "react-router-dom";
 
 function HealthHistory() {
   const navigate = useNavigate();
@@ -106,9 +107,9 @@ function HealthHistory() {
         </div>
       </div>
       <div className={styles.button}>
-        <a href="">
+        <Link to="/healthHistoryForm">
           <div className={styles.b}>Create New Record</div>
-        </a>
+        </Link>
       </div>
       <div className={styles.infobox}>
         <div className={styles.title}>
