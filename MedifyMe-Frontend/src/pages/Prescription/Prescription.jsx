@@ -43,16 +43,16 @@ function Prescription() {
           <div className={styles.con}>
             <ol>
               <li>
-                Lipitor (atorvastatin) <span className={styles.d}>x1/day</span>
+              Amoxicillin: <span className={styles.d}>x1/day</span>
               </li>
               <li>
-                Zoloft (sertraline) <span className={styles.d}>x1/day</span>
+              Benzocaine: <span className={styles.d}>x1/day</span>
               </li>
               <li>
-                Flonase (fluticasone) <span className={styles.d}>x1/day</span>
+              Ibuprofen: <span className={styles.d}>x1/day</span>
               </li>
               <li>
-                Metformin <span className={styles.d}>x1/day</span>
+              hlorhexidine mouthwash: <span className={styles.d}>x1/day</span>
               </li>
             </ol>
           </div>
@@ -91,28 +91,21 @@ function Prescription() {
           <div className={styles.accordian}>
             <ul>
               <li>
-                Lipitor (atorvastatin) : Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Iusto quas nisi unde! Ut doloremque id
-                possimus alias amet at consequatur dolores dolor pariatur, nobis
-                voluptatum accusantium eos commodi facilis temporibus?
+              1. Amoxicillin: This is a common antibiotic that is often prescribed to fight infections in the mouth. The usual adult dose is 500 mg three times a day for 7-10 days. Side effects may include stomach upset, diarrhea, and allergic reactions. 
+              Patients should finish the entire course of antibiotics, even if they start feeling better.
               </li>
               <li>
-                Zoloft (sertraline) :  Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Iusto quas nisi unde! Ut doloremque id
-                possimus alias amet at consequatur dolores dolor pariatur, nobis
-                voluptatum accusantium eos commodi facilis temporibus?{" "}
+              Benzocaine: This is a topical numbing agent that can be applied directly to the affected tooth and gum area to relieve pain. 
+              It can be found in some OTC products such as Orajel and Anbesol.
+              
               </li>
               <li>
-                Flonase (fluticasone)  : Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Iusto quas nisi unde! Ut doloremque id
-                possimus alias amet at consequatur dolores dolor pariatur, nobis
-                voluptatum accusantium eos commodi facilis temporibus?
+              3. Ibuprofen: This is a nonsteroidal anti-inflammatory drug (NSAID) that is often used to relieve pain and reduce inflammation in the mouth. The usual adult dose is 200-400 mg every 4-6 hours as needed. Side effects may include stomach upset, nausea, and dizziness. 
+              Patients should not take more than the recommended dose and should avoid taking ibuprofen for more than a few days at a time.
               </li>
               <li>
-                Metformin : Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Iusto quas nisi unde! Ut doloremque id possimus alias amet
-                at consequatur dolores dolor pariatur, nobis voluptatum
-                accusantium eos commodi facilis temporibus?
+              4. Chlorhexidine mouthwash: This is an antiseptic mouthwash that is often used to reduce the amount of bacteria in the mouth and prevent infection. The usual dose is to rinse with 15 mL of undiluted mouthwash twice daily for 30 seconds. Side effects may include staining of the teeth or tongue, altered taste perception, and dry mouth. 
+              Patients should not swallow the mouthwash and should avoid eating or drinking for 30 minutes after rinsing.
               </li>
             </ul>
           </div>
