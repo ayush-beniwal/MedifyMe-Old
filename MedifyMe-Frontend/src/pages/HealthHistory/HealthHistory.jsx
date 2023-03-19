@@ -6,17 +6,42 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useFetchHealthHistoryQuery } from "../../store";
 import { Link } from "react-router-dom";
+import Loading from "../../components/Loading/Loading";
 
 function HealthHistory() {
   const patient = useSelector((state) => {
     return state.patient;
   });
+
   const { data, error, isFetching, refetch } = useFetchHealthHistoryQuery(
     patient.id
   );
 
   const [selectedVisit, setSelectedVisit] = useState(data?.visits?.[0] ?? null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!patient.isLoggedIn) {
+      navigate("/login");
+      toast.error("Please login to continue");
+    }
+    refetch();
+    if (data && selectedVisit === null) {
+      setSelectedVisit(data.visits[0]);
+    }
+  }, [navigate, patient.isLoggedIn, data, refetch, selectedVisit]);
+
+  if (isFetching) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   let content;
 
@@ -38,17 +63,6 @@ function HealthHistory() {
       );
     });
   }
-
-  useEffect(() => {
-    if (!patient.isLoggedIn) {
-      navigate("/login");
-      toast.error("Please login to continue");
-    }
-    refetch();
-    if (data && selectedVisit === null) {
-      setSelectedVisit(data.visits[0]);
-    }
-  }, [navigate, patient.isLoggedIn, data, refetch, selectedVisit]);
 
   return (
     <>
