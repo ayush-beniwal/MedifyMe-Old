@@ -4,8 +4,10 @@ import Footer from "../../components/Footer/Footer";
 import { useEffect, useState } from "react";
 import { useHealthFormMutation } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
   const [doctorName, setDoctorName] = useState("");
   const [date, setDate] = useState("");
   const [doctorComments, setDoctorComments] = useState("");
@@ -32,6 +34,7 @@ function Home() {
     } catch (error) {
       console.error(error);
     }
+    navigate("/health_history");
   };
 
   return (

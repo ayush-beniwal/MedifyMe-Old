@@ -87,7 +87,7 @@ module.exports.register = async (req, res, next) => {
 module.exports.healthHistory = async (req, res) => {
   try {
     const { id } = req.query;
-    const foundPatient = await Patient.findById(id)
+    const foundPatient = await Patient.findById(id).populate("visits")
 // console.log(foundPatient);
     res.status(200).json(foundPatient);
   } catch (err) {
@@ -99,23 +99,16 @@ module.exports.healthHistory = async (req, res) => {
 module.exports.healthHistoryForm = async (req, res) => {
   try {
     const id = req.body.data.id;
-    const foundPatient = await Patient.findById(id).populate({
-      path: "visits",
-    });
+    const foundPatient = await Patient.findById(id)
     const doctorName = req.body.data.doctorName;
     const date = req.body.data.date;
     const doctorComments = req.body.data.doctorComments;
     const patientComments = req.body.data.patientComments;
-    const visit = new Visit({visits:[{date, doctorComments, patientComments, doctorName}]});
-    const lastIndex = visit.visits.length - 1;
-    const lastVisitObject = visit.visits[lastIndex];
-    lastVisitObject.patient = id;
+    const visit = new Visit({date, doctorComments, patientComments, doctorName, patient: id});
     await visit.save();
-// console.log(visit);
-    const VisitId = visit.visits[lastIndex]._id.toString();
+    const VisitId = visit._id.toString();
     foundPatient.visits.push(VisitId);
     await foundPatient.save();
-// console.log(foundPatient);
     res.status(200).json(visit);
   } catch (err) {
     console.log(err);

@@ -1,38 +1,54 @@
 import Navbar from "../../components/Navbar/Navbar";
 import styles from "./HealthHistory.module.css";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useFetchHealthHistoryQuery } from "../../store";
 import { Link } from "react-router-dom";
-import axios from "axios";
-const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
 function HealthHistory() {
-  const navigate = useNavigate();
   const patient = useSelector((state) => {
     return state.patient;
   });
+  const { data, error, isFetching, refetch } = useFetchHealthHistoryQuery(
+    patient.id
+  );
+
+  const [selectedVisit, setSelectedVisit] = useState(data?.visits?.[0] ?? null);
+  const navigate = useNavigate();
+
+  let content;
+
+  if (data) {
+    content = data.visits.map((visit, index) => {
+      return (
+        <div
+          key={index}
+          className={styles.doc2}
+          onClick={() => setSelectedVisit(visit)}
+        >
+          <img src="doc.png" />
+          <div>
+            <div className={styles.t2}>Doctor</div>
+            <div className={styles.t3}>{visit.doctorName}</div>
+          </div>
+          <div className={styles.date}>&#128197; {visit.date}</div>
+        </div>
+      );
+    });
+  }
 
   useEffect(() => {
     if (!patient.isLoggedIn) {
       navigate("/login");
       toast.error("Please login to continue");
     }
-  }, [navigate, patient.isLoggedIn]);
-
-  const { data, error, isFetching } = useFetchHealthHistoryQuery(patient.id);
-
-  if (isFetching) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
-
-  console.log(data);
+    refetch();
+    if (data && selectedVisit === null) {
+      setSelectedVisit(data.visits[0]);
+    }
+  }, [navigate, patient.isLoggedIn, data, refetch, selectedVisit]);
 
   return (
     <>
@@ -65,81 +81,38 @@ function HealthHistory() {
       </div>
       <div className={styles.docvisit}>
         <div className={styles.t1}>Doctors Visits</div>
-        <div className={styles.docs}>
-          <div className={styles.doc1}>
-            <img src="doc.png" />
-            <div>
-              <div className={styles.t2}>Dentist</div>
-              <div className={styles.t3}>Dr. Roman Reigns</div>
-            </div>
-            <div className={styles.date}>&#128197; 20Jan 2023</div>
-          </div>
-          <div className={styles.doc2}>
-            <img src="doc.png" />
-            <div>
-              <div className={styles.t2}>Dentist</div>
-              <div className={styles.t3}>Dr. Roman Reigns</div>
-            </div>
-            <div className={styles.date}>&#128197; 20Jan 2023</div>
-          </div>
-          <div className={styles.doc2}>
-            <img src="doc.png" />
-            <div>
-              <div className={styles.t2}>Dentist</div>
-              <div className={styles.t3}>Dr. Roman Reigns</div>
-            </div>
-            <div className={styles.date}>&#128197; 20Jan 2023</div>
-          </div>
-          <div className={styles.doc2}>
-            <img src="doc.png" />
-            <div>
-              <div className={styles.t2}>Dentist</div>
-              <div className={styles.t3}>Dr. Roman Reigns</div>
-            </div>
-            <div className={styles.date}>&#128197; 20Jan 2023</div>
-          </div>
-          <div className={styles.doc2}>
-            <img src="doc.png" />
-            <div>
-              <div className={styles.t2}>Dentist</div>
-              <div className={styles.t3}>Dr. Roman Reigns</div>
-            </div>
-            <div className={styles.date}>&#128197; 20Jan 2023</div>
-          </div>
-        </div>
+        <div className={styles.docs}>{content}</div>
       </div>
       <div className={styles.button}>
         <Link to="/healthHistoryForm">
           <div className={styles.b}>Create New Record</div>
         </Link>
       </div>
-      <div className={styles.infobox}>
-        <div className={styles.title}>
-          <div className={styles.title1}>Dr. Brock Lee</div>
-          <div className={styles.title2}>20 Jan 2023</div>
-        </div>
-        <div className={styles.boxes}>
-          <div className={styles.doccomments}>
-            <div className={styles.doccommentst}>Doctors Comments</div>
-            <div className={styles.comments}>
-              Sarah has been experiencing stomach ache since she ate pizza last
-              night. The pain is around 7 on a scale of 1 to 10 and touching the
-              area makes it worse.
+      {selectedVisit && (
+        <div className={styles.infobox}>
+          <div className={styles.title}>
+            <div className={styles.title1}>{selectedVisit.doctorName}</div>
+            <div className={styles.title2}>{selectedVisit.date}</div>
+          </div>
+          <div className={styles.boxes}>
+            <div className={styles.doccomments}>
+              <div className={styles.doccommentst}>Doctors Comments</div>
+              <div className={styles.comments}>
+                {selectedVisit.doctorComments}
+              </div>
+            </div>
+            <div className={styles.doccomments}>
+              <div className={styles.doccommentst}>Patient Comments</div>
+              <div className={styles.comments}>
+                {selectedVisit.patientComments}
+              </div>
+            </div>
+            <div className={styles.doccomments}>
+              <div className={styles.documentst}>Uploaded Documents</div>
             </div>
           </div>
-          <div className={styles.doccomments}>
-            <div className={styles.doccommentst}>Patient Comments</div>
-            <div className={styles.comments}>
-              Sarah has been experiencing stomach ache since she ate pizza last
-              night. The pain is around 7 on a scale of 1 to 10 and touching the
-              area makes it worse.
-            </div>
-          </div>
-          <div className={styles.doccomments}>
-            <div className={styles.documentst}>Uploaded Documents</div>
-          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
