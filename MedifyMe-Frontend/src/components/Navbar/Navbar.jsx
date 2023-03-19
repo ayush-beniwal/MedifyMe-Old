@@ -20,9 +20,9 @@ const Navbar = () => {
           <Link to="/">
             <div className={styles.logoSection}>
             <img alt="brand" src={Brand} />
-            <p className={styles.brand}>
+            <span className={styles.brand}>
               MEDIFY<p className={styles.brandIn}>ME</p>
-            </p>
+            </span>
             </div>
           </Link>
         </div>
