@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+
+[[redirects]]
+  from = "/server/*"
+  to = "https://medifyme-backend.onrender.com"
+  status = 200
+  force = true
