@@ -2,12 +2,13 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import dotenv from "dotenv";
 import httpProxy from "http-proxy";
-
 dotenv.config();
+
+// const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
 function createMyProxy() {
   return httpProxy.createProxy({
-    target: "https://medifyme-backend.onrender.com",
+    target: process.env.VITE_SERVER_URL,
     changeOrigin: true,
     pathRewrite: { "^/server": "" },
   });
@@ -18,7 +19,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/server": {
-        target: "https://medifyme-backend.onrender.com",
+        target: process.env.VITE_SERVER_URL,
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/server/, ""),
         createProxy: createMyProxy,

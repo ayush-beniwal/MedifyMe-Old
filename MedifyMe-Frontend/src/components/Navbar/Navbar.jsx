@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Brand from "../../assets/Brand.svg";
 import Hamburger from "../../assets/Hamburger.svg";
@@ -58,7 +57,7 @@ const Navbar = () => {
                 {!patient.isLoggedIn ? (
                   <Link to="/login">Sign In</Link>
                 ) : (
-                  <Link to="/account">Account</Link>
+                  <Link to="/settings/account">Account</Link>
                 )}
               </div>
             </li>

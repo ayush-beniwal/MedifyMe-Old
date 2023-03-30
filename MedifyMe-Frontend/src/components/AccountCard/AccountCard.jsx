@@ -1,32 +1,54 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./AccountCard.module.css";
 
 function AccountCard() {
+  const location = useLocation();
+  console.log(location.pathname);
+
   return (
     <div className={styles.left_wrapper}>
       <div className={styles.card}>
-        <img src="Ellipse250.png" alt="" className={styles.img} />
-        <div>
+        <img
+          src={import.meta.env.BASE_URL + "Ellipse250.png"}
+          alt=""
+          className={styles.img}
+        />
+        <div className={styles.list}>
           <h2 className={styles.id}>ID: #SA2347OLF</h2>
-          <p className={styles.general_p}>
-          <Link to="/account">
-            <a className={styles.general_settings} href="">
+          <p className={styles.margin_top}>
+            <Link
+              className={
+                location.pathname === "/settings/account"
+                  ? styles.selected
+                  : styles.default
+              }
+              to="/settings/account"
+            >
               General Settings
-            </a>
             </Link>
           </p>
-          <p className={styles.manage_p}>
-          <Link to="/manage_doctors">
-            <a className={styles.manage_docters} href="">
+          <p className={styles.margin_top}>
+            <Link
+              className={
+                location.pathname === "/settings/manage_doctors"
+                  ? styles.selected
+                  : styles.default
+              }
+              to="/settings/manage_doctors"
+            >
               Manage Doctor
-            </a>
             </Link>
           </p>
-          <p className={styles.payment_p}>
-          <Link to="/payments">
-            <a className={styles.payment_settings} href="">
+          <p className={styles.margin_top}>
+            <Link
+              className={
+                location.pathname === "/settings/payment"
+                  ? styles.selected
+                  : styles.default
+              }
+              to="/settings/payment"
+            >
               Payment Settings
-            </a>
             </Link>
           </p>
         </div>

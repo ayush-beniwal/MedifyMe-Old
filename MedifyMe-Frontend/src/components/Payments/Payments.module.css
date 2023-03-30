@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+.right_wrapper {
+  margin-top: 50px;
+  width: auto;
+  height: 600px;
+  background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
+  border-top-left-radius: 20px;
+  padding-top: 30px;
+}
+
+.img_payment {
+  width: 500px;
+  margin-left: 150px;
+  margin-top: 150px;
+  justify-self: center;
+  height: auto
+}
+
+.payments_content {
+  margin-top: 50px;
+  margin-left: 250px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 41px;
+
+  color: #FFFFFF;
+}
+
+.logout {
+  margin-left: 650px;
+  width: 68px;
+  background: #CDAA64;
+  border-radius: 30px;
+}
+
+.logout_link {
+  text-decoration: none;
+  padding-left: 10px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 28px;
+  /* identical to box height */
+  color: #000000;
+
+}

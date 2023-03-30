@@ -18,42 +18,23 @@
     text-align: center;
 }
 
-.payment_p {
+.margin_top {
     margin-top: 32px;
 }
 
-.manage_p {
-    margin-top: 32px;
+.list {
+    text-align: center;
 }
 
-.general_p {
-    margin-top: 32px;
-}
-
-.payment_settings {
-
+.default {
+    text-decoration: none;
     color: white;
-    border-radius: 5px;
-    margin-left: 131px;
-    text-decoration-color: #2c3e4c;
-    padding-top: 0px;
 }
 
-.manage_docters {
-    text-decoration: underline;
-    text-decoration-color: #2D485A;
-    
-    color: white;
-    border-radius: 5px;
-    margin-left: 138px;
-    
-}
-
-.general_settings {
+.selected {
     padding: 10px;
     background-color: #CDAA64;
-    text-decoration-color: #CDAA64;
+    text-decoration: none;
     color: black;
     border-radius: 5px;
-    margin-left: 125px;
 }
