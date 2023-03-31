@@ -25,7 +25,7 @@ COPY . .
 EXPOSE 6969
 
 # Set environment variables
-ENV DB_URL=mongodb+srv://admin:r1nBWOBgeL1xdWDi@medifyme.eoywvd4.mongodb.net/?retryWrites=true&w=majority
+ENV DB_URL=link
 ENV PORT=6969
 
 # Start the application

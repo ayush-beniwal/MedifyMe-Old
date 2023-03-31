@@ -9,10 +9,8 @@ const mongoose = require("mongoose");
 const ejsMate = require("ejs-mate");
 const methodOverride = require("method-override");
 const dbUrl = process.env.DB_URL;
-// const MongoDBStore = require("connect-mongo");
-// const doctorRoutes = require("./routes/doctors")
-const patientRoutes = require("./routes/patients")
-const gptRoutes = require("./routes/gpt")
+const patientRoutes = require("./routes/patients");
+const gptRoutes = require("./routes/gpt");
 const bodyParser = require("body-parser");
 
 mongoose
@@ -40,38 +38,12 @@ app.use(
 );
 app.use(bodyParser.json());
 
-// const secret = process.env.SECRET || "thisshouldbeabettersecret!";
-
-// const Mongo_store = MongoDBStore.create({
-//   mongoUrl: dbUrl,
-//   secret,
-//   touchAfter: 24 * 60 * 60,
-// });
-
-// app.use(
-//   require("express-session")({
-//     store: Mongo_store,
-//     name: "session",
-//     secret, //This is the secret used to sign the session ID cookie.
-//     resave: false,
-//     saveUninitialized: false,
-//     cookie: {
-//       httpOnly: true,
-//       expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
-//       maxAge: 1000 * 60 * 60 * 24 * 7,
-//     },
-//   })
-// );
-
-// app.use("/doctors", doctorRoutes);
 app.get("/", async (req, res) => {
   res.send("home");
 });
 
 app.use("/gpt", gptRoutes);
 app.use("/patients", patientRoutes);
-
-
 
 app.all("*", (req, res, next) => {
   res.status(404).send("Page Not Found Yo");

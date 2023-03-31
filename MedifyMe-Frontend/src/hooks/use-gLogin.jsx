@@ -25,7 +25,7 @@ export function useGLogin() {
         );
 
         setCookie(
-          "user",
+          "patient",
           {
             token: data.token,
             id: data.id,

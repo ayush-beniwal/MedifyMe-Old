@@ -1,7 +1,6 @@
 import Home from "./pages/Home/Home";
 import Account from "./components/Account/Account";
 import Payments from "./components/Payments/Payments";
-import Loading from "./components/Loading/Loading";
 import Login from "./pages/Login/Login";
 import Health_history_form from "./pages/Health_history_form/Health_history_form";
 import Register from "./pages/Register/Register";
@@ -31,15 +30,11 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route index element={<Home />} />
-      <Route path="loading" element={<Loading />} />
-      {/* <Route path="account" element={<Account />} /> */}
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
-      {/* <Route path="payments" element={<Payments />} /> */}
-      <Route path="healthHistoryForm" element={<Health_history_form />} />
       <Route path="health_history" element={<Health_history />} />
+      <Route path="healthHistoryForm" element={<Health_history_form />} />
       <Route path="prescription_form" element={<Prescription_form />} />
-      {/* <Route path="manage_doctors" element={<Manage_doctors />} /> */}
       <Route path="addreports" element={<Add_report />} />
       <Route path="appointment" element={<Appointment />} />
       <Route path="prescription" element={<Prescription />} />
@@ -70,7 +65,6 @@ const router = createBrowserRouter(
           }
         />
       </Route>
-      {/* <Route path="chatbot" element={<Chatbot />} /> */}
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>
   )
@@ -86,19 +80,19 @@ function App() {
 
   useEffect(() => {
     if (
-      cookies.user &&
+      cookies.patient &&
       !patient.isLoggedIn &&
-      cookies.user.id &&
-      cookies.user.token &&
-      cookies.user.email &&
-      cookies.user.photo
+      cookies.patient.id &&
+      cookies.patient.token &&
+      cookies.patient.email &&
+      cookies.patient.photo
     ) {
       dispatch(
         loginSuccess({
-          token: cookies.user.token,
-          id: cookies.user.id,
-          email: cookies.user.email,
-          photo: cookies.user.photo,
+          token: cookies.patient.token,
+          id: cookies.patient.id,
+          email: cookies.patient.email,
+          photo: cookies.patient.photo,
         })
       );
     }

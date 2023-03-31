@@ -59,7 +59,20 @@ module.exports.register = async (req, res, next) => {
   const overview = req.body.data.overview.trim();
   const token = req.body.data.token;
 
-  if (!age && !gender && !height && !weight && !allergies &&   !photo && !name && !email && !otherConditions && !medications && !overview && !token) {
+  if (
+    !age &&
+    !gender &&
+    !height &&
+    !weight &&
+    !allergies &&
+    !photo &&
+    !name &&
+    !email &&
+    !otherConditions &&
+    !medications &&
+    !overview &&
+    !token
+  ) {
     res.status(400).json({ message: "Something Went Wrong", status: 400 });
   } else {
     const patient = new Patient({
@@ -87,24 +100,30 @@ module.exports.register = async (req, res, next) => {
 module.exports.healthHistory = async (req, res) => {
   try {
     const { id } = req.query;
-    const foundPatient = await Patient.findById(id).populate("visits")
-// console.log(foundPatient);
+    const foundPatient = await Patient.findById(id).populate("visits");
+    // console.log(foundPatient);
     res.status(200).json(foundPatient);
   } catch (err) {
     console.log(err);
     res.status(400).json("Something Went Wrong!");
   }
-}
+};
 
 module.exports.healthHistoryForm = async (req, res) => {
   try {
     const id = req.body.data.id;
-    const foundPatient = await Patient.findById(id)
+    const foundPatient = await Patient.findById(id);
     const doctorName = req.body.data.doctorName;
     const date = req.body.data.date;
     const doctorComments = req.body.data.doctorComments;
     const patientComments = req.body.data.patientComments;
-    const visit = new Visit({date, doctorComments, patientComments, doctorName, patient: id});
+    const visit = new Visit({
+      date,
+      doctorComments,
+      patientComments,
+      doctorName,
+      patient: id,
+    });
     await visit.save();
     const VisitId = visit._id.toString();
     foundPatient.visits.push(VisitId);
@@ -114,17 +133,16 @@ module.exports.healthHistoryForm = async (req, res) => {
     console.log(err);
     res.status(400).json("Something Went Wrong!");
   }
-
-}
+};
 
 module.exports.visits = async (req, res) => {
   try {
     const { id } = req.query;
-    const visit = await Visit.findById(id)
+    const visit = await Visit.findById(id);
     // console.log(visit);
     res.status(200).json(visit);
   } catch (err) {
     console.log(err);
     res.status(400).json("Something Went Wrong!");
   }
-}
+};

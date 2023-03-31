@@ -3,7 +3,6 @@ import styles from "./AccountCard.module.css";
 
 function AccountCard() {
   const location = useLocation();
-  console.log(location.pathname);
 
   return (
     <div className={styles.left_wrapper}>
