@@ -6,25 +6,27 @@ import { useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import PrescriptionData from "../../data/PrescriptionData";
 
 function Prescription() {
+  const navigate = useNavigate();
+
   const patient = useSelector((state) => {
     return state.patient;
   });
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (!patient.isLoggedIn) {
       navigate("/login");
       toast.error("Please login to continue");
     }
-  }, [navigate, patient.isLoggedIn]);
+    messageListRef.current.lastChild.scrollIntoView();
+    inputRef.current.focus();
+  }, [messages, navigate, patient.isLoggedIn]);
 
   const { messages, handleSend } = useChatGPT({
-    content:
-      "I want you to generate an initial message as ayukumi , and you will take the users doubts about his medicine dosage , frequency , allergy compatibility etc. You need to ask these one by one and wait for user input.  First Ask the user for medicine name ,  and wait for user input. Second and then ask him what doubt he is facing. In case the user says he is facing some issue due to a particular medicine intake, look up potential ways to ease that and suggest them as first measures. Also tell you will notify the doctor if you find that the problem is too severe. Now generate a welcome message for the user",
-    InitialMessage:
-      "Hello! I am Ayukumi, your personal healthcare assistant. How may I assist you today? Please let me know the name of the medicine you have a query about.",
+    content: PrescriptionData.content,
+    InitialMessage: PrescriptionData.InitialMessage,
   });
   const messageListRef = useRef(null);
   const inputRef = useRef(null);
@@ -33,11 +35,6 @@ function Prescription() {
     const inputValue = inputRef.current.value;
     handleSend(inputValue);
     inputRef.current.value = "";
-
-    useEffect(() => {
-      messageListRef.current.lastChild.scrollIntoView();
-      inputRef.current.focus();
-    }, [messages]);
   };
   return (
     <>

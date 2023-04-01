@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function useChatGPT({ content, InitialMessage }) {
   const API_KEY = import.meta.env.VITE_API_KEY;
@@ -9,7 +9,7 @@ function useChatGPT({ content, InitialMessage }) {
 
   const [messages, setMessages] = useState([
     {
-      message: InitialMessage ,
+      message: InitialMessage,
       sentTime: "just now",
       sender: "ChatGPT",
     },
@@ -28,21 +28,6 @@ function useChatGPT({ content, InitialMessage }) {
 
     await processMessageToChatGPT(newMessages);
   };
-
-  // useEffect(() => {
-  //   const lastElement = messages[messages.length - 1];
-  //   if (lastElement.message.includes("{")) {
-  //     const reqMsg = lastElement.message;
-  //     // console.log(lastElement);
-  //     let init = reqMsg.indexOf("{");
-  //     let fin = reqMsg.indexOf("}");
-  //     let json = reqMsg.substr(init, fin - init + 1);
-  //     const jsonObject = JSON.parse(json);
-
-  //     console.log(jsonObject);
-  //   } else {
-  //   }
-  // }, [messages]);
 
   async function processMessageToChatGPT(chatMessages) {
     let apiMessages = chatMessages.map((messageObject) => {
