@@ -40,7 +40,7 @@ function Home() {
       event.target.value = null;
     }
 
-    const filteredFiles = Array.from(files).filter((file) => {
+    let filteredFiles = Array.from(files).filter((file) => {
       const isValidFileType = validFileTypes.includes(file.type);
       const isUnderMaxFileSize = file.size <= maxFileSize;
       if (!isValidFileType) {

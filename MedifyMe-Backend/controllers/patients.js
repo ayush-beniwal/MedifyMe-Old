@@ -15,8 +15,9 @@ const bucket = storage.bucket("medifyme-storage"); // Get this from Google Cloud
 
 // React Login
 module.exports.login = async (req, res) => {
+  console.log(req.body);
   res.set("Access-Control-Allow-Origin", "*");
-  const { googleAccessToken } = req.body;
+  const { googleAccessToken, role } = req.body;
   axios
     .get("https://www.googleapis.com/oauth2/v3/userinfo", {
       headers: { Authorization: `Bearer ${googleAccessToken}` },
@@ -24,26 +25,49 @@ module.exports.login = async (req, res) => {
     .then(async (response) => {
       const email = response.data.email;
       const photo = response.data.picture;
-      const foundPatient = await Patient.findOne({ email });
 
-      if (!foundPatient) {
-        res.status(212).json({
-          message: "Fill out these details to complete your registration",
-          status: 212,
-          email,
-          photo,
-          token: googleAccessToken,
-          id: null,
-        });
-      } else {
-        res.status(200).json({
-          message: `Welcome`,
-          email,
-          photo,
-          token: googleAccessToken,
-          id: foundPatient._id,
-          status: 200,
-        });
+      if (role === "doctor") {
+        const foundPatient = await Patient.findOne({ email });
+        if (!foundPatient) {
+          res.status(212).json({
+            message: "Fill out these details to complete your registration",
+            status: 212,
+            email,
+            photo,
+            token: googleAccessToken,
+            id: null,
+          });
+        } else {
+          res.status(200).json({
+            message: `Welcome`,
+            email,
+            photo,
+            token: googleAccessToken,
+            id: foundPatient._id,
+            status: 200,
+          });
+        }
+      } else if (role === "patient") {
+        const foundPatient = await Patient.findOne({ email });
+        if (!foundPatient) {
+          res.status(212).json({
+            message: "Fill out these details to complete your registration",
+            status: 212,
+            email,
+            photo,
+            token: googleAccessToken,
+            id: null,
+          });
+        } else {
+          res.status(200).json({
+            message: `Welcome`,
+            email,
+            photo,
+            token: googleAccessToken,
+            id: foundPatient._id,
+            status: 200,
+          });
+        }
       }
     })
     .catch((err) => {
