@@ -17,8 +17,9 @@
 
 .navbar {
   height: 75px;
-  background: linear-gradient(84.18deg, #2D495D 0.31%, #28333A 100%);
-  position: relative;
+  background: linear-gradient(84.18deg, #2D495D 0.31%, #28333A 100%) fixed center center/cover;
+  /* position: relative; */
+  width:100%;
 } 
 
 .menu_icon {
@@ -35,11 +36,12 @@
   margin-top: -5px;
   display: flex;
   align-items: center;
-margin-left: 10vw;
+  margin-right: 20%;
 }
 .signIn img{
   margin-right: 15px;
 }
+
 .nav_elements ul {
   margin-right: 20px;
   display: flex;
@@ -78,15 +80,15 @@ margin-left: 10vw;
 
 .brand{
   padding-left: 20px;
-font-size: 30px;
-font-family: 'Yeseva One', cursive;
-color: white;
-display: inline !important;
-
+  font-size: 30px;
+  font-family: 'Yeseva One', cursive;
+  color: white;
+  display: inline !important;
+  margin-top:40px;
 }
 
 .brandIn {
-color: #CDAA64;
+  color: #CDAA64;
   display: inline !important;
 }
 
@@ -101,7 +103,7 @@ color: #CDAA64;
     display: block;
     cursor: pointer;
   }
-
+@media(min-width:1024px){
   .nav_elements {
     position: absolute;
     right: 0;
@@ -112,6 +114,8 @@ color: #CDAA64;
     transition: all 0.3s ease-in;
     overflow: hidden;
   }
+}
+  
 
   .nav_elements.active {
     width: 270px;
@@ -148,4 +152,11 @@ color: #CDAA64;
   font-weight: 500;
   position: relative;
   text-decoration: none;
+}
+
+
+@media (max-width:1024px){
+  .nav_elements{
+    display: none;
+  }
 }

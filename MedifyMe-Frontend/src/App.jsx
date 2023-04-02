@@ -9,6 +9,7 @@ import Health_history from "./pages/HealthHistory/HealthHistory";
 import Manage_doctors from "./components/Manage_doctors/Manage_doctors";
 import Add_report from "./pages/Add_report/Add_report";
 import Appointment from "./pages/Appointment/Appointment";
+import Doctor from "./pages/Doctor/Doctor"
 import Prescription from "./pages/Prescription/Prescription";
 import Test from "./pages/Test/Test";
 import Settings from "./pages/Settings/Settings";
@@ -63,8 +64,10 @@ const router = createBrowserRouter(
               <Payments />
             </Settings>
           }
-        />
+        /> 
+        
       </Route>
+      <Route path="doctor" element={<Doctor/>}/>
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>
   )
