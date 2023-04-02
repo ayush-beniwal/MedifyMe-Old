@@ -8,15 +8,12 @@ import { useGLogin } from "../../hooks/use-gLogin";
 import Navbar from "../../components/Navbar/Navbar";
 function Login() {
   const navigate = useNavigate();
-  const [isWhat, setIsWhat] = useState("patient");
-  const { handleGoogleLogin, loginResults } = useGLogin();
+  const [role, setRole] = useState("patient");
+  const { handleGoogleLogin, loginResults } = useGLogin(role);
 
   const patient = useSelector((state) => {
     return state.patient;
   });
-
-  // console.log(patient);
-  // console.log(loginResults);
 
   const loginHandler = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
@@ -70,8 +67,8 @@ function Login() {
               className={styles.input_text1}
               id="sex"
               name="sex"
-              value={isWhat}
-              onChange={(e) => setIsWhat(e.target.value)}
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
               required
             >
               <option className={styles.usertype} value="patient">

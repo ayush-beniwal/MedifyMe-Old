@@ -13,6 +13,8 @@ import Doctor from "./pages/Doctor/Doctor"
 import Prescription from "./pages/Prescription/Prescription";
 import Test from "./pages/Test/Test";
 import Settings from "./pages/Settings/Settings";
+import Video_chat from "./pages/Video_chat/video_chat";
+import RoomPage from "./pages/Room/room";
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { useDispatch, useSelector } from "react-redux";
@@ -40,6 +42,8 @@ const router = createBrowserRouter(
       <Route path="appointment" element={<Appointment />} />
       <Route path="prescription" element={<Prescription />} />
       <Route path="test" element={<Test />} />
+      <Route path="video_chat" element={<Video_chat />} />
+      <Route path="/video_chat/:roomId" element={<RoomPage />} />
       <Route path="settings">
         <Route
           path="account"

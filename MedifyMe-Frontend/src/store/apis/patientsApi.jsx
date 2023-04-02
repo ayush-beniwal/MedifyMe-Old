@@ -9,11 +9,15 @@ const patientApi = createApi({
   }),
   endpoints: (builder) => ({
     login: builder.mutation({
-      query: (token) => ({
-        url: "/login",
-        method: "POST",
-        body: { googleAccessToken: token },
-      }),
+      query: (detail) => {
+        const queryObject = {
+          url: "/login",
+          method: "POST",
+          body: detail,
+        };
+        console.log("Query Object:", queryObject);
+        return queryObject;
+      },
     }),
     register: builder.mutation({
       query: (data) => ({
