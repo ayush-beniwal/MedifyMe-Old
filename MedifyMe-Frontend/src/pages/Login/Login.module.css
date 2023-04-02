@@ -75,16 +75,17 @@
 
 .input_text1 {
     margin-left: 30px;
-
-    height: 50px;
+    height: 40px;
     width: 300px;
+    font-size: 18px;
     background: #EDF2F5;
     border-radius: 8.48894px;
 }
 
 
-.google_login_b {
 
+
+.google_login_b {
     margin-top: 55px;
     margin-left: 337.5px;
     background-color: #1E90FF;
@@ -101,14 +102,17 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    vertical-align: middle;
+}
+.google_login_b:hover{
+    background-color: #1c7ee0;
 }
 
-.google_login_p {
+.google_p {
     font-size: 24px;
     font-family: 'Inter', sans-serif;
-    margin-top: 20px;
-    font-weight: 600;
-    margin-bottom: 5px;
+    margin-top: 40px;
+    font-weight: 400;
     text-align: center;
 }
 
@@ -143,7 +147,5 @@
     font-size: 35px;
     line-height: 49px;
     text-align: center;
-
-
     color: #FFFFFF;
 }

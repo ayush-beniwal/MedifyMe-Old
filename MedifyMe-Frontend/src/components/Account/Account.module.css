@@ -2,61 +2,126 @@
 @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
+
+body{
+    font-family: 'Comfortaa' !important;
+    font-weight: 300 !important;
+}
+
 .right_wrapper {
-    height: 520px;
+    height: 497px;
     margin-top: 50px;
     padding-bottom: 69px;
-    width: auto;
+    width: 920px;
     background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
     border-top-left-radius: 20px;
     padding-top: 30px;
 }
 
-.color {
+
+form{
     display: block;
+}
+
+.color {
+    display: inline-block;
+    width:150px;
+    margin-left: 60px;
+    font-weight: bold;
+    color: #f5f5f5;
+    padding-top: 17px;
+    padding-bottom: 5px;
+
+}   
+
+
+.color1 {
+    display: inline-block;
     margin-left: 60px;
     font-weight: bold;
     color: #f5f5f5;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+span{
+    position: relative;
+    bottom:20px;
+}
+
+.span{
+    font-weight: 200;
+}
+
+.profile_img{
+    margin-left:103px;
+    background-color: #ccc;
+    height: 50px;
+    width:50px;
+    border-radius: 5px;
+}
+
+.profile_img:hover{
+    box-shadow: 2px 2px 2px #939292;
+    cursor:pointer;
 }
 
 .input_text {
+    display: inline-block;
     margin-left: 60px;
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 16px;
     width: 500px;
     height: 30px;
+    padding:8px;
 }
 
+.input_text_row_sex{
+    display: inline-block;
+    margin-left: 75px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 130px;
+    height:45px;
+}
+
+.input_text_row_age{
+    display: inline-block;
+    margin-right:150px;
+    margin-left:-5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 130px;
+    height: 40px;
+    padding-left:10px;
+}
+
+
+
 .input_profile {
-    padding-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 60px;
+    display: none;
 }
 
 .row {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 10px;
-    margin-bottom: 10px;
+    display: flex;
+    column-gap:10px;
+    margin-bottom: 30px;
+    margin-top:30px;
 }
 
-.row_sex_age {
+.row_sex_age{
     display: flex;
-    display: inline;
-    align-items: center;
-    justify-content: space-between;
-    grid-column: 1 / span 2;
-    margin-bottom: 10px;
+    column-gap:80px;
+    margin-bottom: 30px;
+    margin-top:30px;
 }
+
 
 .logout {
-    margin-left: 650px;
-    width: 68px;
-    background: #CDAA64;
-    border-radius: 30px;
+    margin-left:650px;
 }
 
 .logout_link {
@@ -66,12 +131,20 @@
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
-    line-height: 28px;
+    line-height: 32px;
     color: #000000;
+    background: #CDAA64;
+    border-radius:30px;
+    width:90px;
+    margin-left:100px;
+}
+
+.logout_link:hover{
+    background: #a38850;
 }
 
 .submit_button {
-    margin-left: 250px;
+    margin-left: 470px;
     margin-top: 10px;
     width: 120px;
     background: #CDAA64;
@@ -82,4 +155,8 @@
     font-size: 18px;
     line-height: 28px;
     color: #000000;
+}
+
+.submit_button:hover{
+    background-color: #a38850;
 }
