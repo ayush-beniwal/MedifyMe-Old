@@ -6,7 +6,7 @@ import { useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import PrescriptionData from "../../data/PrescriptionData";
+import PrescriptionData from "../../assets/data/PrescriptionData.json";
 
 function Prescription() {
   const navigate = useNavigate();
