@@ -37,10 +37,10 @@ const patientApi = createApi({
       }),
     }),
     healthForm: builder.mutation({
-      query: (data) => ({
+      query: (formData) => ({
         url: "/health_history",
         method: "POST",
-        body: { data },
+        body: formData,
       }),
     }),
   }),

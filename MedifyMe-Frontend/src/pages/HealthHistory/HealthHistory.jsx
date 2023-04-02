@@ -123,6 +123,13 @@ function HealthHistory() {
             </div>
             <div className={styles.doccomments}>
               <div className={styles.documentst}>Uploaded Documents</div>
+              <div className={styles.imgGrid}>
+                {selectedVisit.fileUrl.map((image, index) => (
+                  <div key={index}>
+                    <img src={image} alt={image} className={styles.imgThumb} />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

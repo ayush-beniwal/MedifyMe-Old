@@ -1,6 +1,17 @@
 const axios = require("axios");
 const Patient = require("../models/patient");
 const Visit = require("../models/visit");
+const { Storage } = require("@google-cloud/storage");
+const path = require("path");
+const { v4: uuidv4 } = require("uuid");
+
+let projectId = "our-forest-380314"; // Get this from Google Cloud
+let keyFilename = "medifyme.json"; // Get this from Google Cloud -> Credentials -> Service Accounts
+const storage = new Storage({
+  projectId,
+  keyFilename,
+});
+const bucket = storage.bucket("medifyme-storage"); // Get this from Google Cloud -> Storage
 
 // React Login
 module.exports.login = async (req, res) => {
@@ -111,23 +122,48 @@ module.exports.healthHistory = async (req, res) => {
 
 module.exports.healthHistoryForm = async (req, res) => {
   try {
-    const id = req.body.data.id;
+    if (!req.body.id) {
+      throw new Error("No patient id provided");
+    }
+
+    const id = req.body.id;
     const foundPatient = await Patient.findById(id);
-    const doctorName = req.body.data.doctorName;
-    const date = req.body.data.date;
-    const doctorComments = req.body.data.doctorComments;
-    const patientComments = req.body.data.patientComments;
+
+    const fileUrls = [];
+
+    for (const file of req.files) {
+      const extension = path.extname(file.originalname);
+      const newName = `${path.basename(
+        file.originalname,
+        extension
+      )}-${uuidv4()}${extension}`;
+      file.originalname = newName;
+
+      const blob = bucket.file(newName);
+      const blobStream = blob.createWriteStream();
+
+      blobStream.on("finish", () => {
+        console.log(`File ${newName} uploaded successfully`);
+      });
+      blobStream.end(file.buffer);
+
+      fileUrls.push(`https://storage.googleapis.com/${bucket.name}/${newName}`);
+    }
+
     const visit = new Visit({
-      date,
-      doctorComments,
-      patientComments,
-      doctorName,
+      date: req.body.date,
+      doctorComments: req.body.doctorComments,
+      patientComments: req.body.patientComments,
+      doctorName: req.body.doctorName,
       patient: id,
+      fileUrl: fileUrls,
     });
+
     await visit.save();
-    const VisitId = visit._id.toString();
-    foundPatient.visits.push(VisitId);
+    const visitId = visit._id.toString();
+    foundPatient.visits.push(visitId);
     await foundPatient.save();
+
     res.status(200).json(visit);
   } catch (err) {
     console.log(err);
