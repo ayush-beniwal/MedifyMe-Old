@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRegisterMutation } from "../../store";
 import { useCookies } from "react-cookie";
 import { loginSuccess, logoutSuccess } from "../../store";
-import registerData from "../../assets/data/registerData.json";
+import registerData from "../../assets/RegisterData.json";
 
 function Register() {
   const dispatch = useDispatch();
