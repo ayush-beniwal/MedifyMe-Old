@@ -1,4 +1,4 @@
-import styles from "./Doctor.module.css";
+import styles from "./Manage_Patients.module.css";
 import AccountCard from "../../components/AccountCard/AccountCard";
 import Navbar from "../../components/Navbar/Navbar";
 
