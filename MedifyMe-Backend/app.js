@@ -45,19 +45,24 @@ app.use("/gpt", gptRoutes);
 app.use("/patients", patientRoutes);
 
 app.get("/room", (req, res) => {
-  const userId = req.query.userID;
-  const effectiveTimeInSeconds = 7200;
-  const appID = APP_ID;
-  const serverSecret = SERVER_SECRET; // type: 32 byte length string
-  const payload = "";
-  const token = generateToken04(
-    appID,
-    userId,
-    serverSecret,
-    effectiveTimeInSeconds,
-    payload
-  );
-  res.json(token);
+  try {
+    const userId = req.query.userId;
+    const effectiveTimeInSeconds = 7200;
+    const appID = 575089151;
+    const serverSecret = SERVER_SECRET; // type: 32 byte length string
+    const payload = "";
+    const token = generateToken04(
+      appID,
+      userId,
+      serverSecret,
+      effectiveTimeInSeconds,
+      payload
+    );
+    res.json(token);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json({ message: "Something Went Wrong!!!!" });
+  }
 });
 
 app.all("*", (req, res, next) => {
