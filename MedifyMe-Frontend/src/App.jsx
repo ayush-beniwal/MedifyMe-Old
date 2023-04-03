@@ -9,7 +9,8 @@ import Health_history from "./pages/HealthHistory/HealthHistory";
 import Manage_doctors from "./components/Manage_doctors/Manage_doctors";
 import Add_report from "./pages/Add_report/Add_report";
 import Appointment from "./pages/Appointment/Appointment";
-import Doctor from "./pages/Doctor/Doctor"
+import Manage_Patients from "./pages/Manage_Patients/Manage_Patients"
+import Current_Prescription from "./pages/Current_Prescription/Current_Prescription"
 import Prescription from "./pages/Prescription/Prescription";
 import Test from "./pages/Test/Test";
 import Settings from "./pages/Settings/Settings";
@@ -71,7 +72,8 @@ const router = createBrowserRouter(
         /> 
         
       </Route>
-      <Route path="doctor" element={<Doctor/>}/>
+      <Route path="manage_patients" element={<Manage_Patients/>}/>
+      <Route path="current_prescription" element={<Current_Prescription/>}/>
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>
   )
