@@ -7,16 +7,17 @@ import Register from "./pages/Register/Register";
 import Prescription_form from "./pages/Prescription_form/Prescription_form";
 import Health_history from "./pages/HealthHistory/HealthHistory";
 import Manage_doctors from "./components/Manage_doctors/Manage_doctors";
-import Manage_patients from "./components/Manage_patients/Manage_patients"
+import Manage_patients from "./components/Manage_patients/Manage_patients";
 import Add_report from "./pages/Add_report/Add_report";
 import Appointment from "./pages/Appointment/Appointment";
-import Manage_Patients from "./pages/Manage_Patients/Manage_Patients"
-import Current_Prescription from "./pages/Current_Prescription/Current_Prescription"
+import Manage_Patients from "./pages/Manage_Patients/Manage_Patients";
+import Current_Prescription from "./pages/Current_Prescription/Current_Prescription";
 import Prescription from "./pages/Prescription/Prescription";
 import Test from "./pages/Test/Test";
 import Settings from "./pages/Settings/Settings";
-import Video_chat from "./pages/Video_chat/video_chat";
-import RoomPage from "./pages/Room/room";
+import RoomPage from "./pages/Rooms/Rooms";
+// import Video_chat from "./pages/Video_chat/video_chat";
+
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { useDispatch, useSelector } from "react-redux";
@@ -46,8 +47,7 @@ const router = createBrowserRouter(
       <Route path="prescription" element={<Prescription />} />
       <Route path="test" element={<Test />} />
       <Route path="Loading" element={<Loading />} />
-      <Route path="video_chat" element={<Video_chat />} />
-      <Route path="/video_chat/:roomId" element={<RoomPage />} />
+      <Route path="room" element={<RoomPage />} />
       <Route path="settings">
         <Route
           path="account"
@@ -72,7 +72,7 @@ const router = createBrowserRouter(
               <Payments />
             </Settings>
           }
-        /> 
+        />
         <Route
           path="manage_patients"
           element={
@@ -85,15 +85,13 @@ const router = createBrowserRouter(
           path="doc_payment_settings"
           element={
             <Settings>
-              <Payments/>
+              <Payments />
             </Settings>
           }
-        /> 
-        
-        
+        />
       </Route>
-      <Route path="manage_patients" element={<Manage_Patients/>}/>
-      <Route path="current_prescription" element={<Current_Prescription/>}/>
+      <Route path="manage_patients" element={<Manage_Patients />} />
+      <Route path="current_prescription" element={<Current_Prescription />} />
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>
   )
@@ -110,11 +108,20 @@ function App() {
   useEffect(() => {
     if (
       cookies.patient &&
-      !patient.isLoggedIn &&
       cookies.patient.id &&
       cookies.patient.token &&
       cookies.patient.email &&
-      cookies.patient.photo
+      cookies.patient.photo &&
+      cookies.patient.role &&
+      cookies.patient.name &&
+      cookies.patient.age &&
+      cookies.patient.gender &&
+      cookies.patient.height &&
+      cookies.patient.weight &&
+      cookies.patient.allergies &&
+      cookies.patient.otherConditions &&
+      cookies.patient.medications &&
+      cookies.patient.overview
     ) {
       dispatch(
         loginSuccess({
@@ -122,6 +129,16 @@ function App() {
           id: cookies.patient.id,
           email: cookies.patient.email,
           photo: cookies.patient.photo,
+          role: cookies.patient.role,
+          name: cookies.patient.name,
+          age: cookies.patient.age,
+          gender: cookies.patient.gender,
+          height: cookies.patient.height,
+          weight: cookies.patient.weight,
+          allergies: cookies.patient.allergies,
+          otherConditions: cookies.patient.otherConditions,
+          medications: cookies.patient.medications,
+          overview: cookies.patient.overview,
         })
       );
     }

@@ -35,9 +35,12 @@ function Account() {
       </div>
       <form>
         <div className={styles.row}>
-          <label for="profile-pic"className={styles.color1} htmlFor="profile-pic">
+          <label className={styles.color1} htmlFor="profile-pic">
             <span>Profile Picture:</span>
-            <img src="..\public\Frame 21.png" className={styles.profile_img}></img>
+            <img
+              src="..\public\Frame 21.png"
+              className={styles.profile_img}
+            ></img>
             <span className={styles.span}>&nbsp;Upload Image</span>
           </label>
           <input
@@ -61,19 +64,22 @@ function Account() {
             required
           />
         </div>
-
-
         <div className={styles.row_sex_age}>
           <label className={styles.color} htmlFor="gender">
             Gender:
           </label>
-          <select className={styles.input_text_row_sex} id="gender" name="gender" required>
+          <select
+            className={styles.input_text_row_sex}
+            id="gender"
+            name="gender"
+            required
+          >
             <option value="">Select gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
           </select>
-        
+
           <label className={styles.color} htmlFor="age">
             Age:
           </label>

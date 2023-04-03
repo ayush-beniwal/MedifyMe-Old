@@ -1,19 +1,19 @@
 import styles from "./Login.module.css";
 import { useGoogleLogin } from "@react-oauth/google";
-import { useSelector } from "react-redux";
-import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+// import { useSelector } from "react-redux";
+// import { toast } from "react-toastify";
+// import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useGLogin } from "../../hooks/use-gLogin";
 import Navbar from "../../components/Navbar/Navbar";
 function Login() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [role, setRole] = useState("patient");
   const { handleGoogleLogin, loginResults } = useGLogin(role);
 
-  const patient = useSelector((state) => {
-    return state.patient;
-  });
+  // const patient = useSelector((state) => {
+  //   return state.patient;
+  // });
 
   const loginHandler = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
@@ -21,25 +21,25 @@ function Login() {
     },
   });
 
-  useEffect(() => {
-    if (
-      patient.isLoggedIn &&
-      loginResults.data &&
-      loginResults.data.status === 212
-    ) {
-      navigate("/register");
-      toast.warn(loginResults.data.message);
-    }
+  // useEffect(() => {
+  //   if (
+  //     patient.isLoggedIn &&
+  //     loginResults.data &&
+  //     loginResults.data.status === 212
+  //   ) {
+  //     navigate("/register");
+  //     toast.warn(loginResults.data.message);
+  //   }
 
-    if (
-      patient.isLoggedIn &&
-      loginResults.data &&
-      loginResults.data.status === 200
-    ) {
-      navigate("/");
-      toast.success(`Welcome`);
-    }
-  }, [loginResults.data, navigate, patient.isLoggedIn, patient.name]);
+  //   if (
+  //     patient.isLoggedIn &&
+  //     loginResults.data &&
+  //     loginResults.data.status === 200
+  //   ) {
+  //     navigate("/");
+  //     toast.success(`Welcome`);
+  //   }
+  // }, [loginResults.data, navigate, patient.isLoggedIn, patient.name]);
 
   return (
     <>

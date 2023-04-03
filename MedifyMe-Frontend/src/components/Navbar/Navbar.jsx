@@ -42,7 +42,7 @@ const Navbar = () => {
               <Link to="/prescription">Prescriptions</Link>
             </li>
             <li className={location.pathname === "/test" ? styles.active : ""}>
-              <Link to="/test">Tests & Reports</Link>
+              <Link to="/room">Tests & Reports</Link>
             </li>
             {/* <li className={location.pathname === "/video_chat" ? styles.active : ""}>
               <Link to="/video_chat">Video Chat</Link>
