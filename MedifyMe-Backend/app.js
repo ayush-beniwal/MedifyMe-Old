@@ -8,9 +8,11 @@ const path = require("path");
 const mongoose = require("mongoose");
 const ejsMate = require("ejs-mate");
 const dbUrl = process.env.DB_URL;
+const APP_ID = process.env.APP_ID;
+const SERVER_SECRET = process.env.SERVER_SECRET;
 const patientRoutes = require("./routes/patients");
 const gptRoutes = require("./routes/gpt");
-const { v4: uuidv4 } = require("uuid");
+const { generateToken04 } = require("./token");
 
 mongoose
   .connect(dbUrl)
@@ -43,13 +45,19 @@ app.use("/gpt", gptRoutes);
 app.use("/patients", patientRoutes);
 
 app.get("/room", (req, res) => {
-  console.log(req.query);
-  const userID = req.query.userID;
-  const expired_ts = 7200;
-  const token = uuidv4();
-  let data = { token, userID, expired_ts };
-  console.log(data);
-  res.json(data);
+  const userId = req.query.userID;
+  const effectiveTimeInSeconds = 7200;
+  const appID = APP_ID;
+  const serverSecret = SERVER_SECRET; // type: 32 byte length string
+  const payload = "";
+  const token = generateToken04(
+    appID,
+    userId,
+    serverSecret,
+    effectiveTimeInSeconds,
+    payload
+  );
+  res.json(token);
 });
 
 app.all("*", (req, res, next) => {

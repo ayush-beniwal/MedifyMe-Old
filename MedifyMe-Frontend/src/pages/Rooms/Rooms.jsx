@@ -2,6 +2,8 @@ import React from "react";
 import { ZegoUIKitPrebuilt } from "@zegocloud/zego-uikit-prebuilt";
 import { useSelector } from "react-redux";
 const SERVER_URL = import.meta.env.VITE_SERVER_URL;
+const APP_ID = import.meta.env.VITE_APP_ID;
+import axios from "axios";
 
 function randomID(len) {
   let result = "";
@@ -17,11 +19,16 @@ function randomID(len) {
 }
 
 async function generateToken(tokenServerUrl, userID) {
-  const res = await fetch(`${tokenServerUrl}/room?userID=${userID}`, {
-    method: "GET",
-  });
-
-  return res.json();
+  try {
+    const response = await axios.get(`${tokenServerUrl}/room`, {
+      params: {
+        userID: userID,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 function RoomPage() {
@@ -31,11 +38,9 @@ function RoomPage() {
 
   const roomID = randomID(5);
   const myMeeting = async (element) => {
-    const appId = 575089151;
+    const appId = APP_ID;
     const userID = patient.id;
     const userName = patient.name;
-    console.log(userID);
-    console.log(patient);
     const token = await generateToken(SERVER_URL, userID);
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForProduction(
       appId,
