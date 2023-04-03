@@ -8,9 +8,11 @@ const path = require("path");
 const mongoose = require("mongoose");
 const ejsMate = require("ejs-mate");
 const dbUrl = process.env.DB_URL;
+const JWT_SECRET = process.env.JWT_SECRET;
 const patientRoutes = require("./routes/patients");
 const gptRoutes = require("./routes/gpt");
 const { v4: uuidv4 } = require("uuid");
+const jwt = require("jsonwebtoken");
 
 mongoose
   .connect(dbUrl)
@@ -43,13 +45,19 @@ app.use("/gpt", gptRoutes);
 app.use("/patients", patientRoutes);
 
 app.get("/room", (req, res) => {
-  console.log(req.query);
   const userID = req.query.userID;
   const expired_ts = 7200;
-  const token = uuidv4();
-  let data = { token, userID, expired_ts };
-  console.log(data);
-  res.json(data);
+
+  const payload = {
+    userID,
+    expired_ts,
+  };
+  const secret = JWT_SECRET; // Replace with your own secret key
+  const options = {
+    expiresIn: "2h", // Set the expiration time of the token
+  };
+  const token = jwt.sign(payload, secret, options);
+  res.json(token);
 });
 
 app.all("*", (req, res, next) => {

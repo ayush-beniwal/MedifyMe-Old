@@ -15,7 +15,6 @@ const bucket = storage.bucket("medifyme-storage"); // Get this from Google Cloud
 
 // React Login
 module.exports.login = async (req, res) => {
-  console.log(req.body);
   res.set("Access-Control-Allow-Origin", "*");
   const { googleAccessToken, role } = req.body;
   axios
