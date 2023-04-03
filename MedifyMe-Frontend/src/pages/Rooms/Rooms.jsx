@@ -2,7 +2,6 @@ import React from "react";
 import { ZegoUIKitPrebuilt } from "@zegocloud/zego-uikit-prebuilt";
 import { useSelector } from "react-redux";
 const SERVER_URL = import.meta.env.VITE_SERVER_URL;
-const APP_ID = import.meta.env.VITE_APP_ID;
 import axios from "axios";
 
 function randomID(len) {
@@ -18,11 +17,11 @@ function randomID(len) {
   return result;
 }
 
-async function generateToken(tokenServerUrl, userID) {
+async function generateToken(userID) {
   try {
-    const response = await axios.get(`${tokenServerUrl}/room`, {
+    const response = await axios.get(`${SERVER_URL}/room`, {
       params: {
-        userID: userID,
+        userId: userID,
       },
     });
     return response.data;
@@ -38,10 +37,10 @@ function RoomPage() {
 
   const roomID = randomID(5);
   const myMeeting = async (element) => {
-    const appId = APP_ID;
+    const appId = 575089151;
     const userID = patient.id;
     const userName = patient.name;
-    const token = await generateToken(SERVER_URL, userID);
+    const token = await generateToken(userID);
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForProduction(
       appId,
       token,
