@@ -29,6 +29,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import Loading from "./components/Loading/Loading";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -43,6 +44,7 @@ const router = createBrowserRouter(
       <Route path="appointment" element={<Appointment />} />
       <Route path="prescription" element={<Prescription />} />
       <Route path="test" element={<Test />} />
+      <Route path="Loading" element={<Loading />} />
       <Route path="video_chat" element={<Video_chat />} />
       <Route path="/video_chat/:roomId" element={<RoomPage />} />
       <Route path="settings">
