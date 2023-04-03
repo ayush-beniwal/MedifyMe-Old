@@ -46,8 +46,7 @@ const router = createBrowserRouter(
       <Route path="prescription" element={<Prescription />} />
       <Route path="test" element={<Test />} />
       <Route path="Loading" element={<Loading />} />
-      <Route path="video_chat" element={<Video_chat />} />
-      <Route path="/video_chat/:roomId" element={<RoomPage />} />
+      <Route path="video_chat" element={<RoomPage />} />
       <Route path="settings">
         <Route
           path="account"

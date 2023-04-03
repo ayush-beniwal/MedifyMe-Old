@@ -10,6 +10,7 @@ const ejsMate = require("ejs-mate");
 const dbUrl = process.env.DB_URL;
 const patientRoutes = require("./routes/patients");
 const gptRoutes = require("./routes/gpt");
+const { v4: uuidv4 } = require("uuid");
 
 mongoose
   .connect(dbUrl)
@@ -40,6 +41,16 @@ app.get("/", async (req, res) => {
 
 app.use("/gpt", gptRoutes);
 app.use("/patients", patientRoutes);
+
+app.get("/video_chat", (req, res) => {
+  console.log(req.query);
+  const userID = req.query.userID;
+  const expired_ts = 7200;
+  const token = uuidv4();
+  let data = { token, userID, expired_ts };
+  console.log(data);
+  res.json(data);
+});
 
 app.all("*", (req, res, next) => {
   res.status(404).send("Page Not Found Yo");
