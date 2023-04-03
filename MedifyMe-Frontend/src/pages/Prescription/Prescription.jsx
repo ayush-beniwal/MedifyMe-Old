@@ -6,7 +6,7 @@ import { useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import PrescriptionData from "../../data/PrescriptionData";
+import PrescriptionData from "../../assets/PrescriptionData.json";
 
 function Prescription() {
   const navigate = useNavigate();
@@ -15,21 +15,25 @@ function Prescription() {
     return state.patient;
   });
 
+  const { messages, handleSend } = useChatGPT({
+    content: PrescriptionData.content,
+    InitialMessage: PrescriptionData.InitialMessage,
+  });
+
+  const messageListRef = useRef(null);
+  const inputRef = useRef(null);
+
   useEffect(() => {
     if (!patient.isLoggedIn) {
       navigate("/login");
       toast.error("Please login to continue");
     }
+  }, [navigate, patient.isLoggedIn]);
+
+  useEffect(() => {
     messageListRef.current.lastChild.scrollIntoView();
     inputRef.current.focus();
-  }, [messages, navigate, patient.isLoggedIn]);
-
-  const { messages, handleSend } = useChatGPT({
-    content: PrescriptionData.content,
-    InitialMessage: PrescriptionData.InitialMessage,
-  });
-  const messageListRef = useRef(null);
-  const inputRef = useRef(null);
+  }, [messages, messageListRef]);
 
   const handleButtonClick = () => {
     const inputValue = inputRef.current.value;
@@ -122,7 +126,7 @@ function Prescription() {
           <div className={styles.ct2}>20 Jan 2023</div>
         </div>
         <div className={styles.cont}>
-          <div className={styles.accordian}>
+          <div className={styles.accordian} ref={messageListRef}>
             {messages.map((message, i) => (
               <div
                 key={i}

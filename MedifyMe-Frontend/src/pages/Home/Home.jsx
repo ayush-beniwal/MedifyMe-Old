@@ -15,8 +15,10 @@ function Home() {
           <div className={styles.content2}>
             Paving the Way <br></br> for Medical Excellence
           </div>
-          <a href=""><Link to="/health_history">
-            <div className={styles.content3}>Get Started</div></Link>
+          <a href="">
+            <Link to="/health_history">
+              <div className={styles.content3}>Get Started</div>
+            </Link>
           </a>
         </div>
         <div className={styles.group}>
@@ -24,27 +26,27 @@ function Home() {
         </div>
         <div className={styles.button}>
           <a href="">
-          <Link to="/health_history">
-            <div className={styles.b1}>
-              Check your Health History
-              <img src="history.svg" />
-            </div>
+            <Link to="/health_history">
+              <div className={styles.b1}>
+                Check your Health History
+                <img src="history.svg" />
+              </div>
             </Link>
           </a>
           <a href="">
-          <Link to="/">
-            <div className={styles.b2}>
-              Have queries? Ask Here
-              <img src="query.svg" />
-            </div>
+            <Link to="/">
+              <div className={styles.b2}>
+                Have queries? Ask Here
+                <img src="query.svg" />
+              </div>
             </Link>
           </a>
           <a href="">
-          <Link to="/appointment">
-            <div className={styles.b3}>
-              Book an Appointment
-              <img src="appointment.svg" />
-            </div>
+            <Link to="/appointment">
+              <div className={styles.b3}>
+                Book an Appointment
+                <img src="appointment.svg" />
+              </div>
             </Link>
           </a>
         </div>
@@ -64,7 +66,9 @@ function Home() {
       </div>
       <div className={styles.lp4}>Care you can believe in</div>
       <div className={styles.lp5}>Our Services</div>
-      <div className={styles.lp6}>Facilitating Seamless Transtitions for Patients and Doctors</div>
+      <div className={styles.lp6}>
+        Facilitating Seamless Transtitions for Patients and Doctors
+      </div>
       <div className={styles.lp7}>
         <ul>
           <li>Personalised Virtual Assitant</li>

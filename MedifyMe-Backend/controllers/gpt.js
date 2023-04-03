@@ -6,9 +6,9 @@ const config = new Configuration({
 
 const openai = new OpenAIApi(config);
 
-module.exports.renderYo = (req,res)=>{
+module.exports.renderYo = (req, res) => {
   res.render("prompt");
-}
+};
 
 module.exports.prompt = async (req, res) => {
   const { prompt } = req.body;

@@ -9,9 +9,12 @@ import Health_history from "./pages/HealthHistory/HealthHistory";
 import Manage_doctors from "./components/Manage_doctors/Manage_doctors";
 import Add_report from "./pages/Add_report/Add_report";
 import Appointment from "./pages/Appointment/Appointment";
+import Doctor from "./pages/Doctor/Doctor"
 import Prescription from "./pages/Prescription/Prescription";
 import Test from "./pages/Test/Test";
 import Settings from "./pages/Settings/Settings";
+import Video_chat from "./pages/Video_chat/video_chat";
+import RoomPage from "./pages/Room/room";
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { useDispatch, useSelector } from "react-redux";
@@ -41,6 +44,8 @@ const router = createBrowserRouter(
       <Route path="prescription" element={<Prescription />} />
       <Route path="test" element={<Test />} />
       <Route path="Loading" element={<Loading />} />
+      <Route path="video_chat" element={<Video_chat />} />
+      <Route path="/video_chat/:roomId" element={<RoomPage />} />
       <Route path="settings">
         <Route
           path="account"
@@ -65,8 +70,10 @@ const router = createBrowserRouter(
               <Payments />
             </Settings>
           }
-        />
+        /> 
+        
       </Route>
+      <Route path="doctor" element={<Doctor/>}/>
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>
   )

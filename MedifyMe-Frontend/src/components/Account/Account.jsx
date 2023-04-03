@@ -35,8 +35,10 @@ function Account() {
       </div>
       <form>
         <div className={styles.row}>
-          <label className={styles.color} htmlFor="profile-pic">
-            Profile Picture:
+          <label for="profile-pic"className={styles.color1} htmlFor="profile-pic">
+            <span>Profile Picture:</span>
+            <img src="..\public\Frame 21.png" className={styles.profile_img}></img>
+            <span className={styles.span}>&nbsp;Upload Image</span>
           </label>
           <input
             className={styles.input_profile}
@@ -55,66 +57,67 @@ function Account() {
             type="text"
             id="name"
             name="name"
-            value="name"
+            placeholder="Name"
             required
           />
         </div>
 
+
         <div className={styles.row_sex_age}>
-          <label className={styles.color} htmlFor="sex">
-            Sex:
+          <label className={styles.color} htmlFor="gender">
+            Gender:
           </label>
-          <select className={styles.input_text} id="sex" name="sex" required>
-            <option value="">Select Gender</option>
+          <select className={styles.input_text_row_sex} id="gender" name="gender" required>
+            <option value="">Select gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
           </select>
-
+        
           <label className={styles.color} htmlFor="age">
             Age:
           </label>
           <input
-            className={styles.input_text}
+            className={styles.input_text_row_age}
             type="text"
             id="age"
             name="age"
-            value="age"
+            placeholder="Age"
             required
           />
         </div>
 
         <div className={styles.row}>
           <label className={styles.color} htmlFor="email">
-            Email Address:
+            Email address:
           </label>
           <input
             className={styles.input_text}
             type="email"
             id="email"
             name="email"
-            value="Email"
+            placeholder="Email"
             required
           />
         </div>
 
         <div className={styles.row}>
           <label className={styles.color} htmlFor="mobile">
-            Mobile Number:
+            Mobile number:
           </label>
           <input
             className={styles.input_text}
             type="tel"
             id="mobile"
             name="mobile"
-            value="Mobile No."
+            placeholder="Mobile No."
             required
           />
         </div>
+        <button className={styles.submit_button} type="submit">
+          Update
+        </button>
       </form>
-      <button className={styles.submit_button} type="submit">
-        Submit
-      </button>
     </div>
   );
 }

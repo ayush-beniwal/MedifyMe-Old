@@ -7,11 +7,9 @@ const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
 const ejsMate = require("ejs-mate");
-const methodOverride = require("method-override");
 const dbUrl = process.env.DB_URL;
 const patientRoutes = require("./routes/patients");
 const gptRoutes = require("./routes/gpt");
-const bodyParser = require("body-parser");
 
 mongoose
   .connect(dbUrl)
@@ -19,7 +17,7 @@ mongoose
     console.log("Mongo Is Running");
   })
   .catch((err) => {
-    console.log("mongo error");
+    console.log("mongo error" + err);
   });
 
 const app = express();
@@ -29,14 +27,12 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(
   cors({
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-app.use(bodyParser.json());
 
 app.get("/", async (req, res) => {
   res.send("home");

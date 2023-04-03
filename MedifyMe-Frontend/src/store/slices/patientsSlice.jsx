@@ -6,6 +6,7 @@ const patientSlice = createSlice({
     isLoggedIn: false,
     token: null,
     id: null,
+    role: null,
     name: " ",
     email: " ",
     photo: " ",
@@ -26,6 +27,7 @@ const patientSlice = createSlice({
       state.name = action.payload.name;
       state.email = action.payload.email;
       state.photo = action.payload.photo;
+      state.role = action.payload.role;
       state.age = action.payload.age;
       state.gender = action.payload.gender;
       state.height = action.payload.height;
@@ -42,6 +44,7 @@ const patientSlice = createSlice({
       state.name = null;
       state.email = null;
       state.photo = null;
+      state.role = null;
       state.age = null;
       state.gender = null;
       state.height = null;

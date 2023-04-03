@@ -1,19 +1,24 @@
-/* eslint-disable no-unused-vars */
 import { useLoginMutation } from "../store";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../store";
 import { useCookies } from "react-cookie";
 import { useCallback } from "react";
 
-export function useGLogin() {
+export function useGLogin(role) {
   const dispatch = useDispatch();
-  const [cookies, setCookie] = useCookies(["patient"]);
+  const [cookies, setCookie] = useCookies([role]);
   const [login, loginResults] = useLoginMutation();
 
   const handleGoogleLogin = useCallback(
     async (tokenResponse) => {
       try {
-        const { data } = await login(tokenResponse.access_token);
+        let detail = {
+          googleAccessToken: tokenResponse.access_token,
+          role: role,
+        };
+        console.log("detail:", detail);
+        console.log("Role:", role);
+        const { data } = await login(detail);
 
         dispatch(
           loginSuccess({
@@ -21,11 +26,12 @@ export function useGLogin() {
             id: data.id,
             email: data.email,
             photo: data.photo,
+            role: role,
           })
         );
 
         setCookie(
-          "patient",
+          role,
           {
             token: data.token,
             id: data.id,

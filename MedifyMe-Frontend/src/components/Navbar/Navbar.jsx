@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import Brand from "../../assets/Brand.svg";
-import Hamburger from "../../assets/Hamburger.svg";
+import Burger from "../Burger/Burger";
 import styles from "./Navbar.module.css";
 import Account from "../../assets/account.svg";
 import { useSelector } from "react-redux";
@@ -44,6 +44,9 @@ const Navbar = () => {
             <li className={location.pathname === "/test" ? styles.active : ""}>
               <Link to="/test">Tests & Reports</Link>
             </li>
+            <li className={location.pathname === "/video_chat" ? styles.active : ""}>
+              <Link to="/video_chat">Video Chat</Link>
+            </li>
             <li>
               <div className={styles.appointment}>
                 <Link style={{ color: "black" }} to="/appointment">
@@ -63,6 +66,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
+        <Burger/>
       </div>
     </nav>
   );

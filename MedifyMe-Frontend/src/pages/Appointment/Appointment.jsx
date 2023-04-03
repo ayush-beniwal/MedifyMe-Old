@@ -77,7 +77,7 @@ function Home() {
             <div className={styles.doc2}>
               <img src="doc.png" />
               <div>
-                <div className={styles.t2}>Dentist</div>  
+                <div className={styles.t2}>Dentist</div>
                 <div className={styles.t3}>Dr. Roman Reigns</div>
               </div>
               <div className={styles.date}>&#128197; 20Jan 2023</div>

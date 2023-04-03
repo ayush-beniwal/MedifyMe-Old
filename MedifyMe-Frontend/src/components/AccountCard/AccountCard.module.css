@@ -1,16 +1,9 @@
-.card {
-    background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
-    margin-top: 100px;
-    width: 400px;
-    height: 500px;
-    border-radius: 10px;
-    margin-left: 200px;
-}
+
 
 .img {
     width: 200px;
-    padding-left: 100px;
-    padding-top: 25px;
+    padding-left: 80px;
+    padding-top: 40px;
 }
 
 .id {
@@ -37,4 +30,26 @@
     text-decoration: none;
     color: black;
     border-radius: 5px;
+}
+
+@media(min-width:1450px){
+    .card {
+        background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
+        margin-top: 100px;
+        width: 360px;
+        height: 500px;
+        border-radius: 10px;
+        margin-left: 120px;
+    }
+}
+
+@media (max-width:1450px){
+    .card {
+        background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
+        margin-top: 100px;
+        width: 400px;
+        height: 500px;
+        border-radius: 10px;
+        margin-left: 85%;
+    }
 }
