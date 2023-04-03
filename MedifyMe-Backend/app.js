@@ -42,7 +42,7 @@ app.get("/", async (req, res) => {
 app.use("/gpt", gptRoutes);
 app.use("/patients", patientRoutes);
 
-app.get("/video_chat", (req, res) => {
+app.get("/room", (req, res) => {
   console.log(req.query);
   const userID = req.query.userID;
   const expired_ts = 7200;

@@ -13,7 +13,6 @@ import registerData from "../../assets/RegisterData.json";
 function Register() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(registerData);
   const { messages, handleSend } = useChatGPT({
     InitialMessage: registerData.InitialMessage,
     content: registerData.content,

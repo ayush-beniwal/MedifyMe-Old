@@ -17,14 +17,14 @@ function randomID(len) {
 }
 
 async function generateToken(tokenServerUrl, userID) {
-  const res = await fetch(`${tokenServerUrl}/video_chat?userID=${userID}`, {
+  const res = await fetch(`${tokenServerUrl}/room?userID=${userID}`, {
     method: "GET",
   });
 
   return res.json();
 }
 
-const RoomPage = () => {
+function RoomPage() {
   const patient = useSelector((state) => {
     return state.patient;
   });
@@ -68,6 +68,6 @@ const RoomPage = () => {
       <div ref={myMeeting} />
     </div>
   );
-};
+}
 
 export default RoomPage;

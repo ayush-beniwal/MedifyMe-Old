@@ -39,7 +39,6 @@ module.exports.login = async (req, res) => {
           });
         } else {
           res.status(200).json({
-            message: `Welcome`,
             email,
             photo,
             token: googleAccessToken,
@@ -60,11 +59,7 @@ module.exports.login = async (req, res) => {
           });
         } else {
           res.status(200).json({
-            message: `Welcome`,
-            email,
-            photo,
-            token: googleAccessToken,
-            id: foundPatient._id,
+            foundPatient,
             status: 200,
           });
         }

@@ -9,15 +9,11 @@ const patientApi = createApi({
   }),
   endpoints: (builder) => ({
     login: builder.mutation({
-      query: (detail) => {
-        const queryObject = {
-          url: "/login",
-          method: "POST",
-          body: detail,
-        };
-        console.log("Query Object:", queryObject);
-        return queryObject;
-      },
+      query: (detail) => ({
+        url: "/login",
+        method: "POST",
+        body: detail,
+      }),
     }),
     register: builder.mutation({
       query: (data) => ({

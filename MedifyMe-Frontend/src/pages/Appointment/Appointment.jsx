@@ -92,7 +92,7 @@ function Home() {
                 <p className={styles.doctors_identity_content1}>John Wilson</p>
                 <p className={styles.doctors_identity_content2}>Physician</p>
                 <p className={styles.doctors_identity_content3}>
-                  Time : 4:00pm -5:00pm{" "}
+                  Time : 4:00pm -5:00pm
                 </p>
               </div>
             </div>
