@@ -44,9 +44,9 @@ const Navbar = () => {
             <li className={location.pathname === "/test" ? styles.active : ""}>
               <Link to="/test">Tests & Reports</Link>
             </li>
-            <li className={location.pathname === "/video_chat" ? styles.active : ""}>
+            {/* <li className={location.pathname === "/video_chat" ? styles.active : ""}>
               <Link to="/video_chat">Video Chat</Link>
-            </li>
+            </li> */}
             <li>
               <div className={styles.appointment}>
                 <Link style={{ color: "black" }} to="/appointment">
