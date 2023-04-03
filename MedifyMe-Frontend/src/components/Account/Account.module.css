@@ -9,13 +9,16 @@ body{
 }
 
 .right_wrapper {
-    height: 497px;
-    margin-top: 50px;
-    padding-bottom: 69px;
-    width: 920px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 70%;
+    padding-bottom: 3rem;
+    padding-left: 3rem;
+    width: 58%;
     background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
-    border-top-left-radius: 20px;
-    padding-top: 30px;
+    border-top-left-radius: 3rem;
+    padding-top: 3rem;
 }
 
 
@@ -25,24 +28,22 @@ form{
 
 .color {
     display: inline-block;
-    width:150px;
+    width:9.5rem;
     margin-left: 60px;
-    font-weight: bold;
     color: #f5f5f5;
     padding-top: 17px;
     padding-bottom: 5px;
-    font-size:16px;
+    font-size: 1.1rem;
 }   
 
 
 .color1 {
     display: inline-block;
     margin-left: 60px;
-    font-weight: bold;
     color: #f5f5f5;
     padding-top: 10px;
     padding-bottom: 5px;
-    font-size:16px;
+    font-size: 1.1rem;;
 }
 
 span{

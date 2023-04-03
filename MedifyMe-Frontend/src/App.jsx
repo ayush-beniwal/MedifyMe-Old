@@ -7,6 +7,7 @@ import Register from "./pages/Register/Register";
 import Prescription_form from "./pages/Prescription_form/Prescription_form";
 import Health_history from "./pages/HealthHistory/HealthHistory";
 import Manage_doctors from "./components/Manage_doctors/Manage_doctors";
+import Manage_patients from "./components/Manage_patients/Manage_patients"
 import Add_report from "./pages/Add_report/Add_report";
 import Appointment from "./pages/Appointment/Appointment";
 import Manage_Patients from "./pages/Manage_Patients/Manage_Patients"
@@ -72,6 +73,23 @@ const router = createBrowserRouter(
             </Settings>
           }
         /> 
+        <Route
+          path="manage_patients"
+          element={
+            <Settings>
+              <Manage_patients />
+            </Settings>
+          }
+        />
+        <Route
+          path="doc_payment_settings"
+          element={
+            <Settings>
+              <Payments/>
+            </Settings>
+          }
+        /> 
+        
         
       </Route>
       <Route path="manage_patients" element={<Manage_Patients/>}/>
