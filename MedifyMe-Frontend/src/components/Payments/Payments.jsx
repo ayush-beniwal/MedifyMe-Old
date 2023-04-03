@@ -1,12 +1,39 @@
 import styles from "./Payments.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutSuccess } from "../../store";
+import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import { toast } from "react-toastify";
 
-function Home() {
+
+
+function Payments() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [cookies, setCookie, removeCookie] = useCookies(["patient"]);
+
+  const patient = useSelector((state) => {
+    return state.patient;
+  });
+
+  const handleClick = () => {
+    if (patient.isLoggedIn) {
+      dispatch(logoutSuccess());
+      removeCookie("patient", { path: "/" });
+      toast.info("See You Soon!!");
+      navigate("/");
+    }
+    if (!patient.isLoggedIn) {
+      navigate("/login");
+    }
+  };
+
   return (
     <div className={styles.right_wrapper}>
       <div className={styles.logout}>
-        <a className={styles.logout_link} href="">
+        <button onClick={handleClick} className={styles.logout_link}>
           Logout
-        </a>
+        </button>
       </div>
       <img
         className={styles.img_payment}
@@ -20,4 +47,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Payments;

@@ -3,20 +3,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
 .right_wrapper {
-  margin-top: 50px;
-  padding-bottom: 69px;
-  width: auto;
-  height: 520px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 70%;
+  padding-bottom: 3rem;
+  padding-left: 3rem;
+  width: 58%;
   background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
-  border-top-left-radius: 20px;
-  padding-top: 30px;
+  border-top-left-radius: 3rem;
+  padding-top: 3rem;
 }
 
 .logout {
-  margin-left: 650px;
-  width: 68px;
-  background: #CDAA64;
-  border-radius: 30px;
+  margin-left:650px;
 }
 
 .logout_link {
@@ -26,29 +26,39 @@
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  line-height: 28px;
-  /* identical to box height */
+  line-height: 32px;
   color: #000000;
+  background: #CDAA64;
+  border-radius:30px;
+  width:90px;
+  margin-left:100px;
+}
 
+.logout_link:hover{
+  background: #a38850;
 }
 
 .doctor_history {
-  margin-left: 80px;
+  margin-left: 2rem;
 
 }
 
 .doctor_history_content {
+  padding-top: 1.2rem;
   font-family: 'Comfortaa';
   font-style: normal;
   font-weight: 600;
-  font-size: 25px;
-  line-height: 34px;
+  font-size: 1.6rem;
+  line-height: 1.2rem;
   color: #FFFFFF;
 }
-
+.firstdoc{
+  margin-top: -2rem;
+  padding-top: 0;
+}
 .doctor {
-  margin-left: 60px;
-  padding-top: 15px;
+  margin-left: 1rem;
+  padding-top: 1.5rem;
 }
 
 .doctor_name {
@@ -63,7 +73,7 @@
 }
 
 .doctor_contact {
-  margin-left: 40px;
+  margin-left: 12rem;
   display: inline;
   font-family: 'Work Sans';
   font-style: normal;
@@ -82,7 +92,7 @@
 }
 
 .add_text_doctor {
-  margin-left: 80px;
+  margin-left: 2rem;
   font-family: 'Comfortaa';
   font-style: normal;
   font-weight: 400;
@@ -93,7 +103,7 @@
 }
 
 .add_doctor_name {
-  margin-left: 130px;
+  margin-left: 5rem;
   width: 300px;
   height: 35px;
 
@@ -103,10 +113,16 @@
 
 /* Hide the default checkbox */
 .submit_button {
-  width: 100px;
-  height: 32px;
-  margin-left: 10px;
   display: inline;
+  margin-left: 5rem;
+  margin-top: 10px;
+  width: 120px;
   background: #CDAA64;
-  border-radius: 50px;
+  border-radius: 30px;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  color: #000000;
 }
