@@ -3,18 +3,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
 .right_wrapper {
-  margin-top: 50px;
-  width: auto;
-  height: 600px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 70%;
+  padding-bottom: 3rem;
+  padding-left: 3rem;
+  width: 58%;
   background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
-  border-top-left-radius: 20px;
-  padding-top: 30px;
+  border-top-left-radius: 3rem;
+  padding-top: 3rem;
 }
-
 .img_payment {
-  width: 500px;
-  margin-left: 150px;
-  margin-top: 150px;
+  width: 30rem;
+  margin-left: 11rem;
+  margin-top: 5rem;
   justify-self: center;
   height: auto
 }
@@ -32,10 +35,7 @@
 }
 
 .logout {
-  margin-left: 650px;
-  width: 68px;
-  background: #CDAA64;
-  border-radius: 30px;
+  margin-left:650px;
 }
 
 .logout_link {
@@ -45,8 +45,16 @@
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  line-height: 28px;
-  /* identical to box height */
+  line-height: 32px;
   color: #000000;
-
+  background: #CDAA64;
+  border-radius:30px;
+  width:90px;
+  margin-left:100px;
 }
+
+.logout_link:hover{
+  background: #a38850;
+}
+
+

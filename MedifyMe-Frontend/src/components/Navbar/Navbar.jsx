@@ -66,7 +66,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <Burger/>
+        {/* <Burger/> */}
       </div>
     </nav>
   );
