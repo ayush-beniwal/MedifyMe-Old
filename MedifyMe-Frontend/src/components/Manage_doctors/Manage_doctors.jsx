@@ -1,42 +1,20 @@
 import styles from "./Manage_doctors.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { logoutSuccess } from "../../store";
-import { useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
-import { toast } from "react-toastify";
-
-
+import useLogout from "../../hooks/useLogout";
 
 function Manage_doctors() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const [cookies, setCookie, removeCookie] = useCookies(["patient"]);
-
-  const patient = useSelector((state) => {
-    return state.patient;
-  });
-
-  const handleClick = () => {
-    if (patient.isLoggedIn) {
-      dispatch(logoutSuccess());
-      removeCookie("patient", { path: "/" });
-      toast.info("See You Soon!!");
-      navigate("/");
-    }
-    if (!patient.isLoggedIn) {
-      navigate("/login");
-    }
-  };
+  const { handleLogout } = useLogout();
 
   return (
     <div className={styles.right_wrapper}>
       <div className={styles.logout}>
-        <button onClick={handleClick} className={styles.logout_link}>
+        <button onClick={handleLogout} className={styles.logout_link}>
           Logout
         </button>
       </div>
       <div className={styles.doctor_history}>
-        <p className={`${styles.doctor_history_content} ${styles.firstdoc}`}>Doctor History</p>
+        <p className={`${styles.doctor_history_content} ${styles.firstdoc}`}>
+          Doctor History
+        </p>
       </div>
 
       <div className={styles.doctor}>

@@ -4,7 +4,7 @@ import { useGoogleLogin } from "@react-oauth/google";
 // import { toast } from "react-toastify";
 // import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useGLogin } from "../../hooks/use-gLogin";
+import { useGLogin } from "../../hooks/useGLogin";
 import Navbar from "../../components/Navbar/Navbar";
 function Login() {
   // const navigate = useNavigate();
