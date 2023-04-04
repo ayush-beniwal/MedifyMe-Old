@@ -1,35 +1,13 @@
 import styles from "./Account.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { logoutSuccess } from "../../store";
-import { useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
-import { toast } from "react-toastify";
+import useLogout from "../../hooks/useLogout";
 
 function Account() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const [cookies, setCookie, removeCookie] = useCookies(["patient"]);
-
-  const patient = useSelector((state) => {
-    return state.patient;
-  });
-
-  const handleClick = () => {
-    if (patient.isLoggedIn) {
-      dispatch(logoutSuccess());
-      removeCookie("patient", { path: "/" });
-      toast.info("See You Soon!!");
-      navigate("/");
-    }
-    if (!patient.isLoggedIn) {
-      navigate("/login");
-    }
-  };
+  const { handleLogout } = useLogout();
 
   return (
     <div className={styles.right_wrapper}>
       <div className={styles.logout}>
-        <button onClick={handleClick} className={styles.logout_link}>
+        <button onClick={handleLogout} className={styles.logout_link}>
           Logout
         </button>
       </div>
@@ -37,10 +15,7 @@ function Account() {
         <div className={styles.row}>
           <label className={styles.color1} htmlFor="profile-pic">
             <span>Profile Picture:</span>
-            <img
-              src="..\public\Frame 21.png"
-              className={styles.profile_img}
-            ></img>
+            <img src="..\Frame 21.png" className={styles.profile_img}></img>
             <span className={styles.span}>&nbsp;Upload Image</span>
           </label>
           <input
