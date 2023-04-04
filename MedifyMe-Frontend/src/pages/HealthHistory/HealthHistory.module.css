@@ -290,8 +290,8 @@
   align-items: center;
 }
 .imgGrid {
-  margin-top: 1.5rem;
-  margin-left: 1rem;
+  margin-top: 1.1rem;
+  margin-left: 1.3rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
