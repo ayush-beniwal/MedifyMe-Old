@@ -17,6 +17,7 @@ function HealthHistory() {
     data: rawData,
     error: rawError,
     isFetching,
+    refetch,
   } = useFetchHealthHistoryQuery(patient.id);
 
   const data = useMemo(() => rawData, [rawData]);
@@ -34,6 +35,14 @@ function HealthHistory() {
       setSelectedVisit(data.visits[0]);
     }
   }, [navigate, patient.isLoggedIn, data, selectedVisit]);
+
+  useEffect(() => {
+    if (!patient.isLoggedIn) {
+      navigate("/login");
+      toast.error("Please login to continue");
+    }
+    refetch();
+  }, [navigate, patient.isLoggedIn]);
 
   if (isFetching) {
     return (
@@ -73,8 +82,8 @@ function HealthHistory() {
       <Navbar />
       <div className={styles.box}>
         <div className={styles.history}>
-          <img src={data.photo} />
           <div className={styles.d1}>
+            <img src={data.photo} />
             <ul>
               <li>Name : &nbsp;&nbsp;{data.name}</li>
               <li>Gender : &nbsp;&nbsp;{data.gender}</li>
@@ -125,14 +134,20 @@ function HealthHistory() {
                 {selectedVisit.patientComments}
               </div>
             </div>
-            <div className={styles.doccomments}>
+            <div className={styles.uploadedImg}>
               <div className={styles.documentst}>Uploaded Documents</div>
-              <div className={styles.imgGrid}>
-                {selectedVisit.fileUrl.map((image, index) => (
-                  <div key={index}>
-                    <img src={image} alt={image} className={styles.imgThumb} />
-                  </div>
-                ))}
+              <div className={styles.centerimgs}>
+                <div className={styles.imgGrid}>
+                  {selectedVisit.fileUrl.map((image, index) => (
+                    <div key={index}>
+                      <img
+                        src={image}
+                        alt={image}
+                        className={styles.imgThumb}
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

@@ -92,7 +92,7 @@ function Login() {
             </button>
 
             <div className={styles.login_lowerpart}>
-              <img src="pose_1.png" alt="" className={styles.img3} />
+              <img src="login.svg" alt="" className={styles.img3} />
               <p className={styles.login_lower_content}>
                 First time users will be asked a few questions by our AI Powered
                 Chatbot to begin their journey!
