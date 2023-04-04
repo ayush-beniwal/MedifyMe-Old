@@ -1,7 +1,7 @@
 import Navbar from "../../components/Navbar/Navbar";
 import styles from "./HealthHistory.module.css";
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useFetchHealthHistoryQuery } from "../../store";
@@ -13,9 +13,14 @@ function HealthHistory() {
     return state.patient;
   });
 
-  const { data, error, isFetching, refetch } = useFetchHealthHistoryQuery(
-    patient.id
-  );
+  const {
+    data: rawData,
+    error: rawError,
+    isFetching,
+  } = useFetchHealthHistoryQuery(patient.id);
+
+  const data = useMemo(() => rawData, [rawData]);
+  const error = useMemo(() => rawError, [rawError]);
 
   const [selectedVisit, setSelectedVisit] = useState(data?.visits?.[0] ?? null);
   const navigate = useNavigate();
@@ -25,11 +30,10 @@ function HealthHistory() {
       navigate("/login");
       toast.error("Please login to continue");
     }
-    refetch();
     if (data && selectedVisit === null) {
       setSelectedVisit(data.visits[0]);
     }
-  }, [navigate, patient.isLoggedIn, data, refetch, selectedVisit]);
+  }, [navigate, patient.isLoggedIn, data, selectedVisit]);
 
   if (isFetching) {
     return (
@@ -73,7 +77,7 @@ function HealthHistory() {
           <div className={styles.d1}>
             <ul>
               <li>Name : &nbsp;&nbsp;{data.name}</li>
-              <li>Sex : &nbsp;&nbsp;{data.gender}</li>
+              <li>Gender : &nbsp;&nbsp;{data.gender}</li>
               <li>Age : &nbsp;&nbsp;{data.age}</li>
             </ul>
             <ul>
