@@ -12,10 +12,10 @@
 }
 
 .history img {
+    position:absolute;
   width: 90px;
-  position: absolute;
   top: 15%;
-  left: 2.5%;
+  left: 5%;
 }
 
 .d1 li {
@@ -177,15 +177,22 @@
 }
 
 .infobox {
-  border: 3px solid #cdaa64;
-  border-radius: 20px;
-  height: 370px;
-  width: 1119px;
-  position: absolute;
-  top: 47%;
-  left: 25%;
-}
-
+    border: 3px solid #cdaa64;
+    border-radius: 20px;
+    height: 370px;
+    width: 1119px;
+    position: absolute;
+    top: calc(56% - 370px / 2 + 10vh);
+    left: 25%;
+    margin-top: 10px;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .infobox {
+      /* Adjust top value for smaller screens */
+      top: calc(50% - 370px / 2 + 5vh);
+    }
+  }
 .title {
   display: flex;
   flex-direction: row;

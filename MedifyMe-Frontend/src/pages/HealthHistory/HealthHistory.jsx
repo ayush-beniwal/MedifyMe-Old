@@ -82,8 +82,8 @@ function HealthHistory() {
       <Navbar />
       <div className={styles.box}>
         <div className={styles.history}>
-          <img src={data.photo} />
           <div className={styles.d1}>
+            <img src={data.photo} />
             <ul>
               <li>Name : &nbsp;&nbsp;{data.name}</li>
               <li>Gender : &nbsp;&nbsp;{data.gender}</li>
