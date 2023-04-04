@@ -305,8 +305,8 @@
 
 .imgThumb {
     border-radius: 0.2rem;
-    width: 80%;
-    height: 80%;
+    width: 6rem;
+    height: 6rem;
     object-fit: cover;
     transform-origin: center;
   }
@@ -324,3 +324,4 @@
     width: 80vw; 
     height: auto; 
   }
+  
