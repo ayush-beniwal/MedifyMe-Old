@@ -8,7 +8,7 @@ function Loading() {
         className={styles.imgg}
         width="264"
         height="196"
-        viewBox="0 0 264 196"
+        viewBox="-50 -100 400 300"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
