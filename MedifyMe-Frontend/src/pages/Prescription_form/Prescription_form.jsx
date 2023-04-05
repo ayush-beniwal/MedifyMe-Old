@@ -45,7 +45,7 @@ function Home() {
           <label className={styles.text_health} htmlFor="doctor-comments">
             Prescription Comments:
           </label>
-          <textarea id="doctor-comments" name="doctor-comments"></textarea>
+          <textarea id="doctor-comments" name="doctor-comments" className={styles.comments}></textarea>
 
           <button className={styles.submit_button} type="submit">
             Add

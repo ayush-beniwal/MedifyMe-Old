@@ -1,9 +1,8 @@
-
-
 .img {
     width: 200px;
     padding-left: 80px;
     padding-top: 40px;
+    border-radius: 500px;
 }
 
 .id {
@@ -32,7 +31,7 @@
     border-radius: 5px;
 }
 
-@media(min-width:1450px){
+@media(min-width:1450px) {
     .card {
         background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
         margin-top: 100px;
@@ -43,7 +42,7 @@
     }
 }
 
-@media (max-width:1450px){
+@media (max-width:1450px) {
     .card {
         background: linear-gradient(270deg, #2A3842 2.95%, #2D485B 100%);
         margin-top: 100px;

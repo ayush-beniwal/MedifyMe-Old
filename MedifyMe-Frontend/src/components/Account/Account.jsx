@@ -1,8 +1,12 @@
 import styles from "./Account.module.css";
 import useLogout from "../../hooks/useLogout";
+import { useSelector } from "react-redux";
 
 function Account() {
   const { handleLogout } = useLogout();
+  const patient = useSelector((state) => {
+    return state.patient;
+  });
 
   return (
     <div className={styles.right_wrapper}>
@@ -37,6 +41,7 @@ function Account() {
             name="name"
             placeholder="Name"
             required
+            value={patient.name}
           />
         </div>
         <div className={styles.row_sex_age}>
@@ -48,8 +53,8 @@ function Account() {
             id="gender"
             name="gender"
             required
+            value={patient.gender}
           >
-            <option value="">Select gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
@@ -64,6 +69,7 @@ function Account() {
             id="age"
             name="age"
             placeholder="Age"
+            value={patient.age}
             required
           />
         </div>
@@ -78,6 +84,7 @@ function Account() {
             id="email"
             name="email"
             placeholder="Email"
+            value={patient.email}
             required
           />
         </div>
@@ -91,7 +98,7 @@ function Account() {
             type="tel"
             id="mobile"
             name="mobile"
-            placeholder="Mobile No."
+            placeholder="Enter to Save"
             required
           />
         </div>
