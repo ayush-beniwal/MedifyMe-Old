@@ -35,7 +35,8 @@ const Footer = () => {
           Call: (+91) 7870658888
         </a>
         <p className={styles.address}>
-          <span>Address:</span> Near Hyderbad gate Varanasi
+          <span className={styles.addressSpan}>Address:</span> Near Hyderbad
+          gate Varanasi
         </p>
       </div>
       <div className={styles.footer_4}>

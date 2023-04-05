@@ -18,9 +18,9 @@ function AccountCard() {
   return (
     <div className={styles.left_wrapper}>
       <div className={styles.card}>
-        <img src="../Ellipse250.png" alt="profile" className={styles.img} />
+        <img src={patient.photo} alt="profile" className={styles.img} />
         <div className={styles.list}>
-          <h2 className={styles.id}></h2>
+          <h2 className={styles.id}>{`${customId()}`}</h2>
           <p className={styles.margin_top}>
             <Link
               className={
