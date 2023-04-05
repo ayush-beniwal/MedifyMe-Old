@@ -27,10 +27,6 @@ function HealthHistory() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!patient.isLoggedIn) {
-      navigate("/login");
-      toast.error("Please login to continue");
-    }
     if (data && selectedVisit === null) {
       setSelectedVisit(data.visits[0]);
     }
