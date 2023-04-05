@@ -15,6 +15,7 @@ import Current_Prescription from "./pages/Current_Prescription/Current_Prescript
 import Prescription from "./pages/Prescription/Prescription";
 import Test from "./pages/Test/Test";
 import Settings from "./pages/Settings/Settings";
+import SelectPatient from "./pages/SelectPatient/SelectPatient";
 // import RoomPage from "./pages/Rooms/Rooms";
 // import Video_chat from "./pages/Video_chat/video_chat";
 
@@ -47,6 +48,7 @@ const router = createBrowserRouter(
       <Route path="prescription" element={<Prescription />} />
       <Route path="test" element={<Test />} />
       <Route path="Loading" element={<Loading />} />
+      <Route path="SelectPatient" element={<SelectPatient />} />
       {/* <Route path="room" element={<RoomPage />} /> */}
       <Route path="settings">
         <Route
