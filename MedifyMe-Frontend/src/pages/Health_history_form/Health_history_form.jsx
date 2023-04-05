@@ -142,6 +142,7 @@ function Home() {
             onChange={(e) => setDoctorComments(e.target.value)}
             id="doctor-comments"
             name="doctor-comments"
+            className={styles.comments}
           ></textarea>
 
           <label className={styles.text_health} htmlFor="patient-comments">

@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
 import Brand from "../../assets/Brand.svg";
-import Burger from "../Burger/Burger";
 import styles from "./Navbar.module.css";
 import Account from "../../assets/account.svg";
 import { useSelector } from "react-redux";
@@ -66,7 +65,6 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        {/* <Burger/> */}
       </div>
     </nav>
   );

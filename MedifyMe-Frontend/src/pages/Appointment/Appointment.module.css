@@ -220,7 +220,15 @@
 
 .coup {
   color: #000000;
+  position: relative;
+  top:0px;
 }
+
+.enter_coupon{
+  position: relative;
+  top:5px;
+}
+
 
 .coupon_button {
   background: #CDAA64;

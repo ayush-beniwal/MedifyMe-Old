@@ -10,8 +10,10 @@ import Manage_doctors from "./components/Manage_doctors/Manage_doctors";
 import Manage_patients from "./components/Manage_patients/Manage_patients";
 import Add_report from "./pages/Add_report/Add_report";
 import Appointment from "./pages/Appointment/Appointment";
-import Manage_Patients from "./pages/Manage_Patients/Manage_Patients";
-import Current_Prescription from "./pages/Current_Prescription/Current_Prescription";
+import Manage_Patients from "./pages/Doctor/Manage_Patients/Manage_Patients";
+import Current_Prescription from "./pages/Doctor/Current_Prescription/Current_Prescription";
+import Test_Report from "./pages/Doctor/Test_Report/Test_Report";
+import Patient_Health_History from "./pages/Doctor/Patient_Health_History/Patient_Health_History"
 import Prescription from "./pages/Prescription/Prescription";
 import Test from "./pages/Test/Test";
 import Settings from "./pages/Settings/Settings";
@@ -92,6 +94,8 @@ const router = createBrowserRouter(
       </Route>
       <Route path="manage_patients" element={<Manage_Patients />} />
       <Route path="current_prescription" element={<Current_Prescription />} />
+      <Route path="test_report" element={<Test_Report/>}/>
+      <Route path="patient_health_history" element={<Patient_Health_History/>}/>
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>
   )
