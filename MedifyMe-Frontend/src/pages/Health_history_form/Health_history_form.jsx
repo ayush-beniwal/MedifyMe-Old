@@ -92,13 +92,13 @@ function Home() {
       formData.append("files", files[i]);
     }
 
-    // try {
-    //   await form(formData);
-    //   navigate("/health_history");
-    // } catch (error) {
-    //   console.error(error);
-    // }
-    console.log(typeof date);
+    try {
+      await form(formData);
+      navigate("/health_history");
+    } catch (error) {
+      console.error(error);
+    }
+    // console.log(typeof date);
   };
 
   return (
