@@ -8,41 +8,61 @@
   background: linear-gradient(84.18deg,
   #2d495d 0.31%,
   #28333a 100%);
+  overflow:scroll
 }
 @keyframes heartbeat {
   0% {
     transform: scale(1);
+    transform-origin: center center;
   }
   50% {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
   100% {
     transform: scale(1);
+    transform-origin: center center;
   }
 }
 
 @keyframes translate {
   0% {
     transform: translateX(0);
+    transform-origin: center center;
+
+  }
+  25% {
+    transform: translateX(50px);
+    transform-origin: center center;
+
   }
   50% {
-    transform: translateX(50px);
+    transform: translateX(0px);
+    transform-origin: center center;
+
+  }
+  75% {
+    transform: translateX(-50px);
+    transform-origin: center center;
+
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(0px);
+    transform-origin: center center;
+
   }
 }
 
 .imgg path:first-child {
-  animation: heartbeat 5s ease-in-out infinite;
+  animation: heartbeat 2s ease-in-out infinite;
 }
 
 .imgg path:nth-child(2) {
   animation: translate 2s linear infinite;
 }
 .imgg{
-  width: 20vw;
-  height: 20vw;
+  margin-left: 40px;
+  width: 30vw;
+  height: 30vw;
 
 }
 
