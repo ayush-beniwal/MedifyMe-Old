@@ -20,7 +20,7 @@ export function useGLogin(role) {
           role: role,
         };
         const { data } = await login(detail);
-        if (data.foundPatient && data.status === 200) {
+        if (data && data.foundPatient && data.status === 200) {
           dispatch(
             loginSuccess({
               token: data.foundPatient.token,
@@ -83,7 +83,7 @@ export function useGLogin(role) {
             { path: "/" }
           );
           navigate("/register");
-          toast.warn("Ye msg fix karna hai");
+          toast.warn("Fill out these details to complete your registration");
         }
       } catch (error) {
         console.error(error);

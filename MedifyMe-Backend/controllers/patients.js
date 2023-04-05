@@ -29,7 +29,6 @@ module.exports.login = async (req, res) => {
         const foundPatient = await Patient.findOne({ email });
         if (!foundPatient) {
           res.status(212).json({
-            message: "Fill out these details to complete your registration",
             status: 212,
             email,
             photo,
@@ -49,7 +48,6 @@ module.exports.login = async (req, res) => {
         const foundPatient = await Patient.findOne({ email });
         if (!foundPatient) {
           res.status(212).json({
-            message: "Fill out these details to complete your registration",
             status: 212,
             email,
             photo,
@@ -129,6 +127,9 @@ module.exports.register = async (req, res, next) => {
 module.exports.healthHistory = async (req, res) => {
   try {
     const { id } = req.query;
+    if (!id) {
+      return res.status(400).json("No patient id provided");
+    }
     const foundPatient = await Patient.findById(id).populate("visits");
     res.status(200).json(foundPatient);
   } catch (err) {
