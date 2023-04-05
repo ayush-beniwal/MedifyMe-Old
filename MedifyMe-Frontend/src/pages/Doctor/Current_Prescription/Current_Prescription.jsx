@@ -1,4 +1,4 @@
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../../components/Navbar/Navbar";
 import styles from "./Current_Prescription.module.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -16,6 +16,7 @@ function Prescription() {
     handleSend(inputValue);
     inputRef.current.value = "";
   };
+
   return (
     <>
       <Navbar />
@@ -101,11 +102,43 @@ function Prescription() {
           <div className={styles.ct1}>Current Prescription</div>
           <div className={styles.ct2}>20 Jan 2023</div>
         </div>
-        <div className={styles.cont}>
-          <div className={styles.photo}>
-            <img src="PrescribtionImage.jpg" />
+        <div className={styles.up_cont}>
+          <div className={styles.left_cont}>
+
+          </div>
+          <div className={styles.right_cont}>
+            <div className={styles.photo}>
+              <img src="PrescribtionImage.jpg" />
+            </div>
           </div>
         </div>
+        <div className={styles.down_cont}>
+          <div className={styles.leftd_cont}>
+            <h3>Edit Dosage and Instructions</h3>
+            <div className={styles.edit_dosage}>
+                <textarea rows="5" cols="40" type="text" name="textarea" required readonly>
+                1.&nbsp;Lipitor (atorvastatin) - usually taken once daily with or without food, with dosages ranging from 10mg to 80mg depending on the individual's cholesterol levels and medical history.
+                2.&nbsp;Zoloft (sertraline) - usually taken once daily with or without food, with dosages ranging from 25mg to 200mg depending on the individual's condition and response to the medication.
+                3.&nbsp;Flonase (fluticasone) - usually taken once daily, with dosage depending on the individual's age and severity of symptoms.
+                4.&nbsp;Metformin - usually taken with meals, with dosage depending on the individual's blood sugar levels and medical history.
+                </textarea>
+            </div>
+          </div>
+          <div className={styles.rightd_cont}>
+            <h3>Ayukumi AI Report</h3>
+            <div className={styles.ayukumi_report}>
+                1.&nbsp;Lipitor (atorvastatin) - usually taken once daily with or without food, with dosages ranging from 10mg to 80mg depending on the individual's cholesterol levels and medical history.
+                <br/> 2.&nbsp;Zoloft (sertraline) - usually taken once daily with or without food, with dosages ranging from 25mg to 200mg depending on the individual's condition and response to the medication.
+                <br/> 3.&nbsp;Flonase (fluticasone) - usually taken once daily, with dosage depending on the individual's age and severity of symptoms.
+                <br/> 4.&nbsp;Metformin - usually taken with meals, with dosage depending on the individual's blood sugar levels and medical history.
+            </div>
+          </div>
+        </div>
+
+
+
+
+        
       </div>
     </>
   );
