@@ -17,7 +17,7 @@ import Patient_Health_History from "./pages/Doctor/Patient_Health_History/Patien
 import Prescription from "./pages/Prescription/Prescription";
 import Test from "./pages/Test/Test";
 import Settings from "./pages/Settings/Settings";
-import SelectPatient from "./pages/SelectPatient/SelectPatient";
+import SelectPatient from "./pages/Doctor/SelectPatient/SelectPatient";
 // import RoomPage from "./pages/Rooms/Rooms";
 // import Video_chat from "./pages/Video_chat/video_chat";
 
@@ -50,7 +50,7 @@ const router = createBrowserRouter(
       <Route path="prescription" element={<Prescription />} />
       <Route path="test" element={<Test />} />
       <Route path="Loading" element={<Loading />} />
-      <Route path="SelectPatient" element={<SelectPatient />} />
+      
       {/* <Route path="room" element={<RoomPage />} /> */}
       <Route path="settings">
         <Route
@@ -98,6 +98,7 @@ const router = createBrowserRouter(
       <Route path="current_prescription" element={<Current_Prescription />} />
       <Route path="test_report" element={<Test_Report/>}/>
       <Route path="patient_health_history" element={<Patient_Health_History/>}/>
+      <Route path="select_patient" element={<SelectPatient />} />
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>
   )
