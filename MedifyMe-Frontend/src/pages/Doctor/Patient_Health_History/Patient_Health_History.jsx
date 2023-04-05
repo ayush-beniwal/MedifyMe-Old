@@ -1,21 +1,28 @@
 import Navbar from "../../../components/Navbar/Navbar";
 import styles from "./Patient_Health_History.module.css";
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useFetchHealthHistoryQuery } from "../../../store";
 import { Link } from "react-router-dom";
 import Loading from "../../../components/Loading/Loading";
 
+
 function HealthHistory() {
   const patient = useSelector((state) => {
     return state.patient;
   });
 
-  const { data, error, isFetching, refetch } = useFetchHealthHistoryQuery(
-    patient.id
-  );
+  const {
+    data: rawData,
+    error: rawError,
+    isFetching,
+    refetch,
+  } = useFetchHealthHistoryQuery(patient.id);
+
+  const data = useMemo(() => rawData, [rawData]);
+  const error = useMemo(() => rawError, [rawError]);
 
   const [selectedVisit, setSelectedVisit] = useState(data?.visits?.[0] ?? null);
   const navigate = useNavigate();
@@ -25,11 +32,18 @@ function HealthHistory() {
     //   navigate("/login");
     //   toast.error("Please login to continue");
     // }
-    refetch();
     if (data && selectedVisit === null) {
       setSelectedVisit(data.visits[0]);
     }
-  }, [navigate, patient.isLoggedIn, data, refetch, selectedVisit]);
+  }, [navigate, patient.isLoggedIn, data, selectedVisit]);
+
+  useEffect(() => {
+    // if (!patient.isLoggedIn) {
+    //   navigate("/login");
+    //   toast.error("Please login to continue");
+    // }
+    refetch();
+  }, [navigate, patient.isLoggedIn]);
 
   if (isFetching) {
     return (
@@ -69,11 +83,11 @@ function HealthHistory() {
       <Navbar />
       <div className={styles.box}>
         <div className={styles.history}>
-          <img src={data.photo} />
           <div className={styles.d1}>
+            <img src={data.photo} />
             <ul>
               <li>Name : &nbsp;&nbsp;{data.name}</li>
-              <li>Sex : &nbsp;&nbsp;{data.gender}</li>
+              <li>Gender : &nbsp;&nbsp;{data.gender}</li>
               <li>Age : &nbsp;&nbsp;{data.age}</li>
             </ul>
             <ul>
@@ -85,7 +99,9 @@ function HealthHistory() {
               <li>Medications : &nbsp;&nbsp;{data.medications}</li>
               <li>Height : &nbsp;&nbsp;{data.height} cm</li>
             </ul>
+            
           </div>
+          <button id="change_patient" className={styles.change_patient_btn}>Change Patient</button>
           <div className={styles.d2}>
             <ul>
               <li>Overview : &nbsp;&nbsp;{data.overview}</li>
@@ -112,7 +128,10 @@ function HealthHistory() {
             <div className={styles.doccomments}>
               <div className={styles.doccommentst}>Doctors Comments</div>
               <div className={styles.comments}>
+                <textarea rows="5" cols="40" type="text" name="textarea">
                 {selectedVisit.doctorComments}
+                </textarea>
+                
               </div>
             </div>
             <div className={styles.doccomments}>
@@ -121,14 +140,20 @@ function HealthHistory() {
                 {selectedVisit.patientComments}
               </div>
             </div>
-            <div className={styles.doccomments}>
-              <div className={styles.documentst}>Uploaded Documents</div>
-              <div className={styles.imgGrid}>
-                {/* {selectedVisit.fileUrl.map((image, index) => (
-                  <div key={index}>
-                    <img src={image} alt={image} className={styles.imgThumb} />
-                  </div>
-                ))} */}
+            <div className={styles.uploadedImg}>
+              <div className={styles.uploaded_doc}>Uploaded Documents</div>
+              <div className={styles.centerimgs}>
+                <div className={styles.imgGrid}>
+                  {selectedVisit.fileUrl.map((image, index) => (
+                    <div key={index}>
+                      <img
+                        src={image}
+                        alt={image}
+                        className={styles.imgThumb}
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
