@@ -25,41 +25,20 @@ module.exports.login = async (req, res) => {
       const email = response.data.email;
       const photo = response.data.picture;
 
-      if (role === "doctor") {
-        const foundPatient = await Patient.findOne({ email });
-        if (!foundPatient) {
-          res.status(212).json({
-            status: 212,
-            email,
-            photo,
-            token: googleAccessToken,
-            id: null,
-          });
-        } else {
-          res.status(200).json({
-            email,
-            photo,
-            token: googleAccessToken,
-            id: foundPatient._id,
-            status: 200,
-          });
-        }
-      } else if (role === "patient") {
-        const foundPatient = await Patient.findOne({ email });
-        if (!foundPatient) {
-          res.status(212).json({
-            status: 212,
-            email,
-            photo,
-            token: googleAccessToken,
-            id: null,
-          });
-        } else {
-          res.status(200).json({
-            foundPatient,
-            status: 200,
-          });
-        }
+      const foundPatient = await Patient.findOne({ email });
+      if (!foundPatient) {
+        res.status(212).json({
+          status: 212,
+          email,
+          photo,
+          token: googleAccessToken,
+          role,
+        });
+      } else {
+        res.status(200).json({
+          foundPatient,
+          status: 200,
+        });
       }
     })
     .catch((err) => {
@@ -73,63 +52,67 @@ module.exports.login = async (req, res) => {
 
 //React Register
 module.exports.register = async (req, res, next) => {
-  const name = req.body.data.name;
-  const email = req.body.data.email;
-  const photo = req.body.data.photo;
-  const age = req.body.data.age;
-  const gender = req.body.data.gender;
-  const height = req.body.data.height;
-  const weight = req.body.data.weight;
-  const allergies = req.body.data.allergies.trim();
-  const otherConditions = req.body.data.otherConditions.trim();
-  const medications = req.body.data.medications.trim();
-  const overview = req.body.data.overview.trim();
-  const token = req.body.data.token;
+  try {
+    const name = req.body.data.name;
+    const email = req.body.data.email;
+    const photo = req.body.data.photo;
+    const age = req.body.data.age;
+    const gender = req.body.data.gender;
+    const height = req.body.data.height;
+    const weight = req.body.data.weight;
+    const allergies = req.body.data.allergies;
+    const otherConditions = req.body.data.otherConditions;
+    const medications = req.body.data.medications;
+    const overview = req.body.data.overview;
+    const token = req.body.data.token;
 
-  if (
-    !age &&
-    !gender &&
-    !height &&
-    !weight &&
-    !allergies &&
-    !photo &&
-    !name &&
-    !email &&
-    !otherConditions &&
-    !medications &&
-    !overview &&
-    !token
-  ) {
+    if (
+      !age &&
+      !gender &&
+      !height &&
+      !weight &&
+      !allergies &&
+      !photo &&
+      !name &&
+      !email &&
+      !otherConditions &&
+      !medications &&
+      !overview &&
+      !token
+    ) {
+      res.status(400).json({ message: "Something Went Wrong", status: 400 });
+    } else {
+      const patient = new Patient({
+        token,
+        name,
+        email,
+        age,
+        photo,
+        gender,
+        height,
+        weight,
+        allergies,
+        otherConditions,
+        medications,
+        overview,
+      });
+      await patient.save();
+      res
+        .status(200)
+        .json({ message: "Registered Successfully", patient, status: 200 });
+    }
+  } catch (err) {
+    console.log(err);
     res.status(400).json({ message: "Something Went Wrong", status: 400 });
-  } else {
-    const patient = new Patient({
-      token,
-      name,
-      email,
-      age,
-      photo,
-      gender,
-      height,
-      weight,
-      allergies,
-      otherConditions,
-      medications,
-      overview,
-    });
-    await patient.save();
-    const id = patient._id.toString();
-    res
-      .status(200)
-      .json({ message: "Registered Successfully", id, status: 200 });
   }
 };
 
 module.exports.healthHistory = async (req, res) => {
   try {
-    const { id } = req.query;
-    if (!id) {
+    if (!req.query.id) {
       return res.status(400).json("No patient id provided");
     }
+    const { id } = req.query;
     const foundPatient = await Patient.findById(id).populate("visits");
     res.status(200).json(foundPatient);
   } catch (err) {
@@ -141,10 +124,10 @@ module.exports.healthHistory = async (req, res) => {
 module.exports.healthHistoryForm = async (req, res) => {
   try {
     if (!req.body.id) {
-      throw new Error("No patient id provided");
+      return res.status(400).json("No patient id provided");
     }
 
-    const id = req.body.id;
+    const { id } = req.query;
     const foundPatient = await Patient.findById(id);
 
     const fileUrls = [];

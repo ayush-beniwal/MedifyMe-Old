@@ -40,11 +40,11 @@ function Register() {
       const jsonObject = JSON.parse(json);
       messages.pop();
 
-      async function cool() {
+      async function doRegister() {
         let finalData = {
           name: jsonObject.name,
-          email: patient.email,
-          photo: patient.photo,
+          email: cookies.patient.email,
+          photo: cookies.patient.photo,
           age: jsonObject.age,
           gender: jsonObject.gender,
           height: jsonObject.height,
@@ -53,29 +53,55 @@ function Register() {
           otherConditions: jsonObject.otherConditions,
           medications: jsonObject.medications,
           overview: jsonObject.overview,
-          token: patient.token,
+          token: cookies.patient.token,
         };
         try {
           const { data } = await register(finalData);
 
           dispatch(
             loginSuccess({
-              id: data.id,
+              token: data.patient.token,
+              id: data.patient._id,
+              email: data.patient.email,
+              photo: data.patient.photo,
+              role: "patient",
+              name: data.patient.name,
+              age: data.patient.age,
+              gender: data.patient.gender,
+              height: data.patient.height,
+              weight: data.patient.weight,
+              allergies: data.patient.allergies,
+              otherConditions: data.patient.otherConditions,
+              medications: data.patient.medications,
+              overview: data.patient.overview,
             })
           );
           setCookie(
-            "patient",
+            role,
             {
-              id: data.id,
+              token: data.patient.token,
+              id: data.patient._id,
+              email: data.patient.email,
+              photo: data.patient.photo,
+              role: "patient",
+              name: data.patient.name,
+              age: data.patient.age,
+              gender: data.patient.gender,
+              height: data.patient.height,
+              weight: data.patient.weight,
+              allergies: data.patient.allergies,
+              otherConditions: data.patient.otherConditions,
+              medications: data.patient.medications,
+              overview: data.patient.overview,
             },
-            { path: "/" }
+            { path: "/", sameSite: "strict" }
           );
         } catch (error) {
           console.error(error);
         }
       }
 
-      cool();
+      doRegister();
     }
 
     if (!patient.isLoggedIn) {

@@ -14,22 +14,20 @@ const DoctorSchema = new Schema({
     required: true,
     unique: true,
   },
-  age: {
-    type: String,
-    default: null,
-  },
   photo: {
     type: String,
     default: null,
   },
-  gender: {
-    type: String,
-    default: null,
-  },
+  patients: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Patient",
+    },
+  ],
   visits: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Visits",
+      ref: "Visit",
     },
   ],
 });

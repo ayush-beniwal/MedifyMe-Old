@@ -1,45 +1,17 @@
 import styles from "./Login.module.css";
 import { useGoogleLogin } from "@react-oauth/google";
-// import { useSelector } from "react-redux";
-// import { toast } from "react-toastify";
-// import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useGLogin } from "../../hooks/useGLogin";
 import Navbar from "../../components/Navbar/Navbar";
 function Login() {
-  // const navigate = useNavigate();
   const [role, setRole] = useState("patient");
   const { handleGoogleLogin, loginResults } = useGLogin(role);
-
-  // const patient = useSelector((state) => {
-  //   return state.patient;
-  // });
 
   const loginHandler = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       handleGoogleLogin(tokenResponse);
     },
   });
-
-  // useEffect(() => {
-  //   if (
-  //     patient.isLoggedIn &&
-  //     loginResults.data &&
-  //     loginResults.data.status === 212
-  //   ) {
-  //     navigate("/register");
-  //     toast.warn(loginResults.data.message);
-  //   }
-
-  //   if (
-  //     patient.isLoggedIn &&
-  //     loginResults.data &&
-  //     loginResults.data.status === 200
-  //   ) {
-  //     navigate("/");
-  //     toast.success(`Welcome`);
-  //   }
-  // }, [loginResults.data, navigate, patient.isLoggedIn, patient.name]);
 
   return (
     <>
@@ -60,13 +32,13 @@ function Login() {
             Verify Yourself to Proceed Further
           </h4>
           <div className={styles.for_inline}>
-            <label className={styles.patients_input} htmlFor="sex">
+            <label className={styles.patients_input} htmlFor="role">
               I am a:
             </label>
             <select
               className={styles.input_text1}
-              id="sex"
-              name="sex"
+              id="role"
+              name="role"
               value={role}
               onChange={(e) => setRole(e.target.value)}
               required
@@ -74,7 +46,7 @@ function Login() {
               <option className={styles.usertype} value="patient">
                 Patient
               </option>
-              <option className={styles.usertype} value="docter">
+              <option className={styles.usertype} value="doctor">
                 Doctor
               </option>
             </select>
