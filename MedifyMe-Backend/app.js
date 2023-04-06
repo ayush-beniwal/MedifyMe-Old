@@ -14,6 +14,7 @@ const jwt = require("jsonwebtoken");
 // const APP_ID = process.env.APP_ID;
 // const SERVER_SECRET = process.env.SERVER_SECRET;
 const patientRoutes = require("./routes/patients");
+const doctorRoutes = require("./routes/doctors");
 const gptRoutes = require("./routes/gpt");
 // const { generateToken04 } = require("./token");
 
@@ -47,6 +48,7 @@ app.get("/", async (req, res) => {
 
 app.use("/gpt", gptRoutes);
 app.use("/patients", patientRoutes);
+app.use("/doctors", doctorRoutes);
 
 // app.get("/room", (req, res) => {
 //   try {

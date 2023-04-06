@@ -8,6 +8,10 @@ function Account() {
     return state.patient;
   });
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className={styles.right_wrapper}>
       <div className={styles.logout}>
@@ -15,7 +19,7 @@ function Account() {
           Logout
         </button>
       </div>
-      <form>
+      <form onSubmit={submitHandler}>
         <div className={styles.row}>
           <label className={styles.color1} htmlFor="profile-pic">
             <span>Profile Picture:</span>

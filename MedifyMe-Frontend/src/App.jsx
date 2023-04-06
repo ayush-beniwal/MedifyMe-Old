@@ -10,7 +10,6 @@ import Manage_doctors from "./components/Manage_doctors/Manage_doctors";
 import Manage_patients from "./components/Manage_patients/Manage_patients";
 import Add_report from "./pages/Add_report/Add_report";
 import Appointment from "./pages/Appointment/Appointment";
-import Manage_Patients from "./pages/Doctor/Manage_Patients/Manage_Patients";
 import Current_Prescription from "./pages/Doctor/Current_Prescription/Current_Prescription";
 import Test_Report from "./pages/Doctor/Test_Report/Test_Report";
 import Patient_Health_History from "./pages/Doctor/Patient_Health_History/Patient_Health_History";
@@ -25,7 +24,8 @@ import Video from "./pages/VideoSDK/Video";
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { useDispatch, useSelector } from "react-redux";
-import { loginSuccess, logoutSuccess } from "./store";
+import { loginSuccess } from "./store";
+import { doctorLoginSuccess } from "./store";
 
 import "./App.css";
 
@@ -52,7 +52,7 @@ const router = createBrowserRouter(
       <Route path="test" element={<Test />} />
       <Route path="Loading" element={<Loading />} />
       <Route path="video" element={<Video />} />
-      {/* <Route path="room" element={<RoomPage />} /> */}
+      {/* settings */}
       <Route path="settings">
         <Route
           path="account"
@@ -95,14 +95,16 @@ const router = createBrowserRouter(
           }
         />
       </Route>
-      <Route path="manage_patients" element={<Manage_Patients />} />
-      <Route path="current_prescription" element={<Current_Prescription />} />
-      <Route path="test_report" element={<Test_Report />} />
-      <Route
-        path="patient_health_history"
-        element={<Patient_Health_History />}
-      />
-      <Route path="select_patient" element={<SelectPatient />} />
+      |{/* doctor routes */}
+      <Route path="doctor">
+        <Route path="select_patient" element={<SelectPatient />} />
+        <Route path="current_prescription" element={<Current_Prescription />} />
+        <Route path="test_report" element={<Test_Report />} />
+        <Route
+          path="patient_health_history"
+          element={<Patient_Health_History />}
+        />
+      </Route>
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>
   )
@@ -114,46 +116,71 @@ function App() {
   });
 
   const dispatch = useDispatch();
-  const [cookies, setCookie, removeCookie] = useCookies(["patient"]);
+  const [patientCookies, setPatientCookie, removePatientCookie] = useCookies([
+    "patient",
+  ]);
+  const [doctorCookies, setDoctorCookie, removeDoctorCookie] = useCookies([
+    "doctor",
+  ]);
 
   useEffect(() => {
     if (
-      cookies.patient &&
-      cookies.patient.id &&
-      cookies.patient.token &&
-      cookies.patient.email &&
-      cookies.patient.photo &&
-      cookies.patient.role &&
-      cookies.patient.name &&
-      cookies.patient.age &&
-      cookies.patient.gender &&
-      cookies.patient.height &&
-      cookies.patient.weight &&
-      cookies.patient.allergies &&
-      cookies.patient.otherConditions &&
-      cookies.patient.medications &&
-      cookies.patient.overview
+      patientCookies.patient &&
+      patientCookies.patient.id &&
+      patientCookies.patient.token &&
+      patientCookies.patient.email &&
+      patientCookies.patient.photo &&
+      patientCookies.patient.role &&
+      patientCookies.patient.name &&
+      patientCookies.patient.age &&
+      patientCookies.patient.gender &&
+      patientCookies.patient.height &&
+      patientCookies.patient.weight &&
+      patientCookies.patient.allergies &&
+      patientCookies.patient.otherConditions &&
+      patientCookies.patient.medications &&
+      patientCookies.patient.overview
     ) {
       dispatch(
         loginSuccess({
-          token: cookies.patient.token,
-          id: cookies.patient.id,
-          email: cookies.patient.email,
-          photo: cookies.patient.photo,
-          role: cookies.patient.role,
-          name: cookies.patient.name,
-          age: cookies.patient.age,
-          gender: cookies.patient.gender,
-          height: cookies.patient.height,
-          weight: cookies.patient.weight,
-          allergies: cookies.patient.allergies,
-          otherConditions: cookies.patient.otherConditions,
-          medications: cookies.patient.medications,
-          overview: cookies.patient.overview,
+          token: patientCookies.patient.token,
+          id: patientCookies.patient.id,
+          email: patientCookies.patient.email,
+          photo: patientCookies.patient.photo,
+          role: patientCookies.patient.role,
+          name: patientCookies.patient.name,
+          age: patientCookies.patient.age,
+          gender: patientCookies.patient.gender,
+          height: patientCookies.patient.height,
+          weight: patientCookies.patient.weight,
+          allergies: patientCookies.patient.allergies,
+          otherConditions: patientCookies.patient.otherConditions,
+          medications: patientCookies.patient.medications,
+          overview: patientCookies.patient.overview,
         })
       );
     }
-  }, [cookies.patient, dispatch, patient.isLoggedIn]);
+
+    if (
+      doctorCookies.token &&
+      doctorCookies._id &&
+      doctorCookies.email &&
+      doctorCookies.photo &&
+      doctorCookies.role &&
+      doctorCookies.name
+    ) {
+      dispatch(
+        doctorLoginSuccess({
+          token: doctorCookies.token,
+          id: doctorCookies._id,
+          email: doctorCookies.email,
+          photo: doctorCookies.photo,
+          role: doctorCookies.role,
+          name: doctorCookies.name,
+        })
+      );
+    }
+  }, [patientCookies.patient, dispatch, patient.isLoggedIn, doctorCookies]);
 
   return <RouterProvider router={router} />;
 }
