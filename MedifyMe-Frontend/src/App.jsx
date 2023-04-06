@@ -13,11 +13,12 @@ import Appointment from "./pages/Appointment/Appointment";
 import Manage_Patients from "./pages/Doctor/Manage_Patients/Manage_Patients";
 import Current_Prescription from "./pages/Doctor/Current_Prescription/Current_Prescription";
 import Test_Report from "./pages/Doctor/Test_Report/Test_Report";
-import Patient_Health_History from "./pages/Doctor/Patient_Health_History/Patient_Health_History"
+import Patient_Health_History from "./pages/Doctor/Patient_Health_History/Patient_Health_History";
 import Prescription from "./pages/Prescription/Prescription";
 import Test from "./pages/Test/Test";
 import Settings from "./pages/Settings/Settings";
 import SelectPatient from "./pages/Doctor/SelectPatient/SelectPatient";
+import Video from "./pages/VideoSDK/Video";
 // import RoomPage from "./pages/Rooms/Rooms";
 // import Video_chat from "./pages/Video_chat/video_chat";
 
@@ -50,7 +51,7 @@ const router = createBrowserRouter(
       <Route path="prescription" element={<Prescription />} />
       <Route path="test" element={<Test />} />
       <Route path="Loading" element={<Loading />} />
-      
+      <Route path="video" element={<Video />} />
       {/* <Route path="room" element={<RoomPage />} /> */}
       <Route path="settings">
         <Route
@@ -96,8 +97,11 @@ const router = createBrowserRouter(
       </Route>
       <Route path="manage_patients" element={<Manage_Patients />} />
       <Route path="current_prescription" element={<Current_Prescription />} />
-      <Route path="test_report" element={<Test_Report/>}/>
-      <Route path="patient_health_history" element={<Patient_Health_History/>}/>
+      <Route path="test_report" element={<Test_Report />} />
+      <Route
+        path="patient_health_history"
+        element={<Patient_Health_History />}
+      />
       <Route path="select_patient" element={<SelectPatient />} />
       {/* <Route path="*" element={<Error404 />} /> */}
     </Route>
