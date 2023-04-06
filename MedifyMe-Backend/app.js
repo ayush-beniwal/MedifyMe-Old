@@ -7,7 +7,10 @@ const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
 const ejsMate = require("ejs-mate");
+const morgan = require("morgan");
 const dbUrl = process.env.DB_URL;
+const { default: fetch } = require("node-fetch");
+const jwt = require("jsonwebtoken");
 // const APP_ID = process.env.APP_ID;
 // const SERVER_SECRET = process.env.SERVER_SECRET;
 const patientRoutes = require("./routes/patients");
@@ -31,6 +34,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(morgan("dev"));
 
 app.use((req, res, next) => {
   res.set("X-Content-Type-Options", "nosniff");
@@ -64,6 +68,55 @@ app.use("/patients", patientRoutes);
 //     res.status(400).json({ message: "Something Went Wrong!!!!" });
 //   }
 // });
+
+app.get("/get-token", (req, res) => {
+  const API_KEY = process.env.VIDEOSDK_API_KEY;
+  const SECRET_KEY = process.env.VIDEOSDK_SECRET_KEY;
+
+  const options = { expiresIn: "10m", algorithm: "HS256" };
+
+  const payload = {
+    apikey: API_KEY,
+    permissions: ["allow_join", "allow_mod"],
+  };
+
+  const token = jwt.sign(payload, SECRET_KEY, options);
+  res.json({ token });
+});
+
+//
+app.post("/create-meeting/", (req, res) => {
+  const { token, region } = req.body;
+  const url = `${process.env.VIDEOSDK_API_ENDPOINT}/api/meetings`;
+  const options = {
+    method: "POST",
+    headers: { Authorization: token, "Content-Type": "application/json" },
+    body: JSON.stringify({ region }),
+  };
+
+  fetch(url, options)
+    .then((response) => response.json())
+    .then((result) => res.json(result))
+    .catch((error) => console.error("error", error));
+});
+
+//
+app.post("/validate-meeting/:meetingId", (req, res) => {
+  const token = req.body.token;
+  const meetingId = req.params.meetingId;
+
+  const url = `${process.env.VIDEOSDK_API_ENDPOINT}/api/meetings/${meetingId}`;
+
+  const options = {
+    method: "POST",
+    headers: { Authorization: token },
+  };
+
+  fetch(url, options)
+    .then((response) => response.json())
+    .then((result) => res.json(result)) // result will contain meetingId
+    .catch((error) => console.error("error", error));
+});
 
 app.all("*", (req, res, next) => {
   res.status(404).send("Page Not Found Yo");
