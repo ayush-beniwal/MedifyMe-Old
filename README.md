@@ -35,7 +35,7 @@ Our Idea, MedifyMe, is a web application that aims to simplify healthcare manage
 
 ## Methodology
 
-MedifyMe's frontend is built using React, to build user interfaces. The backend is built using Node.js, Express is used as the web application framework, and MongoDB is used as the NoSQL database, used for storing Patients and Doctors data. Google Cloud Storage Buckets are used for storing users' medical prescriptions and bills.
+MedifyMe's frontend is built using React, to build user interfaces. The backend is built using Node.js, Express is used as the web application framework, and MongoDB is used as the NoSQL database, used for storing Patients and Doctors data. 
 
 The application uses Google Oauth2 for authentication, React-Redux for state management, React-Toolkit-Query for handling query requests, React-Cookies for storing and accessing cookies, and React-Toastify for displaying toast information. The application also utilizes OCR Space’s API to extract medicine data from prescriptions, tests, and reports uploaded by users.
 
