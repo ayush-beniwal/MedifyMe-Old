@@ -67,7 +67,6 @@ To get started with MedifyMe, follow the steps below:
 - Node.js
 - Express
 - MongoDB
-- Google Cloud Storage Buckets
 - OCR Space
 - OPENAI's API with prompt engineering
 
